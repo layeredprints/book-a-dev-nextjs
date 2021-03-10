@@ -17,8 +17,8 @@ export default function Home() {
         <title>Ballistix - Book A Dev</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Wizard />
       <Layout scrollToContact={scrollToContact}>
+        <Wizard />
         {/* <Contact contactRef={contactRef} /> */}
       </Layout>
     </>

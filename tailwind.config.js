@@ -7,6 +7,8 @@ module.exports = {
     extend: {
       colors: {
         primary: '#bb9333',
+        'bx-blue': '#2FADD6',
+        'bx-purple': '#5D2784',
       },
       maxWidth: {
         'breakpoint-sm': '64rem',
@@ -16,8 +18,9 @@ module.exports = {
         'breakpoint-2xl': '96rem',
       },
       fontFamily: {
-        inria: ['Inria Sans', ...defaultTheme.fontFamily.sans],
-        roboto: ['Roboto', ...defaultTheme.fontFamily.sans],
+        poppins: ['Poppins', ...defaultTheme.fontFamily.sans],
+        openSans: ['Open Sans', ...defaultTheme.fontFamily.sans],
+        rainbow: ['Over the Rainbow', ...defaultTheme.fontFamily.sans],
       },
     },
   },

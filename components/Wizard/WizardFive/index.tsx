@@ -1,4 +1,3 @@
-import ProjectThree from './_partials/ProjectThree';
 import LastScreen from '../_partials/LastScreen';
 
 const index = ({
@@ -13,11 +12,7 @@ const index = ({
   setService: (s: string) => void,
 }) => (
   <div>
-    {service === 'team' ? (
-      <LastScreen />
-    ) : (
-      <ProjectThree />
-    )}
+    <LastScreen />
   </div>
 );
 

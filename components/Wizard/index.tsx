@@ -4,6 +4,7 @@ import WizardOne from './WizardOne';
 import WizardTwo from './WizardTwo';
 import WizardThree from './WizardThree';
 import WizardFour from './WizardFour';
+import WizardFive from './WizardFive';
 import WizardNavigation from './_partials/WizardNavigation';
 import Title from '../Title';
 import ServicePicker from './_partials/ServicePicker';
@@ -38,6 +39,9 @@ const index = () => {
       )}
       { step === 4 && (
         <WizardFour step={step} setStep={setStep} service={service} setService={setService} />
+      )}
+      { step === 5 && (
+        <WizardFive step={step} setStep={setStep} service={service} setService={setService} />
       )}
       {step !== 0 && (
         <WizardNavigation step={step} setStep={setStep} service={service} setService={setService} />

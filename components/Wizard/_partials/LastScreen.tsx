@@ -1,7 +1,7 @@
-import Input from '../../../Input';
-import Title from '../../../Title';
+import Input from '../../Input';
+import Title from '../../Title';
 
-const TeamThree = () => (
+const LastScreen = () => (
   <div>
     <Title
       heading="h3"
@@ -36,4 +36,4 @@ const TeamThree = () => (
   </div>
 );
 
-export default TeamThree;
+export default LastScreen;

@@ -16,7 +16,7 @@ const WizardNavigation = ({
   useEffect(() => {
     if (service === 'team' && step === 3) {
       setLastStep(true);
-    } else if (service === 'project' && step === 4) {
+    } else if (service === 'project' && step === 5) {
       setLastStep(true);
     } else {
       setLastStep(false);

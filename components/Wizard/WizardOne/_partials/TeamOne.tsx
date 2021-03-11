@@ -50,8 +50,6 @@ const TeamOne = () => {
     selectObject.selected = !selectObject.selected;
     setSelected(copySelected);
   };
-  console.log(selected);
-  console.log(added);
   return (
     <article>
       <header>

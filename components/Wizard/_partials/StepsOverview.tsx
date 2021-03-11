@@ -11,7 +11,7 @@ const StepsOverview = ({
 }) => {
   const [amountOfSteps, setAmountOfSteps] = useState<number>(0);
   useEffect(() => {
-    setAmountOfSteps(service === 'team' ? 3 : 4);
+    setAmountOfSteps(service === 'team' ? 3 : 5);
   }, [service]);
   return (
     <div className="flex">

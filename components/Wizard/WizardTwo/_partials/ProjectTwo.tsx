@@ -4,18 +4,20 @@ import c from '../../../../utils/c';
 import Input from '../../../Input';
 import Title from '../../../Title';
 
-const ProjectOne = () => {
+const ProjectTwo = () => {
   const [selected, setSelected] = useState([]);
-  const [added, setAdded] = useState([]);
   const types = [{
-    value: 'mobileApp',
-    label: 'Mobiele applicatie',
+    value: 'requirements',
+    label: 'Requirements',
   }, {
-    value: 'webApp',
-    label: 'Web applicatie',
+    value: 'design',
+    label: 'Design',
   }, {
-    value: 'api',
-    label: 'API',
+    value: 'frontend',
+    label: 'Front-end',
+  }, {
+    value: 'backend',
+    label: 'Back-end',
   }];
   useEffect(() => {
     const initSelected = map(types, ({ value }) => ({
@@ -34,7 +36,7 @@ const ProjectOne = () => {
     <div>
       <Title
         heading="h3"
-        text="Wat wil je bouwen?"
+        text="Wat moeten wij opleveren?"
       />
       <p>U kan meerdere opties aanduiden</p>
       <div className="flex">
@@ -57,20 +59,8 @@ const ProjectOne = () => {
           );
         })}
       </div>
-      <Title
-        heading="h3"
-        text="Bestaat er al iets?"
-      />
-      <p>Voeg hieronder een link toe naar het project</p>
-      <Input
-        type="text"
-        placeholder="www.website.com"
-        name="added"
-        className="rounded-full"
-        onChange={(e: any) => setAdded(e)}
-      />
     </div>
   );
 };
 
-export default ProjectOne;
+export default ProjectTwo;

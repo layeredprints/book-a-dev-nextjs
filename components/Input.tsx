@@ -22,7 +22,7 @@ const Input = ({
   children,
   onChange,
 } : {
-  type?: 'text' | 'number' | 'customcheckbox' | 'radio' | 'textarea' | 'email' | 'tel' | 'date' | 'creatable' | 'select',
+  type?: 'text' | 'number' | 'customcheckbox' | 'customradio' | 'textarea' | 'email' | 'tel' | 'date' | 'creatable' | 'select',
   name: string,
   placeholder?: string,
   value?: any,
@@ -80,19 +80,20 @@ const Input = ({
             </label>
           </div>
         );
-      case 'radio':
+      case 'customradio':
         return (
           <div>
-            {inputLabel}
-            <input
-              type="radio"
-              name={name}
-              id={name}
-              placeholder={placeholder}
-              defaultValue={defaultValue}
-              onChange={onChange}
-              className={c(baseStyling, className)}
-            />
+            <label htmlFor={value}>
+              {children}
+              <input
+                type="radio"
+                name={name}
+                id={value}
+                value={value}
+                className="hidden"
+                onChange={onChange}
+              />
+            </label>
           </div>
         );
       case 'textarea':

@@ -1,3 +1,4 @@
+import ProjectOne from './_partials/ProjectOne';
 import TeamOne from './_partials/TeamOne';
 
 const index = ({
@@ -12,8 +13,10 @@ const index = ({
   setService: (s: string) => void,
 }) => (
   <div>
-    {service === 'team' && (
+    {service === 'team' ? (
       <TeamOne />
+    ) : (
+      <ProjectOne />
     )}
   </div>
 );

@@ -19,7 +19,7 @@ export default function Home() {
       </Head>
       <Layout scrollToContact={scrollToContact}>
         <Wizard />
-        {/* <Contact contactRef={contactRef} /> */}
+        <Contact contactRef={contactRef} />
       </Layout>
     </>
   );

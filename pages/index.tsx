@@ -4,6 +4,7 @@ import Contact from '../components/Contact';
 import Layout from '../components/Layout';
 import Pillars from '../components/Pillars';
 import Wizard from '../components/Wizard';
+import Team from '../components/Team';
 
 export default function Home() {
   const contactRef = useRef(null);
@@ -20,6 +21,7 @@ export default function Home() {
       <Layout scrollToContact={scrollToContact}>
         <Pillars />
         <Wizard />
+        <Team />
         <Contact contactRef={contactRef} />
       </Layout>
     </>

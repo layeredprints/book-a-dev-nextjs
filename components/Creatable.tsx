@@ -25,11 +25,9 @@ const Creatable = ({
   });
 
   const parseToExport = (vals: any[]) => ({
-    e: {
-      target: {
-        name,
-        value: map(vals, ({ value }) => (value)),
-      },
+    target: {
+      name,
+      value: map(vals, ({ value }) => (value)),
     },
   });
 

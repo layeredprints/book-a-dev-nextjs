@@ -25,6 +25,7 @@ module.exports = {
     // general
     'max-len': ['error', { code: 160 }],
     'no-nested-ternary': 0,
+    'jsx-a11y/label-has-associated-control': 0,
     // import
     'import/prefer-default-export': 0,
     'import/no-named-as-default': 0,

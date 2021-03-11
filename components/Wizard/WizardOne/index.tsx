@@ -1,14 +1,20 @@
+import TeamOne from './_partials/TeamOne';
+
 const index = ({
   step,
   setStep,
+  service,
   setService,
 } : {
   step: number,
   setStep: (e: number) => void,
+  service: string,
   setService: (s: string) => void,
 }) => (
   <div>
-    <p>one</p>
+    {service === 'team' && (
+      <TeamOne />
+    )}
   </div>
 );
 

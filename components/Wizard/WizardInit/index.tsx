@@ -1,3 +1,5 @@
+import InitOption from './_partials/initOption';
+
 const WizardInit = ({
   step,
   setStep,
@@ -8,24 +10,22 @@ const WizardInit = ({
   setService: (s: string) => void,
 }) => (
   <div className="flex">
-    <button
-      type="button"
-      onClick={() => setStep(2)}
-    >
-      volgende
-    </button>
-    <div>
-      KEUZE 1
-    </div>
-    <div>
-      KEUZE 2
-    </div>
-    <button
-      type="button"
-      onClick={() => setStep(2)}
-    >
-      volgende
-    </button>
+
+    <InitOption
+      label="Ik wil iemand in mijn team"
+      service="team"
+      setService={setService}
+      step={step}
+      setStep={setStep}
+    />
+    <InitOption
+      label="Ik heb een project"
+      service="project"
+      setService={setService}
+      step={step}
+      setStep={setStep}
+    />
+
   </div>
 );
 

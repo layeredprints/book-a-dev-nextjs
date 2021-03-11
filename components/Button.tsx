@@ -9,7 +9,7 @@ const Button = ({
   outline = false,
   onClick,
 } : {
-  type: 'button' | 'submit' | 'reset',
+  type?: 'button' | 'submit' | 'reset',
   label: string,
   iconBefore?: any,
   iconAfter?: any,
@@ -19,8 +19,8 @@ const Button = ({
   <button
     type={type}
     onClick={onClick}
-    className={c('px-10 py-4 rounded-full', {
-      'border-4 border-bx-blue text-bx-blue': outline,
+    className={c('px-6 py-2 rounded-full', {
+      'border-2 border-bx-blue text-bx-blue': outline,
       'bg-bx-blue text-white': !outline,
     })}
   >

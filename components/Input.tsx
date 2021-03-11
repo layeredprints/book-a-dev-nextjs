@@ -39,7 +39,7 @@ const Input = ({
   children?: ReactNode,
   onChange: (e: any) => void,
 }) => {
-  const baseStyling = 'px-6 py-4 mb-6 border border-gray-400';
+  const baseStyling = 'px-6 py-4 mb-6 border border-gray-400 focus:border-bx-blue';
   const renderInput = () => {
     const inputLabel = label
       ? <label className="py-2 font-openSans font-extrabold block cursor-pointer" htmlFor={name}>{label}</label>

@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { useRef } from 'react';
 import Contact from '../components/Contact';
 import Layout from '../components/Layout';
-import ResponsiveWrapper from '../components/Layout/_partials/ResponsiveWrapper';
+import Pillars from '../components/Pillars';
 import Wizard from '../components/Wizard';
 
 export default function Home() {
@@ -18,6 +18,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout scrollToContact={scrollToContact}>
+        <Pillars />
         <Wizard />
         <Contact contactRef={contactRef} />
       </Layout>

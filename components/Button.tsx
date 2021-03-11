@@ -19,7 +19,7 @@ const Button = ({
   <button
     type={type}
     onClick={onClick}
-    className={c('px-6 py-2 rounded-full', {
+    className={c('px-8 py-2 rounded-full font-openSans font-bold uppercase min-w-140', {
       'border-2 border-bx-blue text-bx-blue': outline,
       'bg-bx-blue text-white': !outline,
     })}

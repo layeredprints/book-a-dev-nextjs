@@ -10,6 +10,9 @@ module.exports = {
         'bx-blue': '#2FADD6',
         'bx-purple': '#5D2784',
       },
+      minWidth: {
+        140: '140px',
+      },
       maxWidth: {
         'breakpoint-sm': '64rem',
         'breakpoint-md': '76.8rem',

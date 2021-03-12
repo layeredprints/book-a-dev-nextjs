@@ -1,16 +1,21 @@
+import { noop } from 'lodash';
 import { useEffect, useState } from 'react';
 import Button from '../../Button';
 
 const WizardNavigation = ({
   step,
-  setStep,
   service,
-  setService,
+  isValid,
+  setStep,
+  onNext,
+  onSubmit = (e: any) => noop(e),
 } : {
   step: number,
-  setStep: (e: number) => void,
   service: string,
-  setService: (s: string) => void,
+  isValid: boolean,
+  setStep: (e: number) => void,
+  onNext?: (n: any) => void,
+  onSubmit?: (v: any) => void,
 }) => {
   const [lastStep, setLastStep] = useState(false);
   useEffect(() => {
@@ -35,13 +40,17 @@ const WizardNavigation = ({
       ? (
         <Button
           label="submit"
-          onClick={() => console.log('send from context')}
+          onClick={onSubmit}
         />
       ) : (
         <Button
-          type="button"
-          label="Next"
-          onClick={() => setStep(step + 1)}
+          type="submit"
+          label="Volgende"
+          disabled={!isValid}
+          onClick={(e: any) => {
+            onNext(e);
+            setStep(step + 1);
+          }}
         />
       );
     return (

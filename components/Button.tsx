@@ -7,6 +7,7 @@ const Button = ({
   iconBefore,
   iconAfter,
   outline = false,
+  disabled = false,
   onClick,
 } : {
   type?: 'button' | 'submit' | 'reset',
@@ -14,6 +15,7 @@ const Button = ({
   iconBefore?: any,
   iconAfter?: any,
   outline?: boolean,
+  disabled?: boolean,
   onClick: (e: any) => void,
 }) => (
   <button
@@ -22,6 +24,7 @@ const Button = ({
     className={c('px-8 py-2 rounded-full font-openSans font-bold uppercase min-w-140', {
       'border-2 border-bx-blue text-bx-blue': outline,
       'bg-bx-blue text-white': !outline,
+      'opacity-50 pointer-events-none cursor-not-allowed': disabled,
     })}
   >
     {iconBefore}

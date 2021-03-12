@@ -31,7 +31,7 @@ const index = () => {
         <WizardInit step={step} setStep={setStep} setService={setService} />
         )}
         { step === 1 && (
-        <WizardOne step={step} setStep={setStep} service={service} setService={setService} />
+        <WizardOne step={step} setStep={setStep} service={service} />
         )}
         { step === 2 && (
         <WizardTwo step={step} setStep={setStep} service={service} setService={setService} />
@@ -44,9 +44,6 @@ const index = () => {
         )}
         { step === 5 && (
         <WizardFive step={step} setStep={setStep} service={service} setService={setService} />
-        )}
-        {step !== 0 && (
-        <WizardNavigation step={step} setStep={setStep} service={service} setService={setService} />
         )}
       </ResponsiveWrapper>
     </section>

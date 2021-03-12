@@ -5,16 +5,14 @@ const index = ({
   step,
   setStep,
   service,
-  setService,
 } : {
   step: number,
   setStep: (e: number) => void,
   service: string,
-  setService: (s: string) => void,
 }) => (
   <div>
     {service === 'team' ? (
-      <TeamOne />
+      <TeamOne step={step} setStep={setStep} service={service} />
     ) : (
       <ProjectOne />
     )}

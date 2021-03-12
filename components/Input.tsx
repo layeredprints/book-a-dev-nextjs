@@ -136,6 +136,7 @@ const Input = ({
               placeholder={placeholder}
               defaultValue={defaultValue}
               onChange={onChange}
+              value={value}
               className={c(baseStyling, className)}
             />
           </div>
@@ -174,6 +175,7 @@ const Input = ({
             <Select
               className="c-dropdown__select"
               value={value}
+              name={name}
               options={options}
               placeholder={placeholder}
               onChange={onChange}

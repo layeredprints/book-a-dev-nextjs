@@ -1,10 +1,15 @@
 import { find, map } from 'lodash';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import c from '../../../../utils/c';
 import Input from '../../../Input';
 import Title from '../../../Title';
+import { WizardContext } from '../../../../contextApi/WizardProvider';
 
 const ProjectOne = () => {
+  const {
+    projectInfo,
+    onGeneralInfoChange,
+  } = useContext(WizardContext);
   const [selected, setSelected] = useState([]);
   const [added, setAdded] = useState([]);
   const types = [{

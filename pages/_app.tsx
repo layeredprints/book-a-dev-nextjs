@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import 'tailwindcss/tailwind.css';
+import WizardProvider from '../contextApi/WizardProvider';
 import '../styles/style.scss';
 
 function MyApp({ Component, pageProps }) {
@@ -14,7 +15,9 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
-      <Component {...pageProps} />
+      <WizardProvider>
+        <Component {...pageProps} />
+      </WizardProvider>
     </>
   );
 }

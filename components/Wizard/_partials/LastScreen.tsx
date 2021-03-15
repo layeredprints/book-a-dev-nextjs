@@ -2,7 +2,6 @@ import { Formik } from 'formik';
 import { useContext, useState } from 'react';
 import * as Yup from 'yup';
 import validator from 'validator';
-import { isString } from 'lodash';
 import Input from '../../Input';
 import Title from '../../Title';
 import WizardNavigation from './WizardNavigation';
@@ -19,18 +18,18 @@ const LastScreen = ({
 }) => {
   const {
     personalInfo,
-    setPersonalInfo,
     submitWizardForm,
   } = useContext(WizardContext);
   const [telephone, setTelephone] = useState(personalInfo.telephone);
   const [email, setEmail] = useState(personalInfo.email);
   const [message, setMessage] = useState(personalInfo.message);
   let telephoneError = 'Vul telefoon of GSM in';
+  // eslint-disable-next-line
+  const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   const formValidationSchema = Yup.object().shape({
     telephone: Yup.string()
       .test('checkTelephone', telephoneError, (value) => {
-        console.log(value);
         if (value) {
           if (value.length === 12) {
             if (validator.isMobilePhone(value || '', ['nl-BE'], { strictMode: true })) {
@@ -47,8 +46,8 @@ const LastScreen = ({
         }
         telephoneError = 'Telefoonnummber is verplicht';
         return false;
-      }),
-    email: Yup.string().email().required(),
+      }).nullable(),
+    email: Yup.string().matches(emailRegex).required().nullable(),
     message: Yup.string().nullable(),
   });
   return (
@@ -58,7 +57,7 @@ const LastScreen = ({
         text="Wil je nog iets kwijt?"
       />
       <Formik
-        enableReinitialize
+        validateOnMount
         initialValues={{
           telephone,
           email,
@@ -77,7 +76,7 @@ const LastScreen = ({
           handleSubmit,
         }) => (
           <form>
-            {console.log(values)}
+            {console.log(errors)}
             <div className="flex">
               <Input
                 label="Telefoonnummer"

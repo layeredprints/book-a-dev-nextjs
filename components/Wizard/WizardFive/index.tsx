@@ -12,7 +12,7 @@ const index = ({
   setService: (s: string) => void,
 }) => (
   <div>
-    <LastScreen />
+    <LastScreen step={step} service={service} setStep={setStep} />
   </div>
 );
 

@@ -18,6 +18,8 @@ const Project: any = {
   selectedSize: null,
   selectedSpeed: null,
   selectedStart: null,
+  selectedSkills: null,
+  addedSkills: null,
   personal: Personal,
 };
 

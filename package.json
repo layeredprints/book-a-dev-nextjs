@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.2",
     "formik": "^2.2.6",
     "html-to-react": "^1.4.5",
     "html-to-text": "^7.0.0",
@@ -20,6 +21,7 @@
     "react-inlinesvg": "^2.2.2",
     "react-render-html": "^0.6.0",
     "react-select": "^4.2.1",
+    "react-tippy": "^1.4.0",
     "sass": "^1.32.8",
     "tailwindcss": "^2.0.3",
     "validator": "^13.5.2",

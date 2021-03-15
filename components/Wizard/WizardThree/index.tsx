@@ -14,9 +14,9 @@ const index = ({
 }) => (
   <div>
     {service === 'team' ? (
-      <LastScreen />
+      <LastScreen step={step} service={service} setStep={setStep} />
     ) : (
-      <ProjectThree />
+      <ProjectThree step={step} service={service} setStep={setStep} />
     )}
   </div>
 );

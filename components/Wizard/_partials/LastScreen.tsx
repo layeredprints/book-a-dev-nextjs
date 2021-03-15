@@ -20,6 +20,7 @@ const LastScreen = ({
   const {
     personalInfo,
     setPersonalInfo,
+    submitWizardForm,
   } = useContext(WizardContext);
   const [telephone, setTelephone] = useState(personalInfo.telephone);
   const [email, setEmail] = useState(personalInfo.email);
@@ -57,13 +58,14 @@ const LastScreen = ({
         text="Wil je nog iets kwijt?"
       />
       <Formik
+        enableReinitialize
         initialValues={{
           telephone,
           email,
           message,
         }}
         onSubmit={(values: any) => {
-          setPersonalInfo(values);
+          submitWizardForm(values, service);
         }}
         validationSchema={formValidationSchema}
       >
@@ -75,13 +77,15 @@ const LastScreen = ({
           handleSubmit,
         }) => (
           <form>
+            {console.log(values)}
             <div className="flex">
               <Input
-                label="GSM-nummer"
+                label="Telefoonnummer"
                 type="tel"
                 name="telephone"
-                placeholder="(+32)000 00 00 00"
+                placeholder="telefoonnummer"
                 className="rounded-full"
+                infoBtn="+32xxxxxxxxx / 0xxxxxxxx"
                 value={values.telephone}
                 onChange={(e: any) => {
                   setTelephone(e.target.value);
@@ -100,7 +104,7 @@ const LastScreen = ({
                 name="email"
                 placeholder="naam@domein.be"
                 className="rounded-full"
-                value={values.email}
+                defaultValue={values.email}
                 onChange={(e: any) => {
                   setEmail(e.target.value);
                   handleChange({
@@ -131,12 +135,12 @@ const LastScreen = ({
                 });
               }}
             />
-            {console.log(errors)}
             <WizardNavigation
               step={step}
               service={service}
               setStep={setStep}
               onNext={handleSubmit}
+              onSubmit={handleSubmit}
               isValid={isValid}
             />
           </form>

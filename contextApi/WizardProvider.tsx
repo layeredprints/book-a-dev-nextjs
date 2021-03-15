@@ -12,14 +12,12 @@ const Personal: any = {
 };
 
 const Project: any = {
-  selectedTechnologies: [],
-  addedTechnologies: [],
-  sprintDuration: {
-    unit: '',
-    amount: '',
-  },
-  sprintAmount: 0,
-  startDate: '',
+  selectedTypes: [],
+  existingProjectUrl: null,
+  selectedDeliveries: [],
+  selectedSize: null,
+  selectedSpeed: null,
+  selectedStart: null,
   personal: Personal,
 };
 
@@ -55,6 +53,18 @@ export const WizardProvider = ({
     setProjectInfo((prevState: any) => ({ ...prevState, [name]: newInfo }));
   };
 
+  const submitWizardForm = (
+    values: any,
+    type: string,
+  ) => {
+    setPersonalInfo(values);
+    if (type === 'team') {
+      console.log(teamInfo);
+    } else {
+      console.log(projectInfo);
+    }
+  };
+
   const context = useMemo(() => ({
     teamInfo,
     projectInfo,
@@ -62,13 +72,13 @@ export const WizardProvider = ({
     submitTeamInfo,
     submitProjectInfo,
     setPersonalInfo,
+    submitWizardForm,
   }), [
     teamInfo,
     projectInfo,
     personalInfo,
   ]);
 
-  console.log(context);
   return (
     <WizardContext.Provider value={context}>
       {children}

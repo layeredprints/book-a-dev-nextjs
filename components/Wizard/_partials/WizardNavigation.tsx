@@ -41,6 +41,7 @@ const WizardNavigation = ({
         <Button
           label="submit"
           onClick={onSubmit}
+          disabled={!isValid}
         />
       ) : (
         <Button

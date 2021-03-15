@@ -14,6 +14,7 @@ function MyApp({ Component, pageProps }) {
           href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;0,800;1,400&family=Over+the+Rainbow&family=Poppins:wght@800;900&display=swap"
           rel="stylesheet"
         />
+        <script src="https://kit.fontawesome.com/e560f4db6b.js" crossOrigin="anonymous" />
       </Head>
       <WizardProvider>
         <Component {...pageProps} />

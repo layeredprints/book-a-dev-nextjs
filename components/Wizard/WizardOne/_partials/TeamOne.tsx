@@ -1,8 +1,8 @@
 import { Formik } from 'formik';
 import {
-  find, findKey, isEmpty, keyBy, keys, map, some,
+  find, isEmpty, map, some,
 } from 'lodash';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import * as Yup from 'yup';
 import { WizardContext } from '../../../../contextApi/WizardProvider';
 import c from '../../../../utils/c';
@@ -52,6 +52,7 @@ const TeamOne = ({
     value: 'no',
     label: 'Geen voorkeur',
   }];
+
   const initSelected = (selected: any[]) => {
     if (!isEmpty(selected)) {
       return selected;
@@ -79,10 +80,7 @@ const TeamOne = ({
     selectedTechnologies: selectedSchema.test(
       'has-selected',
       'Please select one technologie',
-      (values: any) => {
-        console.log(values);
-        return some(values, 'selected');
-      },
+      (values: any) => some(values, 'selected'),
     ).required(),
   });
 
@@ -169,7 +167,6 @@ const TeamOne = ({
                 }}
               />
             </div>
-            {console.log(values)}
             <WizardNavigation
               step={step}
               service={service}

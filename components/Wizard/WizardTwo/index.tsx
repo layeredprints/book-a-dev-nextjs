@@ -16,7 +16,7 @@ const index = ({
     {service === 'team' ? (
       <TeamTwo step={step} setStep={setStep} service={service} />
     ) : (
-      <ProjectTwo />
+      <ProjectTwo step={step} setStep={setStep} service={service} />
     )}
   </div>
 );

@@ -1,7 +1,7 @@
 import {
   find, isEmpty, map, some,
 } from 'lodash';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import c from '../../../../utils/c';
@@ -14,7 +14,7 @@ const ProjectOne = ({
   step,
   service,
   setStep,
-} : {
+}: {
   step: number,
   service: string,
   setStep: (n: number) => void,
@@ -66,13 +66,13 @@ const ProjectOne = ({
   });
 
   return (
-    <article>
-      <header>
+    <article className="flex flex-col items-center">
+      <header className="mb-6 w-full flex flex-col items-center">
         <Title
           heading="h3"
           text="Wat wil je bouwen?"
         />
-        <p>U kan meerdere opties aanduiden</p>
+        <p className="text-center">U kan meerdere opties aanduiden</p>
       </header>
       <Formik
         enableReinitialize
@@ -92,7 +92,7 @@ const ProjectOne = ({
           handleSubmit,
         }) => (
           <form>
-            <div className="flex">
+            <div className="flex flex-wrap mb-16">
               {map(types, ({ value: v, label }) => {
                 const selectObject = find(selectedTypes, { name: v });
                 const { name } = find(values.selectedTypes, { name: v });
@@ -112,35 +112,42 @@ const ProjectOne = ({
                     }}
                     value={name}
                   >
-                    <div className={c('bg-white cursor-pointer', {
+                    <div className={c('bg-white cursor-pointer w-48 h-48 flex flex-col items-center justify-center rounded-lg mx-4', {
                       'border border-bx-blue': selectObject && selectObject.selected,
                     })}
                     >
-                      {label}
+                      <img
+                        src={`/wizard/types/${v}.svg`}
+                        alt={v}
+                        className="w-16"
+                      />
+                      <p className="font-bold text-center">{label}</p>
                     </div>
                   </Input>
                 );
               })}
             </div>
-            <Title
-              heading="h3"
-              text="Bestaat er al iets?"
-            />
-            <p>Voeg hieronder een link toe naar het project</p>
-            <Input
-              type="text"
-              placeholder="www.website.com"
-              name="added"
-              className="rounded-full"
-              onChange={(e: any) => console.log(e)}
-            />
-            <WizardNavigation
-              step={step}
-              service={service}
-              setStep={setStep}
-              onNext={handleSubmit}
-              isValid={isValid}
-            />
+            <div className="flex flex-col items-center">
+              <Title
+                heading="h3"
+                text="Bestaat er al iets?"
+              />
+              <p className="mb-6">Voeg hieronder een link toe naar het project</p>
+              <Input
+                type="text"
+                placeholder="www.website.com"
+                name="added"
+                className="rounded-full mb-6"
+                onChange={(e: any) => console.log(e)}
+              />
+              <WizardNavigation
+                step={step}
+                service={service}
+                setStep={setStep}
+                onNext={handleSubmit}
+                isValid={isValid}
+              />
+            </div>
           </form>
         )}
       </Formik>

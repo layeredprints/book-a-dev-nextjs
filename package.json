@@ -24,6 +24,7 @@
     "react-tippy": "^1.4.0",
     "sass": "^1.32.8",
     "tailwindcss": "^2.0.3",
+    "tailwindcss-filters": "^3.0.0",
     "validator": "^13.5.2",
     "yup": "^0.32.9"
   },

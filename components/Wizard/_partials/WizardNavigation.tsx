@@ -9,7 +9,7 @@ const WizardNavigation = ({
   setStep,
   onNext,
   onSubmit = (e: any) => noop(e),
-} : {
+}: {
   step: number,
   service: string,
   isValid: boolean,
@@ -34,6 +34,7 @@ const WizardNavigation = ({
           outline
           label="vorige"
           onClick={() => setStep(step - 1)}
+          className="mr-4"
         />
       );
     const nextBut = lastStep

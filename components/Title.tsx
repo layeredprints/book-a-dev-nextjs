@@ -22,7 +22,7 @@ const Title = ({
         );
       case 'h3':
         return (
-          <h3 className={c(className, baseStyling)}>{text}</h3>
+          <h3 className={c(className, baseStyling, 'text-xl')}>{text}</h3>
         );
       case 'h4':
         return (

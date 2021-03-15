@@ -23,7 +23,7 @@ const Input = ({
   infoBtn,
   children,
   onChange,
-} : {
+}: {
   type?: 'text' | 'number' | 'customcheckbox' | 'customradio' | 'textarea' | 'email' | 'tel' | 'date' | 'creatable' | 'select',
   name: string,
   placeholder?: string,
@@ -186,7 +186,7 @@ const Input = ({
           <div>
             {inputLabel}
             <Select
-              className="c-dropdown__select"
+              className={c('c-dropdown__select', className)}
               value={value}
               name={name}
               options={options}

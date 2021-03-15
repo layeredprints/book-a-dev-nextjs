@@ -85,13 +85,13 @@ const TeamOne = ({
   });
 
   return (
-    <article>
-      <header>
+    <article className="flex flex-col items-center">
+      <header className="mb-4">
         <Title
           heading="h3"
           text="Wat is de technologiestack?"
         />
-        <p>U kan meerdere opties aanduiden</p>
+        <p className="text-center">U kan meerdere opties aanduiden</p>
       </header>
       <Formik
         enableReinitialize
@@ -113,7 +113,7 @@ const TeamOne = ({
           handleSubmit,
         }) => (
           <form>
-            <div>
+            <div className="flex flex-wrap items-center justify-center mb-12">
               {map(technologies, ({ value: v, label }) => {
                 const selectObject = find(selectedTechnologies, { name: v });
                 const { name } = find(values.selectedTechnologies, { name: v });
@@ -133,27 +133,36 @@ const TeamOne = ({
                     }}
                     value={name}
                   >
-                    <div className={c('bg-white cursor-pointer', {
-                      'border border-bx-blue': selectObject && selectObject.selected,
+                    <div className={c('bg-white cursor-pointer w-56 h-56 rounded-xl mx-4 mb-4 flex justify-center items-center', {
+                      'border-2 border-bx-blue': selectObject && selectObject.selected,
                     })}
                     >
-                      {label}
+                      <div>
+                        <img
+                          src={`/wizard/technologies/${v}.svg`}
+                          alt={label}
+                          className="w-24 mb-4"
+                        />
+                        <p className="font-bold text-center">{label}</p>
+                      </div>
                     </div>
                   </Input>
                 );
               })}
             </div>
-            <div>
-              <Title
-                heading="h4"
-                text="Staat de technologie niet in de lijst?"
-              />
-              <p>Voeg ze hieronder toe</p>
+            <div className="flex flex-col items-center">
+              <header className="mb-4">
+                <Title
+                  heading="h4"
+                  text="Staat de technologie niet in de lijst?"
+                />
+                <p className="text-center">Voeg ze hieronder toe</p>
+              </header>
               <Input
                 type="creatable"
                 placeholder="Type technology name and press ENTER to add"
                 name="extraTechnologies"
-                className="bg-white rounded-full"
+                className="bg-white rounded-full w-140"
                 defaultValue={values.addedTechnologies}
                 onChange={(e: any) => {
                   setAddedTechnologies(e.target.value);
@@ -167,13 +176,15 @@ const TeamOne = ({
                 }}
               />
             </div>
-            <WizardNavigation
-              step={step}
-              service={service}
-              setStep={setStep}
-              onNext={handleSubmit}
-              isValid={isValid}
-            />
+            <div className="flex justify-center my-12">
+              <WizardNavigation
+                step={step}
+                service={service}
+                setStep={setStep}
+                onNext={handleSubmit}
+                isValid={isValid}
+              />
+            </div>
           </form>
         )}
       </Formik>

@@ -11,7 +11,7 @@ const TeamTwo = ({
   step,
   service,
   setStep,
-} : {
+}: {
   step: number,
   service: string,
   setStep: (s: number) => void,
@@ -38,10 +38,8 @@ const TeamTwo = ({
     sprintStart: Yup.date().required(),
   });
 
-  console.log(sprintCurrency);
-
   return (
-    <div>
+    <div className="flex flex-col items-center">
       <Title
         heading="h3"
         text="Sprints"
@@ -69,86 +67,87 @@ const TeamTwo = ({
           handleChange,
           handleSubmit,
         }) => (
-          <form>
-            {console.log(isValid)}
-            <div className="flex">
-              <div>
-                <label className="py-2 font-openSans font-extrabold block cursor-pointer" htmlFor="sprintDuration">Hoe lang duurt een sprint?</label>
-                <div className="flex">
-                  <Input
-                    type="number"
-                    name="sprintDuration"
-                    onChange={(e: any) => {
-                      setSprintDuration(e.target.value);
-                      handleChange({
-                        type: 'change',
-                        target: {
-                          name: 'sprintDuration',
-                          value: e.target.value,
-                        },
-                      });
-                    }}
-                    className="rounded-full"
-                    min={1}
-                    max={10}
-                    value={values.sprintDuration}
-                  />
-                  <Input
-                    type="select"
-                    name="sprintCurrency"
-                    placeholder="Selecteer..."
-                    options={currencyOptions}
-                    onChange={(e: any) => {
-                      setSprintCurrency(e.value);
-                      handleChange({
-                        target: {
-                          name: 'sprintCurrency',
-                          value: find(currencyOptions, e.value),
-                        },
-                      });
-                    }}
-                    value={values.sprintCurrency}
-                  />
-                  {console.log(values.sprintCurrency)}
+          <form className="flex flex-col items-center w-140">
+            <div className="w-full">
+              <div className="flex justify-between">
+                <div>
+                  <label className="py-2 font-openSans font-extrabold block cursor-pointer" htmlFor="sprintDuration">Hoe lang duurt een sprint?</label>
+                  <div className="flex">
+                    <Input
+                      type="number"
+                      name="sprintDuration"
+                      onChange={(e: any) => {
+                        setSprintDuration(e.target.value);
+                        handleChange({
+                          type: 'change',
+                          target: {
+                            name: 'sprintDuration',
+                            value: e.target.value,
+                          },
+                        });
+                      }}
+                      className="rounded-full w-24 mr-2"
+                      min={1}
+                      max={10}
+                      value={values.sprintDuration}
+                    />
+                    <Input
+                      type="select"
+                      name="sprintCurrency"
+                      placeholder="Selecteer..."
+                      options={currencyOptions}
+                      className="rounded-full"
+                      onChange={(e: any) => {
+                        setSprintCurrency(e.value);
+                        handleChange({
+                          target: {
+                            name: 'sprintCurrency',
+                            value: find(currencyOptions, e.value),
+                          },
+                        });
+                      }}
+                      value={values.sprintCurrency}
+                    />
+                  </div>
                 </div>
+                <Input
+                  type="number"
+                  name="sprintAmount"
+                  label="Hoeveel sprints heb je nodig?"
+                  className="rounded-full"
+                  min={1}
+                  value={values.sprintAmount}
+                  onChange={(e: any) => {
+                    setSprintAmount(e.target.value);
+                    handleChange({
+                      type: 'change',
+                      target: {
+                        name: 'sprintAmount',
+                        value: e.target.value,
+                      },
+                    });
+                  }}
+                />
               </div>
               <Input
-                type="number"
-                name="sprintAmount"
-                label="Hoeveel sprints heb je nodig?"
+                name="sprintStart"
+                type="date"
                 className="rounded-full"
-                min={1}
-                value={values.sprintAmount}
+                defaultValue={values.sprintStart}
+                minDate={nextWeek}
+                label="Wanneer wil je starten"
                 onChange={(e: any) => {
-                  setSprintAmount(e.target.value);
+                  setSprintStart(new Date(e));
                   handleChange({
                     type: 'change',
                     target: {
-                      name: 'sprintAmount',
-                      value: e.target.value,
+                      name: 'sprintStart',
+                      value: new Date(e),
                     },
                   });
                 }}
               />
             </div>
-            <Input
-              name="sprintStart"
-              type="date"
-              className="rounded-full"
-              defaultValue={values.sprintStart}
-              minDate={nextWeek}
-              label="Wanneer wil je starten"
-              onChange={(e: any) => {
-                setSprintStart(new Date(e));
-                handleChange({
-                  type: 'change',
-                  target: {
-                    name: 'sprintStart',
-                    value: new Date(e),
-                  },
-                });
-              }}
-            />
             <WizardNavigation
               step={step}
               service={service}

@@ -14,10 +14,10 @@ const StepsOverview = ({
     setAmountOfSteps(service === 'team' ? 3 : 5);
   }, [service]);
   return (
-    <div className="flex">
+    <div className="flex mb-12">
       {times(amountOfSteps, (s) => (
         <div
-          className={c('h-4 w-6', {
+          className={c('h-2 w-12 mx-2 rounded-full', {
             'bg-bx-purple': s + 1 <= step,
             'bg-gray-400': s + 1 > step,
           })}

@@ -17,7 +17,7 @@ const index = () => {
     content: 'Ook op (veilige) afstand zijn we dichtbij. Communicatie blijft key.',
   }];
   return (
-    <div>
+    <section className="mb-24">
       <ResponsiveWrapper>
         <div className="flex">
           {map(pillars, (pillar) => (
@@ -25,7 +25,7 @@ const index = () => {
           ))}
         </div>
       </ResponsiveWrapper>
-    </div>
+    </section>
   );
 };
 

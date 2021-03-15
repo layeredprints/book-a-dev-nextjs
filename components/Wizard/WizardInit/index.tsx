@@ -9,8 +9,7 @@ const WizardInit = ({
   setStep: (e: number) => void,
   setService: (s: string) => void,
 }) => (
-  <div className="flex">
-
+  <div className="flex justify-between">
     <InitOption
       label="Ik wil iemand in mijn team"
       service="team"

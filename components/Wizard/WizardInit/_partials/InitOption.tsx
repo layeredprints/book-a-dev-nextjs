@@ -13,13 +13,14 @@ const InitOption = ({
 }) => (
   <button
     type="button"
-    className="bg-white rounded-2xl h-96 w-48 p-8"
+    className="bg-white rounded-2xl h-72 w-52 p-8 mx-4"
     onClick={() => {
       setStep(step + 1);
       setService(service);
     }}
   >
-    {label}
+    <img src={`/wizard/${service}.svg`} alt={service} />
+    <p className="font-poppins font-extrabold mt-4">{label}</p>
   </button>
 );
 

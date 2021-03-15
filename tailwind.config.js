@@ -4,7 +4,19 @@ module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    filter: { // defaults to {}
+      none: 'none',
+      grayscale: 'grayscale(1)',
+      invert: 'invert(1)',
+      sepia: 'sepia(1)',
+    },
     extend: {
+      screens: {
+        '2xl': '1440px',
+      },
+      zIndex: {
+        '-10': '-10',
+      },
       colors: {
         primary: '#bb9333',
         'bx-blue': '#2FADD6',
@@ -14,11 +26,18 @@ module.exports = {
         140: '140px',
       },
       maxWidth: {
-        'breakpoint-sm': '64rem',
-        'breakpoint-md': '76.8rem',
+        'breakpoint-md': '768px',
         'breakpoint-lg': '96rem',
         'breakpoint-xl': '96rem',
-        'breakpoint-2xl': '96rem',
+        'breakpoint-2xl': '960px',
+      },
+      width: {
+        108: '27rem',
+        120: '30rem',
+        140: '35rem',
+        160: '40rem',
+        176: '44rem',
+        184: '46rem',
       },
       fontFamily: {
         poppins: ['Poppins', ...defaultTheme.fontFamily.sans],
@@ -28,7 +47,11 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    filter: ['responsive'], // defaults to ['responsive']
+    backdropFilter: ['responsive'], // defaults to ['responsive']
   },
-  plugins: [],
+  plugins: [
+    // eslint-disable-next-line global-require
+    require('tailwindcss-filters'),
+  ],
 };

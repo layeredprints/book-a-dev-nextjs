@@ -27,6 +27,14 @@ const index = () => {
       </>
     ),
   }, {
+    name: 'Jasper',
+    title: (
+      <>
+        <p>Front-end Developer</p>
+        <p>UX Designer</p>
+      </>
+    ),
+  }, {
     name: 'Louis',
     title: (
       <>

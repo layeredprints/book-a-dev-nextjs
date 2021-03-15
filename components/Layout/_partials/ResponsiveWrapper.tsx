@@ -5,7 +5,8 @@ const ResponsiveWrapper = ({
 }: {
   children: ReactNode,
 }) => (
-  <div className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl mx-auto my-0">
+  // eslint-disable-next-line
+  <div className="max-w-full px-4 sm:px-8 md:px-0 md:max-w-breakpoint-md lg:max-w-breakpoint-lg xl:max-w-breakpoint-xl 2xl:max-w-breakpoint-2xl mx-auto my-0">
     {children}
   </div>
 );

@@ -13,7 +13,7 @@ const ProjectThree = ({
   step,
   service,
   setStep,
-} : {
+}: {
   step: number,
   service: string,
   setStep: (n: number) => void,
@@ -61,11 +61,8 @@ const ProjectThree = ({
   const [selectedStart, setSelectedStart] = useState(projectInfo.projectStart || nextWeek);
 
   const toggleSelected = (type: string, v: string) => {
-    console.log(type);
     const copySelected = (type === 'speed') ? { ...selectedSpeed } : { ...selectedSize };
-    console.log(copySelected);
     const selectObject = find(copySelected, { name: v });
-    console.log(selectObject);
     selectObject.selected = !selectObject.selected;
     if (type === 'size') {
       setSelectedSize(copySelected);
@@ -122,7 +119,6 @@ const ProjectThree = ({
                 <div className="flex">
                   {map(sizes, ({ value: v }) => {
                     const selectObject = find(selectedSize, { name: v });
-                    console.log(selectObject);
                     return (
                       <Input
                         name="selectedSize"
@@ -139,10 +135,15 @@ const ProjectThree = ({
                         }}
                         value={v}
                       >
-                        <div className={c('bg-white cursor-pointer', {
+                        <div className={c('bg-white cursor-pointer flex flex-col items-center', {
                           'border border-bx-blue': selectObject && selectObject.selected,
                         })}
                         >
+                          <img
+                            src={`/wizard/scopes/${v}.svg`}
+                            className="w-6"
+                            alt={v}
+                          />
                           {v}
                         </div>
                       </Input>

@@ -4,13 +4,18 @@ import Header from './_partials/Header';
 
 const index = ({
   scrollToContact,
+  scrollToWizard,
   children,
 }: {
   scrollToContact: () => void,
+  scrollToWizard: () => void,
   children: ReactNode
 }) => (
-  <div className="min-h-screen flex flex-col">
-    <Header scrollToContact={scrollToContact} />
+  <div className="min-h-screen flex flex-col w-full">
+    <Header
+      scrollToContact={scrollToContact}
+      scrollToWizard={scrollToWizard}
+    />
     <main className="flex-grow">
       {children}
     </main>

@@ -14,7 +14,7 @@ const ProjectTwo = ({
   step,
   service,
   setStep,
-} : {
+}: {
   step: number,
   service: string,
   setStep: (n: number) => void,
@@ -69,8 +69,8 @@ const ProjectTwo = ({
   });
 
   return (
-    <article>
-      <header>
+    <article className="flex flex-col items-center">
+      <header className="flex flex-col items-center mb-8">
         <Title
           heading="h3"
           text="Wat moeten wij opleveren?"
@@ -95,7 +95,7 @@ const ProjectTwo = ({
           handleSubmit,
         }) => (
           <form>
-            <div className="flex">
+            <div className="flex mb-8">
               {map(deliveries, ({ value: v, label }) => {
                 const selectObject = find(selectedDeliveries, { name: v });
                 const { name } = find(values.selectedDeliveries, { name: v });
@@ -115,23 +115,30 @@ const ProjectTwo = ({
                     }}
                     value={name}
                   >
-                    <div className={c('bg-white cursor-pointer', {
+                    <div className={c('bg-white cursor-pointer w-48 h-48 flex flex-col items-center justify-center rounded-lg mx-4', {
                       'border border-bx-blue': selectObject && selectObject.selected,
                     })}
                     >
-                      {label}
+                      <img
+                        src={`/wizard/deliveries/${v}.svg`}
+                        alt={v}
+                        className="w-16"
+                      />
+                      <p className="font-bold text-center">{label}</p>
                     </div>
                   </Input>
                 );
               })}
             </div>
-            <WizardNavigation
-              step={step}
-              service={service}
-              setStep={setStep}
-              onNext={handleSubmit}
-              isValid={isValid}
-            />
+            <div className="flex justify-center">
+              <WizardNavigation
+                step={step}
+                service={service}
+                setStep={setStep}
+                onNext={handleSubmit}
+                isValid={isValid}
+              />
+            </div>
           </form>
         )}
       </Formik>

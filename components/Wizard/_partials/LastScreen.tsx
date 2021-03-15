@@ -11,7 +11,7 @@ const LastScreen = ({
   step,
   service,
   setStep,
-} : {
+}: {
   step: number,
   service: string,
   setStep: (s: number) => void,
@@ -51,11 +51,13 @@ const LastScreen = ({
     message: Yup.string().nullable(),
   });
   return (
-    <div>
-      <Title
-        heading="h3"
-        text="Wil je nog iets kwijt?"
-      />
+    <article className="flex flex-col items-center w-140">
+      <header className="mb-6">
+        <Title
+          heading="h3"
+          text="Wil je nog iets kwijt?"
+        />
+      </header>
       <Formik
         validateOnMount
         initialValues={{
@@ -75,9 +77,8 @@ const LastScreen = ({
           handleChange,
           handleSubmit,
         }) => (
-          <form>
-            {console.log(errors)}
-            <div className="flex">
+          <form className="w-full">
+            <div className="flex w-full justify-between">
               <Input
                 label="Telefoonnummer"
                 type="tel"
@@ -134,18 +135,20 @@ const LastScreen = ({
                 });
               }}
             />
-            <WizardNavigation
-              step={step}
-              service={service}
-              setStep={setStep}
-              onNext={handleSubmit}
-              onSubmit={handleSubmit}
-              isValid={isValid}
-            />
+            <div className="w-full flex justify-center">
+              <WizardNavigation
+                step={step}
+                service={service}
+                setStep={setStep}
+                onNext={handleSubmit}
+                onSubmit={handleSubmit}
+                isValid={isValid}
+              />
+            </div>
           </form>
         )}
       </Formik>
-    </div>
+    </article>
   );
 };
 

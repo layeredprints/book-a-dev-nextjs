@@ -8,8 +8,13 @@ import Team from '../components/Team';
 
 export default function Home() {
   const contactRef = useRef(null);
+  const wizardRef = useRef(null);
+
   const scrollToContact = () => {
     contactRef.current.scrollIntoView();
+  };
+  const scrollToWizard = () => {
+    wizardRef.current.scrollIntoView();
   };
 
   return (
@@ -18,9 +23,9 @@ export default function Home() {
         <title>Ballistix - Book A Dev</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout scrollToContact={scrollToContact}>
+      <Layout scrollToContact={scrollToContact} scrollToWizard={scrollToWizard}>
         <Pillars />
-        <Wizard />
+        <Wizard wizardRef={wizardRef} />
         <Team />
         <Contact contactRef={contactRef} />
       </Layout>

@@ -9,7 +9,7 @@ const Creatable = ({
   values,
   className,
   onChange,
-} : {
+}: {
   name: string,
   placeholder: string,
   values: any[],

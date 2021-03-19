@@ -1,4 +1,4 @@
-import InitOption from './_partials/initOption';
+import InitOption from './_partials/InitOption';
 
 const WizardInit = ({
   step,

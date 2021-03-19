@@ -1,10 +1,7 @@
-import Link from 'next/link';
-import Belgium from '../../Belgium';
 import ResponsiveWrapper from './ResponsiveWrapper';
-import Socials from './Socials';
 
 const Footer = () => (
-  <footer className="border-t-2 border-primary font-inria">
+  <footer className="border-t-2 border-bx-purple font-inria">
     <ResponsiveWrapper>
       <p>Footer</p>
     </ResponsiveWrapper>

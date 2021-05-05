@@ -1,21 +1,23 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { ThemeContext } from 'styled-components';
 import Section from 'src/components/Section';
 
 import { palette } from 'src/styles/colors';
 
 import { Container, Content, Title } from './styles';
 import Theme from 'src/enums/Theme';
+import { useTheme } from 'src/hooks/useTheme';
 
 const Wizard = (): JSX.Element => {
   const { t } = useTranslation();
-  const theme = useContext(ThemeContext);
+  const { themeName } = useTheme();
 
   return (
     <Section
       backgroundColor={
-        theme === Theme.Light ? palette.white.darkest : palette.black.lighter
+        themeName === Theme.Light
+          ? palette.white.darkest
+          : palette.black.lighter
       }
     >
       <Container>

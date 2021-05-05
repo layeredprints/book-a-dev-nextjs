@@ -1,3 +1,4 @@
+import { palette } from 'src/styles/colors';
 import styled from 'styled-components';
 
 export const Container = styled.li`
@@ -11,6 +12,7 @@ export const Container = styled.li`
   margin: 1rem;
   border-radius: 1.3rem;
 
+  background-color: ${palette.white.base};
   box-shadow: ${(props) => `0 20px 80px 0 ${props.theme.opacity.primary}`};
 `;
 

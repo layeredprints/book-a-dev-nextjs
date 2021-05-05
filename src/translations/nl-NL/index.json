@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "title": "Book-a-Dev",
+    "description": "Book-a-Dev — Boek een developer voor jouw nieuw project!"
+  },
+  "labels": {
+    "contact": "Contact",
+    "book": "Nu boeken",
+    "submit": "Ignite"
+  },
+  "views": {
+    "home": {
+      "title": "Book-a-Dev",
+      "article": {
+        "title": "Developers nodig?",
+        "paragraph": "Boek ze hier, per sprint. Ervaren developers uit eigen land, met goesting om jouw uitdagingen aan te pakken. Mensen die perfect passen in agile development teams. Om een tijdelijk tekort op te vangen, een team op weg te zetten of te versterken met specifieke expertise."
+      },
+      "perks": {
+        "title": "Gevonden!",
+        "subtitle": "Ons team is...",
+        "list": {
+          "flexible": {
+            "title": "Flexibel",
+            "description": "Slimme developers, enkel wanneer je ze nodig hebt. Per sprint."
+          },
+          "rapid": {
+            "title": "Snel",
+            "description": "Geen tijdrovend wervingsproces. Een match? Aan de slag!"
+          },
+          "experienced": {
+            "title": "Ervaren",
+            "description": "Ervaren developers die matchen met jouw tech stack."
+          },
+          "remote": {
+            "title": "Op afstand",
+            "description": "Ook op (veilige) afstand zijn we dichtbij. Communicatie blijft key."
+          }
+        }
+      },
+      "wizard": {
+        "title": "Ready? Set. Develop!"
+      },
+      "team": {
+        "title": "Team",
+        "subtitle": "Enkele van de mensen die jouw projecten waarmaken."
+      },
+      "clients": {
+        "title": "Onze klanten"
+      },
+      "form": {
+        "title": "Vragen? Stel gerust!"
+      }
+    }
+  },
+  "components": {
+    "header": {
+      "labels": {
+        "contact": "Contact"
+      }
+    },
+    "footer": {
+      "label": {
+        "credits": "BallistiX © 2021",
+        "terms": "Voorwaarden & Condities"
+      }
+    },
+    "list": {
+      "isError": {
+        "title": "Oeps!",
+        "subtitle": "Kon data niet ophalen. Probeer later opnieuw."
+      },
+      "isEmpty": {
+        "title": "Oeps!",
+        "subtitle": "Deze lijst is nog leeg."
+      }
+    },
+    "form": {
+      "label": {
+        "name": "Naam",
+        "email": "E-mailadres",
+        "question": "Uw Vraag"
+      },
+      "placeholder": {
+        "name": "John Doe",
+        "email": "john.doe@mail.com",
+        "question": "Beschrijf zo goed mogelijk je vraag..."
+      },
+      "isComplete": {
+        "message": "Psst! Het ziet er naar uit dat je een veld bent vergeten."
+      },
+      "isInvalid": {
+        "message": "Oeps! Het ziet er naar uit dat je een veld incorrect hebt ingevuld."
+      },
+      "isError": {
+        "message": "Oeps! Kon niet verbinden met de server. Probeer het later opnieuw."
+      }
+    }
+  }
+}

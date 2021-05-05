@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "title": "Book-a-Dev",
+    "description": "Book-a-Dev — Consult a developer for your new project!"
+  },
+  "labels": {
+    "contact": "Contact",
+    "book": "Book Now",
+    "submit": "Ignite"
+  },
+  "views": {
+    "home": {
+      "title": "Book-a-Dev",
+      "article": {
+        "title": "Need developers?",
+        "paragraph": "Book them here, per sprint. Experienced developers from their own country, eager to tackle your challenges. People who fit perfectly in agile development teams. To compensate for a temporary shortage, to set up or strengthen a team with specific expertise."
+      },
+      "perks": {
+        "title": "Stop looking!",
+        "subtitle": "Our team is...",
+        "list": {
+          "flexible": {
+            "title": "Flexible",
+            "description": "Smart developers, only when you need them. Per sprint."
+          },
+          "rapid": {
+            "title": "Rapid",
+            "description": "No time consuming recruitment process. A match? To work!"
+          },
+          "experienced": {
+            "title": "Experienced",
+            "description": "Experienced developers who match your tech stack."
+          },
+          "remote": {
+            "title": "Remote",
+            "description": "We are also close by at a (safe) distance. Communication remains key."
+          }
+        }
+      },
+      "wizard": {
+        "title": "Ready? Set. Develop!"
+      },
+      "team": {
+        "title": "Team",
+        "subtitle": "Some of the people who make your projects come true."
+      },
+      "clients": {
+        "title": "Our Clients"
+      },
+      "form": {
+        "title": "Questions? Shoot!"
+      }
+    }
+  },
+  "components": {
+    "header": {
+      "labels": {
+        "contact": "Contact"
+      }
+    },
+    "footer": {
+      "label": {
+        "credits": "Jerom Verschoote © 2021",
+        "terms": "Terms & Conditions"
+      }
+    },
+    "list": {
+      "isError": {
+        "title": "Oops!",
+        "subtitle": "Could not fetch data. Try again later."
+      },
+      "isEmpty": {
+        "title": "Oops!",
+        "subtitle": "This list has no data yet."
+      }
+    },
+    "form": {
+      "label": {
+        "name": "Name",
+        "email": "E-mail Address",
+        "question": "Your question"
+      },
+      "placeholder": {
+        "name": "John Doe",
+        "email": "john.doe@mail.com",
+        "question": "Describe your question..."
+      },
+      "isComplete": {
+        "message": "Psst! Looks like you forgot a field."
+      },
+      "isInvalid": {
+        "message": "Oops! Looks like you filled out a field incorrectly."
+      },
+      "isError": {
+        "message": "Oops! Could not connect to server. Please try again later."
+      }
+    }
+  }
+}

@@ -1,69 +1,45 @@
-import { fonts } from 'src/styles';
+import { breakpoints } from 'src/styles';
 import styled from 'styled-components';
 
-const NavigationItem = `
-  text-decoration: none;
-  font-weight: ${fonts.weight.thin};
+export const Container = styled.footer`
+  width: 100%;
 
-  &:hover {
-    cursor: pointer;
-    opacity: 0.5;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-export const Container = {
-  Root: styled.header`
-    background-color: ${(props) => props.theme.background.primary};
-    border-top: 1px solid ${(props) => props.theme.opacity.primary};
+export const Content = styled.div`
+  width: 100%;
+  max-width: 1100px;
 
-    height: 1rem;
-    display: flex;
-    justify-content: space-between;
-    padding: 2rem;
+  @media (max-width: ${breakpoints.sm}) {
+    padding: 2rem 2rem;
+  }
 
-    a,
-    p,
-    h1 {
-      ${NavigationItem}
-      color: ${(props) => props.theme.text.primary};
+  @media (min-width: ${breakpoints.sm}) {
+    padding: 2rem 2rem;
+  }
+
+  @media (min-width: ${breakpoints.lg}) {
+    padding: 2rem 0;
+  }
+
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const Actions = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+
+  div {
+    margin-left: 1rem;
+
+    &:hover {
+      cursor: pointer;
     }
-  `,
-  Head: styled.ul`
-    display: flex;
-    align-items: center;
-
-    margin-right: 2rem;
-
-    li {
-      margin-right: 1rem;
-      list-style: none;
-    }
-  `,
-  Body: styled.ul`
-    display: flex;
-    align-items: center;
-
-    flex-grow: 1;
-
-    display: flex;
-    align-items: flex-start;
-
-    li {
-      margin-right: 1rem;
-      list-style: none;
-    }
-  `,
-  Foot: styled.ul`
-    display: flex;
-    align-items: center;
-
-    li {
-      margin-left: 1rem;
-      list-style: none;
-
-      &:hover {
-        cursor: pointer;
-      }
-    }
-  `,
-};
+  }
+`;

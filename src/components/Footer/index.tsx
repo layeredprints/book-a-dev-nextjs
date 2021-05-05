@@ -1,160 +1,39 @@
 import React from 'react';
+
 import Link from 'next/link';
 
-import { Container } from './styles';
+import Icon from 'src/components/Icon';
 
-interface Props {
-  children?: JSX.Element | JSX.Element[];
-  navigation?: any;
-  isLoggedIn?: boolean;
-}
+import { externals } from 'src/config';
+import { palette } from 'src/styles/colors';
 
-const Head = (props: Props): JSX.Element => {
-  const { children, navigation, isLoggedIn = false } = props;
+import { Container, Content, Actions } from './styles';
 
-  if (children) {
-    return <Container.Head>{children}</Container.Head>;
-  }
-
-  if (navigation) {
-    return (
-      <Container.Head>
-        {navigation.map((item: any, index: number) => {
-          if (item.isShownWhenLoggedIn && isLoggedIn) {
-            return (
-              <li
-                key={index}
-                onClick={typeof item.to === 'function' ? item.to : ''}
-              >
-                <Link href={typeof item.to === 'string' ? item.to : ''}>
-                  {item.label}
-                </Link>
-              </li>
-            );
-          }
-
-          if (item.isShownWhenLoggedOut && !isLoggedIn) {
-            return (
-              <li
-                key={index}
-                onClick={typeof item.to === 'function' && item.to}
-              >
-                <Link href={typeof item.to === 'string' && item.to}>
-                  {item.label}
-                </Link>
-              </li>
-            );
-          }
-
-          return <React.Fragment key={index} />;
-        })}
-      </Container.Head>
-    );
-  }
-
-  return <div />;
+const Footer = (): JSX.Element => {
+  return (
+    <Container>
+      <Content>
+        <img
+          src="assets/images/logo.png"
+          alt="ballistix-logo"
+          width="100"
+          height="24"
+        />
+        <Actions>
+          <Link href={externals.facebook}>
+            <div>
+              <Icon.Facebook color={palette.accent.base} />
+            </div>
+          </Link>
+          <Link href={externals.linkedIn}>
+            <div>
+              <Icon.LinkedIn color={palette.accent.base} />
+            </div>
+          </Link>
+        </Actions>
+      </Content>
+    </Container>
+  );
 };
 
-const Body = (props: Props): JSX.Element => {
-  const { children, navigation, isLoggedIn = false } = props;
-
-  if (children) {
-    return <Container.Body>{children}</Container.Body>;
-  }
-
-  if (navigation) {
-    return (
-      <Container.Body>
-        {navigation.map((item: any, index: number) => {
-          if (item.isShownWhenLoggedIn && isLoggedIn) {
-            return (
-              <li
-                key={index}
-                onClick={typeof item.to === 'function' ? item.to : null}
-              >
-                <li
-                  key={index}
-                  onClick={typeof item.to === 'function' && item.to}
-                >
-                  <Link href={typeof item.to === 'string' && item.to}>
-                    {item.label}
-                  </Link>
-                </li>
-              </li>
-            );
-          }
-
-          if (item.isShownWhenLoggedOut && !isLoggedIn) {
-            return (
-              <li
-                key={index}
-                onClick={typeof item.to === 'function' && item.to}
-              >
-                <Link href={typeof item.to === 'string' && item.to}>
-                  {item.label}
-                </Link>
-              </li>
-            );
-          }
-
-          return <React.Fragment key={index} />;
-        })}
-      </Container.Body>
-    );
-  }
-
-  return <div />;
-};
-
-const Foot = (props: Props): JSX.Element => {
-  const { children, navigation, isLoggedIn = false } = props;
-
-  if (children) {
-    return <Container.Foot>{children}</Container.Foot>;
-  }
-
-  if (navigation) {
-    return (
-      <Container.Foot>
-        {navigation.map((item: any, index: number) => {
-          if (item.isShownWhenLoggedIn && isLoggedIn) {
-            return (
-              <li
-                key={index}
-                onClick={typeof item.to === 'function' ? item.to : null}
-              >
-                <Link href={typeof item.to === 'string' ? item.to : null}>
-                  {item.label}
-                </Link>
-              </li>
-            );
-          }
-
-          if (item.isShownWhenLoggedOut && !isLoggedIn) {
-            return (
-              <li
-                key={index}
-                onClick={typeof item.to === 'function' && item.to}
-              >
-                <Link href={typeof item.to === 'string' && item.to}>
-                  {item.label}
-                </Link>
-              </li>
-            );
-          }
-
-          return <React.Fragment key={index} />;
-        })}
-      </Container.Foot>
-    );
-  }
-
-  return <div />;
-};
-
-export default {
-  Container: Container.Root,
-  Head,
-  Body,
-  Foot,
-};
+export default Footer;

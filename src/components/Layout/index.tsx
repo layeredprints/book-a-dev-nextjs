@@ -1,16 +1,12 @@
 import Head from 'next/head';
 import React from 'react';
-import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 
 import { meta } from 'src/config';
 import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
-import { externals } from 'src/config';
 
 import { Container, Content } from './styles';
-import Icon from '../Icon';
-import { palette } from 'src/styles/colors';
 
 interface Props {
   children: any;
@@ -67,38 +63,9 @@ const Layout = (props: Props): JSX.Element => {
         <meta name="apple-itunes-app" content={meta.app.id} />
       </Head>
       <Container>
-        {/* Header */}
         <Header />
-
-        {/* Content */}
         <Content>{children}</Content>
-
-        {/* Footer */}
-        <Footer.Container>
-          <Footer.Head>
-            <li>
-              <p>{t('components.footer.label.credits')}</p>
-            </li>
-          </Footer.Head>
-          <Footer.Foot>
-            <li>
-              <Link href={externals.facebook}>
-                {/* :poop: icon needs to be wrapped in a div since href attribute get parsed down and icons cannot have href attributes */}
-                <div>
-                  <Icon.Facebook color={palette.accent.base} />
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link href={externals.linkedIn}>
-                {/* :poop: icon needs to be wrapped in a div since href attribute get parsed down and icons cannot have href attributes */}
-                <div>
-                  <Icon.LinkedIn color={palette.accent.base} />
-                </div>
-              </Link>
-            </li>
-          </Footer.Foot>
-        </Footer.Container>
+        <Footer />
       </Container>
     </React.Fragment>
   );

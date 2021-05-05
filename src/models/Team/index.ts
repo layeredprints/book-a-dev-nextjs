@@ -33,7 +33,7 @@ const DATA = [
     firstName: 'Brecht',
     lastName: '',
     description: 'Front-end Developer',
-    image: 'assets/images/team-louis.png',
+    image: 'assets/images/team-brecht.png',
   },
   {
     id: 5,

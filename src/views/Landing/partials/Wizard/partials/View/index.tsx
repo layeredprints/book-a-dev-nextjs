@@ -12,33 +12,24 @@ import {
   Project,
   Skills,
   Contact,
-  Thanks,
 } from './partials';
 import { Container, Content, Actions } from './styles';
 
 interface Props {
-  currentStep: string;
-  isFirstStep: boolean;
-  isLastStep: boolean;
+  currentView: string;
   onClickPrevious: () => void;
   onClickNext: (data: any) => void;
 }
 
 const WizardView = (props: Props): JSX.Element => {
-  const {
-    currentStep,
-    isFirstStep,
-    isLastStep,
-    onClickPrevious,
-    onClickNext,
-  } = props;
+  const { currentView, onClickPrevious, onClickNext } = props;
   const { t } = useTranslation();
 
   const [value, setValue] = useState();
 
   let view;
 
-  switch (currentStep) {
+  switch (currentView) {
     case WizardViewEnum.Stack:
       view = <Stack onChange={setValue} />;
       break;
@@ -60,26 +51,18 @@ const WizardView = (props: Props): JSX.Element => {
     case WizardViewEnum.Contact:
       view = <Contact onChange={setValue} />;
       break;
-    case WizardViewEnum.Thanks:
-      view = <Thanks />;
-      break;
   }
 
   return (
     <Container>
       <Content>{view}</Content>
       <Actions>
-        {!isFirstStep ||
-          (!isLastStep && (
-            <Button.Secondary onClick={onClickPrevious}>
-              {t('labels.previous')}
-            </Button.Secondary>
-          ))}
-        {!isLastStep && (
-          <Button.Primary onClick={() => onClickNext(value)}>
-            {t('labels.next')}
-          </Button.Primary>
-        )}
+        <Button.Secondary onClick={onClickPrevious}>
+          {t('labels.previous')}
+        </Button.Secondary>
+        <Button.Primary onClick={() => onClickNext(value)}>
+          {t('labels.next')}
+        </Button.Primary>
       </Actions>
     </Container>
   );

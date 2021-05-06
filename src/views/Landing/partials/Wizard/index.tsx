@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Theme from 'src/enums/Theme';
@@ -38,9 +38,6 @@ const Wizard = (): JSX.Element => {
         {
           key: WizardViewEnum.Contact,
         },
-        {
-          key: WizardViewEnum.Thanks,
-        },
       ],
     },
     project: {
@@ -62,9 +59,6 @@ const Wizard = (): JSX.Element => {
         {
           key: WizardViewEnum.Contact,
         },
-        {
-          key: WizardViewEnum.Thanks,
-        },
       ],
     },
   };
@@ -73,8 +67,11 @@ const Wizard = (): JSX.Element => {
   const [stepIndex, setStepIndex] = useState(0);
   const [data, setData] = useState({});
 
-  const isFirstStep = stepIndex !== 0;
-  const isLastStep = selectedSetup?.options.length - 1 === stepIndex;
+  const backgroundColor = useMemo(
+    () =>
+      themeName === Theme.Light ? palette.white.darkest : palette.black.lighter,
+    [themeName],
+  );
 
   const handleSaveData = useCallback(
     (newData) => {
@@ -99,7 +96,7 @@ const Wizard = (): JSX.Element => {
   const handleClickNext = useCallback(
     (data: any) => {
       if (selectedSetup) {
-        if (stepIndex + 1 < selectedSetup.options.length) {
+        if (stepIndex < selectedSetup.options.length) {
           setStepIndex(stepIndex + 1);
           handleSaveData(data);
         }
@@ -108,21 +105,18 @@ const Wizard = (): JSX.Element => {
     [handleSaveData, selectedSetup, stepIndex],
   );
 
+  const isAtStart = !selectedSetup;
+  const isFinished = stepIndex === selectedSetup?.options.length;
+
   useEffect(() => {
-    if (isLastStep) {
+    if (isFinished) {
       console.log({ data });
     }
-  }, [data, isLastStep]);
+  }, [data, isFinished]);
 
-  if (!selectedSetup) {
+  if (isAtStart) {
     return (
-      <Section
-        backgroundColor={
-          themeName === Theme.Light
-            ? palette.white.darkest
-            : palette.black.lighter
-        }
-      >
+      <Section backgroundColor={backgroundColor}>
         <Container>
           <Content>
             <Title>{t('views.home.wizard.title')}</Title>
@@ -146,31 +140,32 @@ const Wizard = (): JSX.Element => {
     );
   }
 
+  if (isFinished) {
+    return (
+      <Section backgroundColor={backgroundColor}>
+        <Container>
+          <Content>
+            <Title>{t('views.home.wizard.title')}</Title>
+            <p>Thanks</p>
+          </Content>
+        </Container>
+      </Section>
+    );
+  }
+
   return (
-    <Section
-      backgroundColor={
-        themeName === Theme.Light
-          ? palette.white.darkest
-          : palette.black.lighter
-      }
-    >
+    <Section backgroundColor={backgroundColor}>
       <Container>
         <Content>
           <Title>{t('views.home.wizard.title')}</Title>
-          {!isLastStep && (
-            <Selector
-              setup={selectedSetup}
-              setups={setups}
-              onSelectSetup={handleSelectSetup}
-            />
-          )}
-          {!isLastStep && (
-            <Progress stepIndex={stepIndex} setup={selectedSetup} />
-          )}
+          <Selector
+            setups={setups}
+            onSelectSetup={handleSelectSetup}
+            setup={selectedSetup}
+          />
+          <Progress setup={selectedSetup} stepIndex={stepIndex} />
           <View
-            currentStep={selectedSetup.options[stepIndex].key}
-            isFirstStep={isFirstStep}
-            isLastStep={isLastStep}
+            currentView={selectedSetup.options[stepIndex].key}
             onClickPrevious={handleClickPrevious}
             onClickNext={handleClickNext}
           />

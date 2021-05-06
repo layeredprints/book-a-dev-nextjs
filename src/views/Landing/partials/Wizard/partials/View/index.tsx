@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import WizardViewEnum from 'src/enums/WizardView';
@@ -17,44 +17,48 @@ import {
 import { Container, Content, Actions } from './styles';
 
 interface Props {
-  setup: any;
-  stepIndex: number;
+  currentStep: string;
+  isFirstStep: boolean;
+  isLastStep: boolean;
   onClickPrevious: () => void;
-  onClickNext: () => void;
+  onClickNext: (data: any) => void;
 }
 
 const WizardView = (props: Props): JSX.Element => {
-  const { setup, stepIndex, onClickPrevious, onClickNext } = props;
+  const {
+    currentStep,
+    isFirstStep,
+    isLastStep,
+    onClickPrevious,
+    onClickNext,
+  } = props;
   const { t } = useTranslation();
 
-  const currentKey = setup.options[stepIndex].key;
-
-  const isFirstStep = stepIndex !== 0;
-  const isLastStep = setup.options.length - 1 === stepIndex;
+  const [value, setValue] = useState();
 
   let view;
 
-  switch (currentKey) {
+  switch (currentStep) {
     case WizardViewEnum.Stack:
-      view = <Stack />;
+      view = <Stack onChange={setValue} />;
       break;
     case WizardViewEnum.Sprints:
-      view = <Sprints />;
+      view = <Sprints onChange={setValue} />;
       break;
     case WizardViewEnum.Product:
-      view = <Product />;
+      view = <Product onChange={setValue} />;
       break;
     case WizardViewEnum.Task:
-      view = <Task />;
+      view = <Task onChange={setValue} />;
       break;
     case WizardViewEnum.Project:
-      view = <Project />;
+      view = <Project onChange={setValue} />;
       break;
     case WizardViewEnum.Skills:
-      view = <Skills />;
+      view = <Skills onChange={setValue} />;
       break;
     case WizardViewEnum.Contact:
-      view = <Contact />;
+      view = <Contact onChange={setValue} />;
       break;
     case WizardViewEnum.Thanks:
       view = <Thanks />;
@@ -72,7 +76,7 @@ const WizardView = (props: Props): JSX.Element => {
             </Button.Secondary>
           ))}
         {!isLastStep && (
-          <Button.Primary onClick={onClickNext}>
+          <Button.Primary onClick={() => onClickNext(value)}>
             {t('labels.next')}
           </Button.Primary>
         )}

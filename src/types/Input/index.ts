@@ -4,4 +4,5 @@ export type InputType = {
   placeholder: string;
   type: string;
   isRequired: boolean;
+  value?: string;
 };

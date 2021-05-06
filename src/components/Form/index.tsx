@@ -6,9 +6,9 @@ import { InputType } from 'src/types/Input';
 import { Container, Error, Field, Input, Label } from './styles';
 interface Props {
   fields: InputType[];
-  submitLabel: string;
   onSubmit: (fields: any) => void;
-  requestError: string;
+  submitLabel?: string;
+  requestError?: string;
   isValidated?: boolean;
 }
 
@@ -86,7 +86,7 @@ const Form = (props: Props): JSX.Element => {
   }, [requestError]);
 
   return (
-    <Container onSubmit={handleSubmitForm}>
+    <Container onSubmit={handleSubmitForm} onChange={handleSubmitForm}>
       {fields?.map((field: InputType, index: number) => {
         const { label, type, placeholder, key } = field;
 
@@ -112,7 +112,7 @@ const Form = (props: Props): JSX.Element => {
         );
       })}
       {message !== '' && <Error>{message}</Error>}
-      <Button.Primary>{submitLabel}</Button.Primary>
+      {submitLabel && <Button.Primary>{submitLabel}</Button.Primary>}
     </Container>
   );
 };

@@ -20,8 +20,6 @@ export const Container = styled.button`
 
   cursor: pointer;
 
-  width: 100%;
-
   text-transform: uppercase;
 
   &:hover {

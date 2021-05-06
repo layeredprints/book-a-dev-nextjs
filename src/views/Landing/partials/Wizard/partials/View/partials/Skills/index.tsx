@@ -1,11 +1,43 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import Form from 'src/components/Form';
+import InputEnum from 'src/enums/Input';
 
-import { Container } from './styles';
+import { Container, Title } from './styles';
 
-const Skills = (): JSX.Element => {
+interface Props {
+  onChange: (data: any) => void;
+}
+
+const Skills = (props: Props): JSX.Element => {
+  const { t } = useTranslation();
+
+  const { onChange } = props;
+
+  const fields = useMemo(
+    () => [
+      {
+        key: 'skills',
+        label: '',
+        placeholder: '',
+        type: InputEnum.Text,
+        isRequired: true,
+      },
+      {
+        key: 'skillsExtra',
+        label: t('components.form.label.skillsExtra'),
+        placeholder: '',
+        type: InputEnum.Text,
+        isRequired: true,
+      },
+    ],
+    [t],
+  );
+
   return (
     <Container>
-      <p>Skills</p>
+      <Title>{t('components.wizard.views.project.title')}</Title>
+      <Form fields={fields} onSubmit={onChange} />
     </Container>
   );
 };

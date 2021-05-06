@@ -1,4 +1,4 @@
-import React, { Dispatch, useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Theme from 'src/enums/Theme';
@@ -69,11 +69,19 @@ const Wizard = (): JSX.Element => {
     },
   };
 
-  const [selectedSetup, setSelectedSetup]: [
-    SetupType | undefined,
-    Dispatch<SetupType>,
-  ] = useState();
+  const [selectedSetup, setSelectedSetup]: any = useState();
   const [stepIndex, setStepIndex] = useState(0);
+  const [data, setData] = useState({});
+
+  const isFirstStep = stepIndex !== 0;
+  const isLastStep = selectedSetup?.options.length - 1 === stepIndex;
+
+  const handleSaveData = useCallback(
+    (newData) => {
+      setData({ ...data, ...newData });
+    },
+    [data],
+  );
 
   const handleSelectSetup = useCallback((setup: SetupType) => {
     setSelectedSetup(setup);
@@ -88,13 +96,23 @@ const Wizard = (): JSX.Element => {
     }
   }, [selectedSetup, stepIndex]);
 
-  const handleClickNext = useCallback(() => {
-    if (selectedSetup) {
-      if (stepIndex + 1 < selectedSetup.options.length) {
-        setStepIndex(stepIndex + 1);
+  const handleClickNext = useCallback(
+    (data: any) => {
+      if (selectedSetup) {
+        if (stepIndex + 1 < selectedSetup.options.length) {
+          setStepIndex(stepIndex + 1);
+          handleSaveData(data);
+        }
       }
+    },
+    [handleSaveData, selectedSetup, stepIndex],
+  );
+
+  useEffect(() => {
+    if (isLastStep) {
+      console.log({ data });
     }
-  }, [selectedSetup, stepIndex]);
+  }, [data, isLastStep]);
 
   if (!selectedSetup) {
     return (
@@ -139,15 +157,20 @@ const Wizard = (): JSX.Element => {
       <Container>
         <Content>
           <Title>{t('views.home.wizard.title')}</Title>
-          <Selector
-            setup={selectedSetup}
-            setups={setups}
-            onSelectSetup={handleSelectSetup}
-          />
-          <Progress stepIndex={stepIndex} setup={selectedSetup} />
+          {!isLastStep && (
+            <Selector
+              setup={selectedSetup}
+              setups={setups}
+              onSelectSetup={handleSelectSetup}
+            />
+          )}
+          {!isLastStep && (
+            <Progress stepIndex={stepIndex} setup={selectedSetup} />
+          )}
           <View
-            setup={selectedSetup}
-            stepIndex={stepIndex}
+            currentStep={selectedSetup.options[stepIndex].key}
+            isFirstStep={isFirstStep}
+            isLastStep={isLastStep}
             onClickPrevious={handleClickPrevious}
             onClickNext={handleClickNext}
           />

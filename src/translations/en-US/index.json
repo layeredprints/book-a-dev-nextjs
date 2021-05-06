@@ -81,12 +81,30 @@
       "label": {
         "name": "Name",
         "email": "E-mail Address",
-        "question": "Your question"
+        "question": "Your question",
+        "phone": "Phone Number",
+        "info": "Tell us about your team or projects",
+        "stackTechnologiesExtra": "Is the technology not on the list?",
+        "sprintPeriod": "How long takes a sprint?",
+        "sprintCount": "How many sprint will you need?",
+        "sprintStart": "When would you like to start?",
+        "productExample": "Does something alike already exists?",
+        "projectSize": "How big is your project?",
+        "projectTiming": "How fast do you want your project delivered?",
+        "projectStart": "When would you like to start?",
+        "skillsExtra": "Is the skill not on the list?"
       },
       "placeholder": {
         "name": "John Doe",
         "email": "john.doe@mail.com",
-        "question": "Describe your question..."
+        "question": "Describe your question...",
+        "phone": "+32 000 00 00",
+        "info": "Introduction, important info, ...",
+        "stackTechnologiesExtra": "iOS, ...",
+        "sprintPeriod": "2",
+        "sprintCount": "5",
+        "sprintStart": "dd/mm/jjjj",
+        "productExample": "http://www.example.com/"
       },
       "isComplete": {
         "message": "Psst! Looks like you forgot a field."
@@ -104,6 +122,29 @@
       },
       "project": {
         "title": "I have a project"
+      },
+      "views": {
+        "contact": {
+          "title": "Something you want to add?"
+        },
+        "stack": {
+          "title": "What is the technology stack?"
+        },
+        "sprints": {
+          "title": "Sprints"
+        },
+        "product": {
+          "title": "What would you like to build?"
+        },
+        "task": {
+          "title": "What do we need to deliver?"
+        },
+        "project":{
+          "title": "Project"
+        },
+        "skills": {
+          "title": "What skills do we need?"
+        }
       }
     }
   }

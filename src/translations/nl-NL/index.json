@@ -81,12 +81,30 @@
       "label": {
         "name": "Naam",
         "email": "E-mailadres",
-        "question": "Uw Vraag"
+        "question": "Uw Vraag",
+        "phone": "GSM Nummer",
+        "info": "Vertel ons iets over het team of projecten",
+        "stackTechnologiesExtra": "Staat de technologie niet in de lijst?",
+        "sprintPeriod": "Hoe lang duurt een sprint?",
+        "sprintCount": "Hoeveel sprints heb je nodig?",
+        "sprintStart": "Wanneer wil je starten?",
+        "productExample": "Bestaat er al iets gelijkaardigs?",
+        "projectSize": "Hoe groot is je project?",
+        "projectTiming": "Hoe snel wil je dit?",
+        "projectStart": "Wanneer wil je starten?",
+        "skillsExtra": "Staat de vaardigheid niet in de lijst?"
       },
       "placeholder": {
         "name": "John Doe",
         "email": "john.doe@mail.com",
-        "question": "Beschrijf zo goed mogelijk je vraag..."
+        "question": "Beschrijf zo goed mogelijk je vraag...",
+        "phone": "+32 000 00 00",
+        "info": "Inleiding, belangrijke dingen, ...",
+        "stackTechnologiesExtra": "iOS, ...",
+        "sprintPeriod": "2",
+        "sprintCount": "5",
+        "sprintStart": "dd/mm/jjjj",
+        "productExample": "http://www.voorbeeld.be/"
       },
       "isComplete": {
         "message": "Psst! Het ziet er naar uit dat je een veld bent vergeten."
@@ -104,6 +122,29 @@
       },
       "project": {
         "title": "Ik heb een project"
+      },
+      "views": {
+        "contact": {
+          "title": "Wil je nog iets kwijt?"
+        },
+        "stack": {
+          "title": "Wat is de technologiestack?"
+        },
+        "sprints": {
+          "title": "Sprints"
+        },
+        "product": {
+          "title": "Wat wil je bouwen?"
+        },
+        "task": {
+          "title": "Wat moeten wij opleveren?"
+        },
+        "project":{
+          "title": "Project"
+        },
+        "skills": {
+          "title": "Welke vaardigheden moeten wij hebben?"
+        }
       }
     }
   }

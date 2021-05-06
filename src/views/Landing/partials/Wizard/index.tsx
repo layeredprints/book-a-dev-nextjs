@@ -4,17 +4,25 @@ import { useTranslation } from 'react-i18next';
 import Theme from 'src/enums/Theme';
 import WizardViewEnum from 'src/enums/WizardView';
 import Section from 'src/components/Section';
-import Button from 'src/components/Button';
 
 import { palette } from 'src/styles/colors';
 import { useTheme } from 'src/hooks/useTheme';
 
 import { Selector, Progress, View } from './partials';
-import { Container, Content, Title, Actions } from './styles';
+import {
+  Container,
+  Content,
+  Title,
+  Actions,
+  Action,
+  Image,
+  Label,
+} from './styles';
 
 type SetupType = {
   id: number;
   title: string;
+  image: string;
   options: {
     key: string;
   }[];
@@ -28,6 +36,7 @@ const Wizard = (): JSX.Element => {
     team: {
       id: 1,
       title: t('components.wizard.team.title'),
+      image: 'assets/illustrations/wizard-team.svg',
       options: [
         {
           key: WizardViewEnum.Stack,
@@ -43,6 +52,7 @@ const Wizard = (): JSX.Element => {
     project: {
       id: 2,
       title: t('components.wizard.project.title'),
+      image: 'assets/illustrations/wizard-project.svg',
       options: [
         {
           key: WizardViewEnum.Product,
@@ -125,12 +135,13 @@ const Wizard = (): JSX.Element => {
                 const setup: SetupType = setups[key];
 
                 return (
-                  <Button.Primary
+                  <Action
                     key={setup.id}
                     onClick={() => handleSelectSetup(setup)}
                   >
-                    {setup.title}
-                  </Button.Primary>
+                    <Image src={setup.image} alt="setup" width="250" />
+                    <Label>{setup.title}</Label>
+                  </Action>
                 );
               })}
             </Actions>

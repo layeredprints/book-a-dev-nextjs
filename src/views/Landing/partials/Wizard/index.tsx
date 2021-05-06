@@ -180,6 +180,7 @@ const Wizard = (): JSX.Element => {
           />
           <Progress setup={selectedSetup} stepIndex={stepIndex} />
           <View
+            isFirstStep={stepIndex === 0}
             currentView={selectedSetup.options[stepIndex].key}
             onClickPrevious={handleClickPrevious}
             onClickNext={handleClickNext}

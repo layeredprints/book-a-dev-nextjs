@@ -19,10 +19,11 @@ interface Props {
   currentView: string;
   onClickPrevious: () => void;
   onClickNext: (data: any) => void;
+  isFirstStep: boolean;
 }
 
 const WizardView = (props: Props): JSX.Element => {
-  const { currentView, onClickPrevious, onClickNext } = props;
+  const { currentView, onClickPrevious, onClickNext, isFirstStep } = props;
   const { t } = useTranslation();
 
   const [value, setValue] = useState();
@@ -57,9 +58,11 @@ const WizardView = (props: Props): JSX.Element => {
     <Container>
       <Content>{view}</Content>
       <Actions>
-        <Button.Secondary onClick={onClickPrevious}>
-          {t('labels.previous')}
-        </Button.Secondary>
+        {!isFirstStep && (
+          <Button.Secondary onClick={onClickPrevious}>
+            {t('labels.previous')}
+          </Button.Secondary>
+        )}
         <Button.Primary onClick={() => onClickNext(value)}>
           {t('labels.next')}
         </Button.Primary>

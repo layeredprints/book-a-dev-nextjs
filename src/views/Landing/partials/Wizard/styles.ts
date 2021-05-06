@@ -3,7 +3,13 @@ import styled from 'styled-components';
 
 export const Container = styled.div``;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const Actions = styled.div``;
 
 export const Title = styled.h2`
   color: ${(props) => props.theme.text.primary};

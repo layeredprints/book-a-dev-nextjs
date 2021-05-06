@@ -17,6 +17,8 @@ import {
   Action,
   Image,
   Label,
+  Paragraph,
+  Subtitle,
 } from './styles';
 
 type SetupType = {
@@ -157,7 +159,9 @@ const Wizard = (): JSX.Element => {
         <Container>
           <Content>
             <Title>{t('views.home.wizard.title')}</Title>
-            <p>Thanks</p>
+            <Subtitle>{t('components.wizard.finished.title')}</Subtitle>
+            <Image src="assets/illustrations/team.svg" width="350" />
+            <Paragraph>{t('components.wizard.finished.paragraph')}</Paragraph>
           </Content>
         </Container>
       </Section>

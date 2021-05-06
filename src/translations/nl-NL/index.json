@@ -123,6 +123,10 @@
       "project": {
         "title": "Ik heb een project"
       },
+      "finished": {
+        "title": "Thanks!",
+        "paragraph": "Bedankt voor je aanvraag! Je informatie is goed to bij ons geraakt, we gaan ermee aan de slag. Je hoort snel iets van ons."
+      },
       "views": {
         "contact": {
           "title": "Wil je nog iets kwijt?"

@@ -12,9 +12,17 @@ export const Content = styled.div`
 
 export const Actions = styled.div`
   display: flex;
-  flex-direction: row;
+
   justify-content: space-around;
   padding: 1rem;
+
+  @media (max-width: ${breakpoints.sm}) {
+    flex-direction: column;
+  }
+
+  @media (min-width: ${breakpoints.sm}) {
+    flex-direction: row;
+  }
 
   button {
     margin: 1rem;
@@ -36,7 +44,7 @@ export const Action = styled.div`
   justify-content: center;
   align-items: center;
 
-  box-shadow: 0 20px 80px 0 ${palette.opacity.dark};
+  box-shadow: 0 20px 80px 0 ${(props) => props.theme.opacity.primary};
 
   transition: 0.2s;
 
@@ -72,6 +80,17 @@ export const Title = styled.h2`
   }
 `;
 
+export const Subtitle = styled.p`
+  color: ${(props) => props.theme.text.primary};
+  text-align: center;
+  font-size: 26px;
+  font-weight: ${fonts.weight.bold};
+
+  margin-top: 2rem;
+
+  margin-bottom: 2rem;
+`;
+
 export const Label = styled.p`
   color: ${(props) => props.theme.text.primary};
   text-align: center;
@@ -79,4 +98,14 @@ export const Label = styled.p`
   font-weight: ${fonts.weight.bold};
 
   margin-top: 2rem;
+`;
+
+export const Paragraph = styled.p`
+  margin-top: 3rem;
+
+  width: 25rem;
+
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.8;
 `;

@@ -1,4 +1,5 @@
 import { fonts } from 'src/styles';
+import { palette } from 'src/styles/colors';
 import styled from 'styled-components';
 
 export const Container = styled.form`
@@ -40,21 +41,23 @@ export const Input = styled.input<any>`
 
   transition: 0.2s;
 
+  &:focus {
+    box-shadow: 0 0 10px 0 ${palette.accent.lightest};
+  }
+
   ${(props) => {
     const { isValid, theme } = props;
 
     if (isValid || isValid == undefined) {
       return `
-        background-color: ${theme.background.secondary};
         color: ${theme.text.primary};
-        //box-shadow: inset 0 0 2px ${theme.opacity.primary};
+        box-shadow: 0 20px 80px 0 ${theme.opacity.primary};
       `;
     }
 
     return `
-      background-color: ${theme.danger.tertiary};
       color: ${theme.danger.primary};
-      //box-shadow: inset 0px 0px 0px 1.5px ${theme.danger.primary};
+      box-shadow: 0 20px 80px 0 ${theme.opacity.primary};
     `;
   }}
 `;

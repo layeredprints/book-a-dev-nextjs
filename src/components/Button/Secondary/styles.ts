@@ -21,6 +21,7 @@ export const Container = styled.button`
   cursor: pointer;
 
   text-transform: uppercase;
+  transition: 0.2s;
 
   &:hover {
     background-color: ${(props) => props.theme.accent.primary};

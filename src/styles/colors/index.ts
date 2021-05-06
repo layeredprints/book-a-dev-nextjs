@@ -142,8 +142,8 @@ export const themes = {
     },
     brand: {
       primary: palette.brand.base,
-      secondary: palette.brand.base,
-      tertiary: palette.brand.base,
+      secondary: palette.brand.darker,
+      tertiary: palette.brand.darkest,
     },
     accent: {
       primary: palette.accent.base,

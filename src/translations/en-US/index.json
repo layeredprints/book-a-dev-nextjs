@@ -123,6 +123,10 @@
       "project": {
         "title": "I have a project"
       },
+      "finished": {
+        "title": "Thanks!",
+        "paragraph": "Thanks for your application! Your information is received in good hands. We get back to you quickly!"
+      },
       "views": {
         "contact": {
           "title": "Something you want to add?"

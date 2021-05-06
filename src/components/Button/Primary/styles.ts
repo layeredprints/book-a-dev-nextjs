@@ -3,13 +3,13 @@ import { palette } from 'src/styles/colors';
 import styled from 'styled-components';
 
 export const Container = styled.button`
-  background-color: ${(props) => props.theme.accent.tertiary};
+  background-color: ${(props) => props.theme.accent.primary};
   color: ${palette.white.base};
 
   font-weight: ${fonts.weight.normal};
 
   outline: none;
-  border: 2px solid ${(props) => props.theme.accent.tertiary};
+  border: 2px solid ${(props) => props.theme.accent.primary};
 
   padding: 1rem 3rem;
   border-radius: 2rem;
@@ -20,9 +20,11 @@ export const Container = styled.button`
 
   text-transform: uppercase;
 
+  transition: 0.2s;
+
   &:hover {
     background-color: transparent;
-    color: ${(props) => props.theme.accent.tertiary};
-    border: 2px solid ${(props) => props.theme.accent.tertiary};
+    color: ${(props) => props.theme.accent.primary};
+    border: 2px solid ${(props) => props.theme.accent.primary};
   }
 `;

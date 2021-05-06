@@ -6,7 +6,12 @@ import Icon from '../Icon';
 
 import { Container, Content, Action, Title, Head } from './styles';
 
-const Header = (): JSX.Element => {
+interface Props {
+  onClickAction: () => void;
+}
+
+const Header = (props: Props): JSX.Element => {
+  const { onClickAction } = props;
   const { t } = useTranslation();
 
   return (
@@ -17,7 +22,7 @@ const Header = (): JSX.Element => {
           <Title>ook A Developer</Title>
         </Head>
         <Action>
-          <Button.Secondary>
+          <Button.Secondary onClick={onClickAction}>
             {t('components.header.labels.contact')}
           </Button.Secondary>
         </Action>

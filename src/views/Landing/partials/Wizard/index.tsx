@@ -30,7 +30,14 @@ type SetupType = {
   }[];
 };
 
-const Wizard = (): JSX.Element => {
+interface Props {
+  onSubmitData: (data: any) => void;
+  wizardRef: any;
+}
+
+const Wizard = (props: Props): JSX.Element => {
+  const { onSubmitData, wizardRef } = props;
+
   const { t } = useTranslation();
   const { themeName } = useTheme();
 
@@ -122,14 +129,14 @@ const Wizard = (): JSX.Element => {
 
   useEffect(() => {
     if (isFinished) {
-      console.log({ data });
+      onSubmitData(data);
     }
-  }, [data, isFinished]);
+  }, [data, isFinished, onSubmitData]);
 
   if (isAtStart) {
     return (
-      <Section backgroundColor={backgroundColor}>
-        <Container>
+      <Section backgroundColor={backgroundColor} sectionRef={wizardRef}>
+        <Container ref={wizardRef}>
           <Content>
             <Title>{t('views.home.wizard.title')}</Title>
             <Actions>
@@ -155,7 +162,7 @@ const Wizard = (): JSX.Element => {
 
   if (isFinished) {
     return (
-      <Section backgroundColor={backgroundColor}>
+      <Section backgroundColor={backgroundColor} sectionRef={wizardRef}>
         <Container>
           <Content>
             <Title>{t('views.home.wizard.title')}</Title>
@@ -169,7 +176,7 @@ const Wizard = (): JSX.Element => {
   }
 
   return (
-    <Section backgroundColor={backgroundColor}>
+    <Section backgroundColor={backgroundColor} sectionRef={wizardRef}>
       <Container>
         <Content>
           <Title>{t('views.home.wizard.title')}</Title>

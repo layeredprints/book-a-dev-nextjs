@@ -8,11 +8,12 @@ import InputEnum from 'src/enums/Input';
 import { Container, Content, Title } from './styles';
 
 interface Props {
-  handleSubmitForm: (data: any) => void;
+  onSubmitData: (data: any) => void;
+  contactRef: any;
 }
 
-const Questions = (props: Props): JSX.Element => {
-  const { handleSubmitForm } = props;
+const Contact = (props: Props): JSX.Element => {
+  const { onSubmitData, contactRef } = props;
   const [error] = useState('');
   const { t } = useTranslation();
 
@@ -44,13 +45,13 @@ const Questions = (props: Props): JSX.Element => {
   );
 
   return (
-    <Section>
+    <Section sectionRef={contactRef}>
       <Container>
         <Content>
           <Title>{t('views.home.form.title')}</Title>
           <Form
             fields={fields}
-            onSubmit={handleSubmitForm}
+            onSubmit={onSubmitData}
             requestError={error}
             submitLabel={t('labels.submit')}
           />
@@ -60,4 +61,4 @@ const Questions = (props: Props): JSX.Element => {
   );
 };
 
-export default Questions;
+export default Contact;

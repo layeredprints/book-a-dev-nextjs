@@ -10,10 +10,11 @@ import { Container, Content } from './styles';
 
 interface Props {
   children: any;
+  onClickAction: () => void;
 }
 
 const Layout = (props: Props): JSX.Element => {
-  const { children } = props;
+  const { children, onClickAction } = props;
 
   const { t } = useTranslation();
 
@@ -63,7 +64,7 @@ const Layout = (props: Props): JSX.Element => {
         <meta name="apple-itunes-app" content={meta.app.id} />
       </Head>
       <Container>
-        <Header />
+        <Header onClickAction={onClickAction} />
         <Content>{children}</Content>
         <Footer />
       </Container>

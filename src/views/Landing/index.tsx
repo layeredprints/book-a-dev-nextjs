@@ -25,9 +25,9 @@ const Landing = (): JSX.Element => {
     [],
   );
 
-  const handleSendMailToNikolas = (data: any) => {
+  const handleSendMailToNikolas = useCallback((data: any) => {
     console.log('A mail has been send to Nikolas with attachement:', data);
-  };
+  }, []);
 
   return (
     <Layout onClickAction={handleClickContact}>

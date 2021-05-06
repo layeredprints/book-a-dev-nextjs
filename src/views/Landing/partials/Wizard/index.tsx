@@ -2,13 +2,15 @@ import React, { Dispatch, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Theme from 'src/enums/Theme';
+import WizardViewEnum from 'src/enums/WizardView';
 import Section from 'src/components/Section';
+import Button from 'src/components/Button';
+
 import { palette } from 'src/styles/colors';
 import { useTheme } from 'src/hooks/useTheme';
 
 import { Selector, Progress, View } from './partials';
 import { Container, Content, Title, Actions } from './styles';
-import Button from 'src/components/Button';
 
 type SetupType = {
   id: number;
@@ -28,16 +30,16 @@ const Wizard = (): JSX.Element => {
       title: t('components.wizard.team.title'),
       options: [
         {
-          key: 'stack',
+          key: WizardViewEnum.Stack,
         },
         {
-          key: 'sprints',
+          key: WizardViewEnum.Sprints,
         },
         {
-          key: 'extra',
+          key: WizardViewEnum.Contact,
         },
         {
-          key: 'thanks',
+          key: WizardViewEnum.Thanks,
         },
       ],
     },
@@ -46,22 +48,22 @@ const Wizard = (): JSX.Element => {
       title: t('components.wizard.project.title'),
       options: [
         {
-          key: 'what',
+          key: WizardViewEnum.Product,
         },
         {
-          key: 'deliverables',
+          key: WizardViewEnum.Task,
         },
         {
-          key: 'project',
+          key: WizardViewEnum.Project,
         },
         {
-          key: 'skills',
+          key: WizardViewEnum.Skills,
         },
         {
-          key: 'extra',
+          key: WizardViewEnum.Contact,
         },
         {
-          key: 'thanks',
+          key: WizardViewEnum.Thanks,
         },
       ],
     },

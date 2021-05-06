@@ -29,13 +29,6 @@ const DATA = [
     image: 'assets/images/team-maarten.png',
   },
   {
-    id: 4,
-    firstName: 'Brecht',
-    lastName: '',
-    description: 'Front-end Developer',
-    image: 'assets/images/team-brecht.png',
-  },
-  {
     id: 5,
     firstName: 'Louis',
     lastName: '',

@@ -6,7 +6,10 @@
   "labels": {
     "contact": "Contact",
     "book": "Book Now",
-    "submit": "Ignite"
+    "submit": "Ignite",
+    "choice": "Your choice",
+    "previous": "Previous",
+    "next": "Next"
   },
   "views": {
     "home": {
@@ -93,6 +96,14 @@
       },
       "isError": {
         "message": "Oops! Could not connect to server. Please try again later."
+      }
+    },
+    "wizard": {
+      "team": {
+        "title": "I'm looking for a team member"
+      },
+      "project": {
+        "title": "I have a project"
       }
     }
   }

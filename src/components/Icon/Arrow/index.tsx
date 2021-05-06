@@ -5,10 +5,11 @@ import { Path } from './styles';
 type Props = {
   color?: string;
   size?: number;
+  isFlipped?: boolean;
 };
 
 const ArrowIcon = (props: Props): JSX.Element => {
-  const { color = '#fff', size = 1 } = props;
+  const { color = '#fff', size = 1, isFlipped = false } = props;
 
   return (
     <svg
@@ -19,6 +20,7 @@ const ArrowIcon = (props: Props): JSX.Element => {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      style={isFlipped ? { transform: 'scaleX(-1)' } : {}}
     >
       <Path d="M8,0,0,8l8,8" transform="translate(2 2.828)" />
     </svg>

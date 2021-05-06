@@ -9,7 +9,16 @@ export const Content = styled.div`
   align-items: center;
 `;
 
-export const Actions = styled.div``;
+export const Actions = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 1rem;
+
+  button {
+    margin: 1rem;
+  }
+`;
 
 export const Title = styled.h2`
   color: ${(props) => props.theme.text.primary};

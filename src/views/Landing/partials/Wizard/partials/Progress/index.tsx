@@ -1,17 +1,22 @@
 import React from 'react';
 
-import { Container } from './styles';
+import { Container, Indicator } from './styles';
 
 interface Props {
-  flow: any;
+  setup: any;
+  stepIndex: number;
 }
 
 const WizardProgress = (props: Props): JSX.Element => {
-  const { flow } = props;
+  const { setup, stepIndex } = props;
 
-  console.log({ flow });
-
-  return <Container></Container>;
+  return (
+    <Container>
+      {setup.options.map((_option: any, index: number) => (
+        <Indicator key={index} isCompleted={index < stepIndex + 1} />
+      ))}
+    </Container>
+  );
 };
 
 export default WizardProgress;

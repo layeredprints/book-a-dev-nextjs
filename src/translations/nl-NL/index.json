@@ -6,7 +6,10 @@
   "labels": {
     "contact": "Contact",
     "book": "Nu boeken",
-    "submit": "Ignite"
+    "submit": "Ignite",
+    "choice": "Uw keuze",
+    "previous": "Vorige",
+    "next": "Volgende"
   },
   "views": {
     "home": {
@@ -93,6 +96,14 @@
       },
       "isError": {
         "message": "Oeps! Kon niet verbinden met de server. Probeer het later opnieuw."
+      }
+    },
+    "wizard": {
+      "team": {
+        "title": "Ik wil iemand in mijn team"
+      },
+      "project": {
+        "title": "Ik heb een project"
       }
     }
   }

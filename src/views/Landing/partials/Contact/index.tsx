@@ -29,7 +29,7 @@ const Contact = (props: Props): JSX.Element => {
       {
         id: '1',
         name: 'email',
-        type: InputEnum.Text,
+        type: InputEnum.Email,
         isRequired: true,
         label: t('components.form.label.email'),
         placeholder: t('components.form.placeholder.email'),

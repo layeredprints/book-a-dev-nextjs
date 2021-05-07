@@ -136,7 +136,7 @@ const Wizard = (props: Props): JSX.Element => {
   if (isAtStart) {
     return (
       <Section backgroundColor={backgroundColor} sectionRef={wizardRef}>
-        <Container ref={wizardRef}>
+        <Container>
           <Content>
             <Title>{t('views.home.wizard.title')}</Title>
             <Actions>

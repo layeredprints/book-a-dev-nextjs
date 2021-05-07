@@ -13,6 +13,8 @@ import {
   Checkbox,
   Radio,
 } from './partials';
+import { Container } from './styles';
+
 interface Props {
   inputs: InputType[];
   onSubmit: (values: any) => void;
@@ -49,30 +51,32 @@ const Form = (props: Props): JSX.Element => {
   }, [inputs]);
 
   return (
-    <Formik initialValues={initialValues} onSubmit={onSubmit}>
-      <FormikForm>
-        {inputs.map((input: InputType) => {
-          switch (input.type) {
-            case InputEnum.Text:
-              return <Text key={input.id} input={input} />;
-            case InputEnum.Email:
-              return <Email key={input.id} input={input} />;
-            case InputEnum.Password:
-              return <Password key={input.id} input={input} />;
-            case InputEnum.Number:
-              return <Number key={input.id} input={input} />;
-            case InputEnum.Checkbox:
-              return <Checkbox key={input.id} input={input} />;
-            case InputEnum.Radio:
-              return <Radio key={input.id} input={input} />;
-            case InputEnum.Submit:
-              return <Submit key={input.id} input={input} />;
-            default:
-              return null;
-          }
-        })}
-      </FormikForm>
-    </Formik>
+    <Container>
+      <Formik initialValues={initialValues} onSubmit={onSubmit}>
+        <FormikForm>
+          {inputs.map((input: InputType) => {
+            switch (input.type) {
+              case InputEnum.Text:
+                return <Text key={input.id} input={input} />;
+              case InputEnum.Email:
+                return <Email key={input.id} input={input} />;
+              case InputEnum.Password:
+                return <Password key={input.id} input={input} />;
+              case InputEnum.Number:
+                return <Number key={input.id} input={input} />;
+              case InputEnum.Checkbox:
+                return <Checkbox key={input.id} input={input} />;
+              case InputEnum.Radio:
+                return <Radio key={input.id} input={input} />;
+              case InputEnum.Submit:
+                return <Submit key={input.id} input={input} />;
+              default:
+                return null;
+            }
+          })}
+        </FormikForm>
+      </Formik>
+    </Container>
   );
 };
 

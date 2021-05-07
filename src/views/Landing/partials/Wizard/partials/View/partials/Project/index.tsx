@@ -14,26 +14,26 @@ const Project = (props: Props): JSX.Element => {
 
   const { onChange } = props;
 
-  const fields = useMemo(
+  const inputs = useMemo(
     () => [
       {
-        key: 'projectSize',
+        id: '0',
+        name: 'projectSize',
         label: t('components.form.label.projectSize'),
-        placeholder: '',
         type: InputEnum.Text,
         isRequired: true,
       },
       {
-        key: 'projectTiming',
+        id: '1',
+        name: 'projectTiming',
         label: t('components.form.label.projectTiming'),
-        placeholder: '',
         type: InputEnum.Text,
         isRequired: true,
       },
       {
-        key: 'projectStart',
+        id: '2',
+        name: 'projectStart',
         label: t('components.form.label.projectStart'),
-        placeholder: '',
         type: InputEnum.Text,
         isRequired: true,
       },
@@ -44,7 +44,7 @@ const Project = (props: Props): JSX.Element => {
   return (
     <Container>
       <Title>{t('components.wizard.views.project.title')}</Title>
-      <Form fields={fields} onSubmit={onChange} />
+      <Form inputs={inputs} onSubmit={onChange} />
     </Container>
   );
 };

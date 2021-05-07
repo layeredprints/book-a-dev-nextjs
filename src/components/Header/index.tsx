@@ -7,7 +7,7 @@ import Icon from '../Icon';
 import { Container, Content, Action, Title, Head } from './styles';
 
 interface Props {
-  onClickAction: () => void;
+  onClickAction?: () => void;
 }
 
 const Header = (props: Props): JSX.Element => {

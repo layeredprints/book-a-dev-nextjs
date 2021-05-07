@@ -14,24 +14,27 @@ const Sprints = (props: Props): JSX.Element => {
 
   const { onChange } = props;
 
-  const fields = useMemo(
+  const inputs = useMemo(
     () => [
       {
-        key: 'sprintPeriod',
+        id: '0',
+        name: 'sprintPeriod',
         label: t('components.form.label.sprintPeriod'),
         placeholder: t('components.form.placeholder.sprintPeriod'),
         type: InputEnum.Text,
         isRequired: true,
       },
       {
-        key: 'sprintCount',
+        id: '1',
+        name: 'sprintCount',
         label: t('components.form.label.sprintCount'),
         placeholder: t('components.form.placeholder.sprintCount'),
         type: InputEnum.Text,
         isRequired: true,
       },
       {
-        key: 'sprintStart',
+        id: '2',
+        name: 'sprintStart',
         label: t('components.form.label.sprintStart'),
         placeholder: t('components.form.placeholder.sprintStart'),
         type: InputEnum.Text,
@@ -44,7 +47,7 @@ const Sprints = (props: Props): JSX.Element => {
   return (
     <Container>
       <Title>{t('components.wizard.views.sprints.title')}</Title>
-      <Form fields={fields} onSubmit={onChange} />
+      <Form inputs={inputs} onSubmit={onChange} />
     </Container>
   );
 };

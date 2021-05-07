@@ -14,19 +14,18 @@ const Skills = (props: Props): JSX.Element => {
 
   const { onChange } = props;
 
-  const fields = useMemo(
+  const inputs = useMemo(
     () => [
       {
-        key: 'skills',
-        label: '',
-        placeholder: '',
+        id: '0',
+        name: 'skills',
         type: InputEnum.Text,
         isRequired: true,
       },
       {
-        key: 'skillsExtra',
+        id: '1',
+        name: 'skillsExtra',
         label: t('components.form.label.skillsExtra'),
-        placeholder: '',
         type: InputEnum.Text,
         isRequired: true,
       },
@@ -37,7 +36,7 @@ const Skills = (props: Props): JSX.Element => {
   return (
     <Container>
       <Title>{t('components.wizard.views.project.title')}</Title>
-      <Form fields={fields} onSubmit={onChange} />
+      <Form inputs={inputs} onSubmit={onChange} />
     </Container>
   );
 };

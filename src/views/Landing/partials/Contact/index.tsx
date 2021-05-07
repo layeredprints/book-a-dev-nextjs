@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Form from 'src/components/Form';
@@ -14,31 +14,40 @@ interface Props {
 
 const Contact = (props: Props): JSX.Element => {
   const { onSubmitData, contactRef } = props;
-  const [error] = useState('');
   const { t } = useTranslation();
 
-  const fields = useMemo(
+  const inputs = useMemo(
     () => [
       {
-        key: 'name',
+        id: '0',
+        name: 'name',
+        type: InputEnum.Text,
+        isRequired: true,
         label: t('components.form.label.name'),
         placeholder: t('components.form.placeholder.name'),
-        type: InputEnum.Text,
-        isRequired: true,
       },
       {
-        key: 'email',
+        id: '1',
+        name: 'email',
+        type: InputEnum.Text,
+        isRequired: true,
         label: t('components.form.label.email'),
         placeholder: t('components.form.placeholder.email'),
-        type: InputEnum.Text,
-        isRequired: true,
       },
       {
-        key: 'question',
-        label: t('components.form.label.question'),
-        placeholder: t('components.form.placeholder.question'),
+        id: '2',
+        name: 'question',
         type: InputEnum.Text,
         isRequired: true,
+        label: t('components.form.label.question'),
+        placeholder: t('components.form.placeholder.question'),
+      },
+      {
+        id: '3',
+        name: 'submit',
+        type: InputEnum.Submit,
+        isRequired: true,
+        value: t('labels.submit'),
       },
     ],
     [t],
@@ -49,12 +58,7 @@ const Contact = (props: Props): JSX.Element => {
       <Container>
         <Content>
           <Title>{t('views.home.form.title')}</Title>
-          <Form
-            fields={fields}
-            onSubmit={onSubmitData}
-            requestError={error}
-            submitLabel={t('labels.submit')}
-          />
+          <Form inputs={inputs} onSubmit={onSubmitData} />
         </Content>
       </Container>
     </Section>

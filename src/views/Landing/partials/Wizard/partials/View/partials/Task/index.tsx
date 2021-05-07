@@ -14,12 +14,11 @@ const Task = (props: Props): JSX.Element => {
 
   const { onChange } = props;
 
-  const fields = useMemo(
+  const inputs = useMemo(
     () => [
       {
-        key: 'taskType',
-        label: '',
-        placeholder: '',
+        id: '0',
+        name: 'taskType',
         type: InputEnum.Text,
         isRequired: true,
       },
@@ -30,7 +29,7 @@ const Task = (props: Props): JSX.Element => {
   return (
     <Container>
       <Title>{t('components.wizard.views.task.title')}</Title>
-      <Form fields={fields} onSubmit={onChange} />
+      <Form inputs={inputs} onSubmit={onChange} />
     </Container>
   );
 };

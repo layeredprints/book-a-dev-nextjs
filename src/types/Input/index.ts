@@ -1,8 +1,17 @@
+// export type SelectOptionType = {
+//   id: string;
+//   value: string;
+//   label: string;
+// };
+
+export type InputValueType = string | undefined;
+
 export type InputType = {
-  key: string;
-  label: string;
-  placeholder: string;
+  id: string;
+  name: string;
   type: string;
-  isRequired: boolean;
-  value?: string;
+  value?: InputValueType;
+  isRequired?: boolean;
+  label?: string | undefined;
+  placeholder?: string;
 };

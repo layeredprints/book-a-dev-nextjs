@@ -5,13 +5,14 @@ import { Container } from './styles';
 interface Props {
   children: any;
   onClick?: () => void;
+  type?: any;
 }
 
 const PrimaryButton = React.forwardRef((props: Props, ref: any) => {
-  const { children, onClick } = props;
+  const { children, onClick, type } = props;
 
   return (
-    <Container onClick={onClick} ref={ref}>
+    <Container onClick={onClick} type={type} ref={ref}>
       {children}
     </Container>
   );

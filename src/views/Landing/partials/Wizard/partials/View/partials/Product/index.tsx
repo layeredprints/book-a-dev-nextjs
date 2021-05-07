@@ -14,17 +14,17 @@ const Product = (props: Props): JSX.Element => {
 
   const { onChange } = props;
 
-  const fields = useMemo(
+  const inputs = useMemo(
     () => [
       {
-        key: 'productType',
-        label: '',
-        placeholder: '',
+        id: '0',
+        name: 'productType',
         type: InputEnum.Text,
         isRequired: true,
       },
       {
-        key: 'productExample',
+        id: '1',
+        name: 'productExample',
         label: t('components.form.label.productExample'),
         placeholder: t('components.form.placeholder.productExample'),
         type: InputEnum.Text,
@@ -37,7 +37,7 @@ const Product = (props: Props): JSX.Element => {
   return (
     <Container>
       <Title>{t('components.wizard.views.product.title')}</Title>
-      <Form fields={fields} onSubmit={onChange} />
+      <Form inputs={inputs} onSubmit={onChange} />
     </Container>
   );
 };

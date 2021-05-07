@@ -10,7 +10,7 @@ import { Container, Content } from './styles';
 
 interface Props {
   children: any;
-  onClickAction: () => void;
+  onClickAction?: () => void;
 }
 
 const Layout = (props: Props): JSX.Element => {

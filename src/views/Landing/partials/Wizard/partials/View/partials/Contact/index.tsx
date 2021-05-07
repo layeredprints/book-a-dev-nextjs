@@ -14,24 +14,27 @@ const Contact = (props: Props): JSX.Element => {
 
   const { onChange } = props;
 
-  const fields = useMemo(
+  const inputs = useMemo(
     () => [
       {
-        key: 'phone',
+        id: '0',
+        name: 'phone',
         label: t('components.form.label.phone'),
         placeholder: t('components.form.placeholder.phone'),
         type: InputEnum.Text,
         isRequired: true,
       },
       {
-        key: 'email',
+        id: '1',
+        name: 'email',
         label: t('components.form.label.email'),
         placeholder: t('components.form.placeholder.email'),
         type: InputEnum.Text,
         isRequired: true,
       },
       {
-        key: 'info',
+        id: '2',
+        name: 'info',
         label: t('components.form.label.info'),
         placeholder: t('components.form.placeholder.info'),
         type: InputEnum.Text,
@@ -44,7 +47,7 @@ const Contact = (props: Props): JSX.Element => {
   return (
     <Container>
       <Title>{t('components.wizard.views.contact.title')}</Title>
-      <Form fields={fields} onSubmit={onChange} />
+      <Form inputs={inputs} onSubmit={onChange} />
     </Container>
   );
 };

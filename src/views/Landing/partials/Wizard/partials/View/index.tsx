@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import WizardViewEnum from 'src/enums/WizardView';
@@ -26,31 +26,35 @@ const WizardView = (props: Props): JSX.Element => {
   const { currentView, onClickPrevious, onClickNext, isFirstStep } = props;
   const { t } = useTranslation();
 
-  const [value, setValue] = useState();
-
   let view;
+
+  const handleClickNextView = (values: any) => {
+    if (values) {
+      onClickNext(values);
+    }
+  };
 
   switch (currentView) {
     case WizardViewEnum.Stack:
-      view = <Stack onChange={setValue} />;
+      view = <Stack onChange={handleClickNextView} />;
       break;
     case WizardViewEnum.Sprints:
-      view = <Sprints onChange={setValue} />;
+      view = <Sprints onChange={handleClickNextView} />;
       break;
     case WizardViewEnum.Product:
-      view = <Product onChange={setValue} />;
+      view = <Product onChange={handleClickNextView} />;
       break;
     case WizardViewEnum.Task:
-      view = <Task onChange={setValue} />;
+      view = <Task onChange={handleClickNextView} />;
       break;
     case WizardViewEnum.Project:
-      view = <Project onChange={setValue} />;
+      view = <Project onChange={handleClickNextView} />;
       break;
     case WizardViewEnum.Skills:
-      view = <Skills onChange={setValue} />;
+      view = <Skills onChange={handleClickNextView} />;
       break;
     case WizardViewEnum.Contact:
-      view = <Contact onChange={setValue} />;
+      view = <Contact onChange={handleClickNextView} />;
       break;
   }
 
@@ -63,9 +67,6 @@ const WizardView = (props: Props): JSX.Element => {
             {t('labels.previous')}
           </Button.Secondary>
         )}
-        <Button.Primary onClick={() => onClickNext(value)}>
-          {t('labels.next')}
-        </Button.Primary>
       </Actions>
     </Container>
   );

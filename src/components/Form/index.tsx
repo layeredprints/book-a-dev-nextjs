@@ -18,10 +18,11 @@ import { Container } from './styles';
 interface Props {
   inputs: InputType[];
   onSubmit: (values: any) => void;
+  submitLabel?: string;
 }
 
 const Form = (props: Props): JSX.Element => {
-  const { inputs, onSubmit } = props;
+  const { inputs, onSubmit, submitLabel } = props;
 
   const initialValues = useMemo(() => {
     const values: any = {};
@@ -69,7 +70,9 @@ const Form = (props: Props): JSX.Element => {
               case InputEnum.Radio:
                 return <Radio key={input.id} input={input} />;
               case InputEnum.Submit:
-                return <Submit key={input.id} input={input} />;
+                return (
+                  <Submit key={input.id} input={input} label={submitLabel} />
+                );
               default:
                 return null;
             }

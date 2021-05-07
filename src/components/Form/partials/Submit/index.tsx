@@ -8,14 +8,18 @@ import Button from 'src/components/Button';
 
 interface Props {
   input: InputType;
+  label: string;
 }
 
 const SubmitInput = (props: Props): JSX.Element => {
-  const { value } = props.input;
+  const { input, label } = props;
+  const { value } = input;
 
   return (
     <Container>
-      <Button.Primary type={InputEnum.Submit}>{value}</Button.Primary>
+      <Button.Primary type={InputEnum.Submit}>
+        {label ? label : value}
+      </Button.Primary>
     </Container>
   );
 };

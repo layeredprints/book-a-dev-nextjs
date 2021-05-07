@@ -40,6 +40,13 @@ const Contact = (props: Props): JSX.Element => {
         type: InputEnum.Text,
         isRequired: true,
       },
+      {
+        id: 'X',
+        name: 'submit',
+        type: InputEnum.Submit,
+        isRequired: true,
+        value: t('labels.submit'),
+      },
     ],
     [t],
   );
@@ -47,7 +54,11 @@ const Contact = (props: Props): JSX.Element => {
   return (
     <Container>
       <Title>{t('components.wizard.views.contact.title')}</Title>
-      <Form inputs={inputs} onSubmit={onChange} />
+      <Form
+        inputs={inputs}
+        onSubmit={onChange}
+        submitLabel={t('labels.next')}
+      />
     </Container>
   );
 };

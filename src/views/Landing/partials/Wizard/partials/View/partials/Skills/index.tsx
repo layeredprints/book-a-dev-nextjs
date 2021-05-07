@@ -29,6 +29,13 @@ const Skills = (props: Props): JSX.Element => {
         type: InputEnum.Text,
         isRequired: true,
       },
+      {
+        id: 'X',
+        name: 'submit',
+        type: InputEnum.Submit,
+        isRequired: true,
+        value: t('labels.submit'),
+      },
     ],
     [t],
   );
@@ -36,7 +43,11 @@ const Skills = (props: Props): JSX.Element => {
   return (
     <Container>
       <Title>{t('components.wizard.views.project.title')}</Title>
-      <Form inputs={inputs} onSubmit={onChange} />
+      <Form
+        inputs={inputs}
+        onSubmit={onChange}
+        submitLabel={t('labels.next')}
+      />
     </Container>
   );
 };

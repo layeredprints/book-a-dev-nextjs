@@ -147,7 +147,21 @@
           "title": "Project"
         },
         "skills": {
-          "title": "What skills do we need?"
+          "title": "What skills do we need?",
+          "list": {
+            "webDevelopment": "Web Development",
+            "mobileDevelopment": "Mobile Development",
+            "design": "Design (UX/UI)",
+            "businessAnalyse": "Business Analyse",
+            "functionalAnalyse": "Functionele Analyse",
+            "productManagement": "Product Management",
+            "blockchain": "Blockchain",
+            "bigData": "Big Data",
+            "ai": "Artificial Intelligence",
+            "machineLearning": "Machine Learning",
+            "chatbots": "Chat Bots",
+            "3dprinting": "3D Printing"
+          }
         }
       }
     }

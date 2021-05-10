@@ -147,7 +147,21 @@
           "title": "Project"
         },
         "skills": {
-          "title": "Welke vaardigheden moeten wij hebben?"
+          "title": "Welke vaardigheden moeten wij hebben?",
+          "list": {
+            "webDevelopment": "Web Development",
+            "mobileDevelopment": "Mobile Development",
+            "design": "Design (UX/UI)",
+            "businessAnalyse": "Business Analyse",
+            "functionalAnalyse": "Functionele Analyse",
+            "productManagement": "Product Management",
+            "blockchain": "Blockchain",
+            "bigData": "Big Data",
+            "ai": "Artificial Intelligence",
+            "machineLearning": "Machine Learning",
+            "chatbots": "Chat Bots",
+            "3dprinting": "3D Printing"
+          }
         }
       }
     }

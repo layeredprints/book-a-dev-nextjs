@@ -1,31 +1,30 @@
 import React from 'react';
 import { Field } from 'formik';
 
-import { InputType } from 'src/types/Input';
 import InputEnum from 'src/enums/Input';
 
 import { Container, Label } from './styles';
 
 interface Props {
-  input: InputType;
+  name: string;
+  isRequired: boolean;
+  label?: string;
 }
 
-const TextInput = (props: Props): JSX.Element => {
-  const { input } = props;
-  const { name, isRequired = false, label, placeholder } = input;
+const DateInput = (props: Props): JSX.Element => {
+  const { name, isRequired = false, label } = props;
 
   return (
     <Container>
       {label && <Label htmlFor={name}>{label}</Label>}
       <Field
-        type={InputEnum.Text}
+        type={InputEnum.Date}
         id={name}
         name={name}
         required={isRequired}
-        placeholder={placeholder}
       />
     </Container>
   );
 };
 
-export default TextInput;
+export default DateInput;

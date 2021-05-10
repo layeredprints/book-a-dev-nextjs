@@ -17,7 +17,7 @@ const Footer = (): JSX.Element => {
           src="assets/images/logo.png"
           alt="ballistix-logo"
           width="100"
-          height="24"
+          height="39"
         />
         <Actions>
           <Link href={externals.facebook}>

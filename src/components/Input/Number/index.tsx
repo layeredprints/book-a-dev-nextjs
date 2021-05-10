@@ -1,24 +1,25 @@
 import React from 'react';
 import { Field } from 'formik';
 
-import { InputType } from 'src/types/Input';
 import InputEnum from 'src/enums/Input';
 
 import { Container, Label } from './styles';
 
 interface Props {
-  input: InputType;
+  name: string;
+  isRequired: boolean;
+  label?: string;
+  placeholder?: string;
 }
 
-const EmailInput = (props: Props): JSX.Element => {
-  const { input } = props;
-  const { name, isRequired = false, label, placeholder } = input;
+const NumberInput = (props: Props): JSX.Element => {
+  const { name, isRequired = false, label, placeholder } = props;
 
   return (
     <Container>
       {label && <Label htmlFor={name}>{label}</Label>}
       <Field
-        type={InputEnum.Email}
+        type={InputEnum.Number}
         id={name}
         name={name}
         required={isRequired}
@@ -28,4 +29,4 @@ const EmailInput = (props: Props): JSX.Element => {
   );
 };
 
-export default EmailInput;
+export default NumberInput;

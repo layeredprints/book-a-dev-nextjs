@@ -1,30 +1,32 @@
 import React from 'react';
 import { Field } from 'formik';
 
-import { InputType } from 'src/types/Input';
 import InputEnum from 'src/enums/Input';
 
 import { Container, Label } from './styles';
 
 interface Props {
-  input: InputType;
+  name: string;
+  isRequired: boolean;
+  label?: string;
+  placeholder?: string;
 }
 
-const RadioInput = (props: Props): JSX.Element => {
-  const { input } = props;
-  const { name, value, isRequired = false, label } = input;
+const EmailInput = (props: Props): JSX.Element => {
+  const { name, isRequired, label, placeholder } = props;
 
   return (
     <Container>
       {label && <Label htmlFor={name}>{label}</Label>}
       <Field
-        type={InputEnum.Radio}
+        type={InputEnum.Email}
+        id={name}
         name={name}
-        value={value}
         required={isRequired}
+        placeholder={placeholder}
       />
     </Container>
   );
 };
 
-export default RadioInput;
+export default EmailInput;

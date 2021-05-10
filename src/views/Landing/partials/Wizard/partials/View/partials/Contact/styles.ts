@@ -2,10 +2,27 @@ import { fonts } from 'src/styles';
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 1100px;
-
   display: flex;
   flex-direction: column;
+`;
+
+export const Fieldset = styled.fieldset`
+  border: none;
+
+  &:nth-of-type(1) {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+`;
+
+export const Actions = styled.div`
+  display: flex;
+
+  button {
+    margin: 0.5rem;
+  }
 `;
 
 export const Title = styled.label`

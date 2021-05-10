@@ -1,64 +1,70 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import Button from 'src/components/Button';
 import Form from 'src/components/Form';
-import InputEnum from 'src/enums/Input';
+import Input from 'src/components/Input';
 
-import { Container, Title } from './styles';
+import { Container, Title, Fieldset, Actions } from './styles';
 
 interface Props {
-  onChange: (data: any) => void;
+  onPrev: () => void;
+  onNext: (data: any) => void;
 }
 
 const Sprints = (props: Props): JSX.Element => {
   const { t } = useTranslation();
 
-  const { onChange } = props;
+  const { onPrev, onNext } = props;
 
-  const inputs = useMemo(
-    () => [
-      {
-        id: '0',
-        name: 'sprintPeriod',
-        label: t('components.form.label.sprintPeriod'),
-        placeholder: t('components.form.placeholder.sprintPeriod'),
-        type: InputEnum.Text,
-        isRequired: true,
-      },
-      {
-        id: '1',
-        name: 'sprintCount',
-        label: t('components.form.label.sprintCount'),
-        placeholder: t('components.form.placeholder.sprintCount'),
-        type: InputEnum.Text,
-        isRequired: true,
-      },
-      {
-        id: '2',
-        name: 'sprintStart',
-        label: t('components.form.label.sprintStart'),
-        placeholder: t('components.form.placeholder.sprintStart'),
-        type: InputEnum.Text,
-        isRequired: true,
-      },
-      {
-        id: 'X',
-        name: 'submit',
-        type: InputEnum.Submit,
-        isRequired: true,
-        value: t('labels.submit'),
-      },
-    ],
-    [t],
+  const initialValues = useMemo(
+    () => ({
+      ['sprintPeriod']: '',
+      ['sprintCount']: 0,
+      ['sprintStart']: '',
+    }),
+    [],
+  );
+
+  const actions = useMemo(
+    () => (
+      <Actions>
+        <Button.Secondary onClick={onPrev}>
+          {t('labels.previous')}
+        </Button.Secondary>
+        <Input.Submit label={t('labels.next')} />
+      </Actions>
+    ),
+    [onPrev, t],
   );
 
   return (
     <Container>
       <Title>{t('components.wizard.views.sprints.title')}</Title>
-      <Form
-        inputs={inputs}
-        onSubmit={onChange}
-        submitLabel={t('labels.next')}
-      />
+      <Form initialValues={initialValues} onSubmit={onNext} actions={actions}>
+        <Fieldset>
+          <Input.Text
+            name="sprintPeriod"
+            isRequired={true}
+            label={t('components.form.label.sprintPeriod')}
+            placeholder={t('components.form.placeholder.sprintPeriod')}
+          />
+        </Fieldset>
+        <Fieldset>
+          <Input.Number
+            name="sprintCount"
+            isRequired={true}
+            label={t('components.form.label.sprintCount')}
+            placeholder={t('components.form.placeholder.sprintCount')}
+          />
+        </Fieldset>
+        <Fieldset>
+          <Input.Date
+            name="sprintStart"
+            isRequired={true}
+            label={t('components.form.label.sprintStart')}
+          />
+        </Fieldset>
+      </Form>
     </Container>
   );
 };

@@ -16,39 +16,41 @@ const Contact = (props: Props): JSX.Element => {
   const { onSubmitData, contactRef } = props;
   const { t } = useTranslation();
 
-  const inputs = useMemo(
+  const fields = useMemo(
     () => [
-      {
-        id: '0',
-        name: 'name',
-        type: InputEnum.Text,
-        isRequired: true,
-        label: t('components.form.label.name'),
-        placeholder: t('components.form.placeholder.name'),
-      },
-      {
-        id: '1',
-        name: 'email',
-        type: InputEnum.Email,
-        isRequired: true,
-        label: t('components.form.label.email'),
-        placeholder: t('components.form.placeholder.email'),
-      },
-      {
-        id: '2',
-        name: 'question',
-        type: InputEnum.Text,
-        isRequired: true,
-        label: t('components.form.label.question'),
-        placeholder: t('components.form.placeholder.question'),
-      },
-      {
-        id: '3',
-        name: 'submit',
-        type: InputEnum.Submit,
-        isRequired: true,
-        value: t('labels.submit'),
-      },
+      [
+        {
+          id: '0',
+          name: 'name',
+          type: InputEnum.Text,
+          isRequired: true,
+          label: t('components.form.label.name'),
+          placeholder: t('components.form.placeholder.name'),
+        },
+        {
+          id: '1',
+          name: 'email',
+          type: InputEnum.Email,
+          isRequired: true,
+          label: t('components.form.label.email'),
+          placeholder: t('components.form.placeholder.email'),
+        },
+        {
+          id: '2',
+          name: 'question',
+          type: InputEnum.Text,
+          isRequired: true,
+          label: t('components.form.label.question'),
+          placeholder: t('components.form.placeholder.question'),
+        },
+        {
+          id: '3',
+          name: 'submit',
+          type: InputEnum.Submit,
+          isRequired: true,
+          value: t('labels.submit'),
+        },
+      ],
     ],
     [t],
   );
@@ -58,7 +60,7 @@ const Contact = (props: Props): JSX.Element => {
       <Container>
         <Content>
           <Title>{t('views.home.form.title')}</Title>
-          <Form inputs={inputs} onSubmit={onSubmitData} />
+          <Form fields={fields} onSubmit={onSubmitData} />
         </Content>
       </Container>
     </Section>

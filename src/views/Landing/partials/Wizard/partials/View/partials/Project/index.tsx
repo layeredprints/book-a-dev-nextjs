@@ -1,61 +1,106 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import Button from 'src/components/Button';
 import Form from 'src/components/Form';
-import InputEnum from 'src/enums/Input';
+import Input from 'src/components/Input';
 
-import { Container, Title } from './styles';
+import { Container, Fieldset, Title, Actions, Label } from './styles';
 
 interface Props {
-  onChange: (data: any) => void;
+  onPrev: () => void;
+  onNext: (data: any) => void;
 }
 
 const Project = (props: Props): JSX.Element => {
   const { t } = useTranslation();
 
-  const { onChange } = props;
+  const { onPrev, onNext } = props;
 
-  const inputs = useMemo(
-    () => [
-      {
-        id: '0',
-        name: 'projectSize',
-        label: t('components.form.label.projectSize'),
-        type: InputEnum.Text,
-        isRequired: true,
-      },
-      {
-        id: '1',
-        name: 'projectTiming',
-        label: t('components.form.label.projectTiming'),
-        type: InputEnum.Text,
-        isRequired: true,
-      },
-      {
-        id: '2',
-        name: 'projectStart',
-        label: t('components.form.label.projectStart'),
-        type: InputEnum.Text,
-        isRequired: true,
-      },
-      {
-        id: 'X',
-        name: 'submit',
-        type: InputEnum.Submit,
-        isRequired: true,
-        value: t('labels.submit'),
-      },
-    ],
-    [t],
+  const initialValues = useMemo(
+    () => ({
+      ['projectSize']: '',
+      ['projectTiming']: '',
+      ['projectStart']: '',
+    }),
+    [],
+  );
+
+  const actions = useMemo(
+    () => (
+      <Actions>
+        <Button.Secondary onClick={onPrev}>
+          {t('labels.previous')}
+        </Button.Secondary>
+        <Input.Submit label={t('labels.next')} />
+      </Actions>
+    ),
+    [onPrev, t],
   );
 
   return (
     <Container>
       <Title>{t('components.wizard.views.project.title')}</Title>
-      <Form
-        inputs={inputs}
-        onSubmit={onChange}
-        submitLabel={t('labels.next')}
-      />
+      <Form initialValues={initialValues} onSubmit={onNext} actions={actions}>
+        <Fieldset>
+          <Label>Hoe groot is je project?</Label>
+          <div>
+            <Input.Radio
+              name="projectSize"
+              value="Small"
+              label="Small"
+              icon="assets/glyphs/project-size-small.svg"
+              isRequired={true}
+            />
+            <Input.Radio
+              name="projectSize"
+              value="Medium"
+              label="Medium"
+              icon="assets/glyphs/project-size-medium.svg"
+              isRequired={true}
+            />
+            <Input.Radio
+              name="projectSize"
+              value="Big"
+              label="Big"
+              icon="assets/glyphs/project-size-big.svg"
+              isRequired={true}
+            />
+          </div>
+        </Fieldset>
+        <Fieldset>
+          <Label>Hoe groot is je project?</Label>
+          <div>
+            <Input.Radio
+              name="projectTiming"
+              value="Slow"
+              label="Slow"
+              icon="assets/glyphs/project-size-small.svg"
+              isRequired={true}
+            />
+            <Input.Radio
+              name="projectTiming"
+              value="Medium"
+              label="Medium"
+              icon="assets/glyphs/project-size-medium.svg"
+              isRequired={true}
+            />
+            <Input.Radio
+              name="projectTiming"
+              value="Fast"
+              label="Fast"
+              icon="assets/glyphs/project-size-big.svg"
+              isRequired={true}
+            />
+          </div>
+        </Fieldset>
+        <Fieldset>
+          <Input.Date
+            name="projectStart"
+            isRequired={true}
+            label={t('components.form.label.projectStart')}
+          />
+        </Fieldset>
+      </Form>
     </Container>
   );
 };

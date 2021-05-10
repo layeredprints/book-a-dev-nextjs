@@ -8,8 +8,13 @@ export const Content = styled.div``;
 export const List = styled.ul`
   display: flex;
   align-items: center;
-
   flex-wrap: wrap;
+
+  justify-content: center;
+
+  li {
+    margin: 1rem;
+  }
 
   @media (max-width: ${breakpoints.sm}) {
     flex-direction: column;
@@ -21,7 +26,6 @@ export const List = styled.ul`
 
   @media (min-width: ${breakpoints.md}) {
     flex-direction: row;
-    justify-content: space-between;
   }
 `;
 

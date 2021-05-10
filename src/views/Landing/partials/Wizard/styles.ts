@@ -103,7 +103,8 @@ export const Label = styled.p`
 export const Paragraph = styled.p`
   margin-top: 3rem;
 
-  width: 25rem;
+  max-width: 25rem;
+  width: 100%;
 
   text-align: center;
   font-size: 18px;

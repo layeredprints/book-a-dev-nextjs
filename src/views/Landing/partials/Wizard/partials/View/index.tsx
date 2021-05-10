@@ -1,8 +1,6 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
 import WizardViewEnum from 'src/enums/WizardView';
-import Button from 'src/components/Button';
 
 import {
   Stack,
@@ -13,7 +11,7 @@ import {
   Skills,
   Contact,
 } from './partials';
-import { Container, Content, Actions } from './styles';
+import { Container, Content } from './styles';
 
 interface Props {
   currentView: string;
@@ -23,12 +21,11 @@ interface Props {
 }
 
 const WizardView = (props: Props): JSX.Element => {
-  const { currentView, onClickPrevious, onClickNext, isFirstStep } = props;
-  const { t } = useTranslation();
+  const { currentView, onClickPrevious, onClickNext } = props;
 
   let view;
 
-  const handleClickNextView = (values: any) => {
+  const handleClickNext = (values: any) => {
     if (values) {
       onClickNext(values);
     }
@@ -36,38 +33,31 @@ const WizardView = (props: Props): JSX.Element => {
 
   switch (currentView) {
     case WizardViewEnum.Stack:
-      view = <Stack onChange={handleClickNextView} />;
+      view = <Stack onNext={handleClickNext} />;
       break;
     case WizardViewEnum.Sprints:
-      view = <Sprints onChange={handleClickNextView} />;
+      view = <Sprints onPrev={onClickPrevious} onNext={handleClickNext} />;
       break;
     case WizardViewEnum.Product:
-      view = <Product onChange={handleClickNextView} />;
+      view = <Product onNext={handleClickNext} />;
       break;
     case WizardViewEnum.Task:
-      view = <Task onChange={handleClickNextView} />;
+      view = <Task onPrev={onClickPrevious} onNext={handleClickNext} />;
       break;
     case WizardViewEnum.Project:
-      view = <Project onChange={handleClickNextView} />;
+      view = <Project onPrev={onClickPrevious} onNext={handleClickNext} />;
       break;
     case WizardViewEnum.Skills:
-      view = <Skills onChange={handleClickNextView} />;
+      view = <Skills onPrev={onClickPrevious} onNext={handleClickNext} />;
       break;
     case WizardViewEnum.Contact:
-      view = <Contact onChange={handleClickNextView} />;
+      view = <Contact onPrev={onClickPrevious} onNext={handleClickNext} />;
       break;
   }
 
   return (
     <Container>
       <Content>{view}</Content>
-      <Actions>
-        {!isFirstStep && (
-          <Button.Secondary onClick={onClickPrevious}>
-            {t('labels.previous')}
-          </Button.Secondary>
-        )}
-      </Actions>
     </Container>
   );
 };

@@ -1,46 +1,75 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import Button from 'src/components/Button';
 import Form from 'src/components/Form';
-import InputEnum from 'src/enums/Input';
+import Input from 'src/components/Input';
 
-import { Container, Title } from './styles';
+import { Container, Fieldset, Title, Actions } from './styles';
 
 interface Props {
-  onChange: (data: any) => void;
+  onPrev: () => void;
+  onNext: (data: any) => void;
 }
 
 const Task = (props: Props): JSX.Element => {
   const { t } = useTranslation();
 
-  const { onChange } = props;
+  const { onPrev, onNext } = props;
 
-  const inputs = useMemo(
-    () => [
-      {
-        id: '0',
-        name: 'taskType',
-        type: InputEnum.Text,
-        isRequired: true,
-      },
-      {
-        id: 'X',
-        name: 'submit',
-        type: InputEnum.Submit,
-        isRequired: true,
-        value: t('labels.submit'),
-      },
-    ],
-    [t],
+  const initialValues = useMemo(
+    () => ({
+      ['taskType']: [],
+    }),
+    [],
+  );
+
+  const actions = useMemo(
+    () => (
+      <Actions>
+        <Button.Secondary onClick={onPrev}>
+          {t('labels.previous')}
+        </Button.Secondary>
+        <Input.Submit label={t('labels.next')} />
+      </Actions>
+    ),
+    [onPrev, t],
   );
 
   return (
     <Container>
       <Title>{t('components.wizard.views.task.title')}</Title>
-      <Form
-        inputs={inputs}
-        onSubmit={onChange}
-        submitLabel={t('labels.next')}
-      />
+      <Form initialValues={initialValues} onSubmit={onNext} actions={actions}>
+        <Fieldset>
+          <Input.Checkbox
+            name="taskType"
+            value="Requirements"
+            label="Requirements"
+            icon="assets/glyphs/deliveries-requirements.svg"
+            isRequired={false}
+          />
+          <Input.Checkbox
+            name="taskType"
+            value="Design"
+            label="Design"
+            icon="assets/glyphs/deliveries-design.svg"
+            isRequired={false}
+          />
+          <Input.Checkbox
+            name="taskType"
+            value="Front-end"
+            label="Front-end"
+            icon="assets/glyphs/deliveries-frontend.svg"
+            isRequired={false}
+          />
+          <Input.Checkbox
+            name="taskType"
+            value="Back-end"
+            label="Back-end"
+            icon="assets/glyphs/deliveries-backend.svg"
+            isRequired={false}
+          />
+        </Fieldset>
+      </Form>
     </Container>
   );
 };

@@ -6,7 +6,7 @@ export const Container = styled.div`
   align-items: center;
 
   input {
-    width: 45rem;
+    width: 90%;
   }
 `;
 

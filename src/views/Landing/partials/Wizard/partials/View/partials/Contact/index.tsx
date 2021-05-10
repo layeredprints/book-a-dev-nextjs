@@ -1,64 +1,72 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import Form from 'src/components/Form';
-import InputEnum from 'src/enums/Input';
 
-import { Container, Title } from './styles';
+import Button from 'src/components/Button';
+import Form from 'src/components/Form';
+import Input from 'src/components/Input';
+
+import { Container, Fieldset, Title, Actions } from './styles';
 
 interface Props {
-  onChange: (data: any) => void;
+  onPrev: () => void;
+  onNext: (data: any) => void;
 }
 
 const Contact = (props: Props): JSX.Element => {
   const { t } = useTranslation();
 
-  const { onChange } = props;
+  const { onPrev, onNext } = props;
 
-  const inputs = useMemo(
-    () => [
-      {
-        id: '0',
-        name: 'phone',
-        label: t('components.form.label.phone'),
-        placeholder: t('components.form.placeholder.phone'),
-        type: InputEnum.Text,
-        isRequired: true,
-      },
-      {
-        id: '1',
-        name: 'email',
-        label: t('components.form.label.email'),
-        placeholder: t('components.form.placeholder.email'),
-        type: InputEnum.Text,
-        isRequired: true,
-      },
-      {
-        id: '2',
-        name: 'info',
-        label: t('components.form.label.info'),
-        placeholder: t('components.form.placeholder.info'),
-        type: InputEnum.Text,
-        isRequired: true,
-      },
-      {
-        id: 'X',
-        name: 'submit',
-        type: InputEnum.Submit,
-        isRequired: true,
-        value: t('labels.submit'),
-      },
-    ],
-    [t],
+  const initialValues = useMemo(
+    () => ({
+      ['phone']: '',
+      ['email']: '',
+      ['info']: '',
+    }),
+    [],
+  );
+
+  const actions = useMemo(
+    () => (
+      <Actions>
+        <Button.Secondary onClick={onPrev}>
+          {t('labels.previous')}
+        </Button.Secondary>
+        <Input.Submit label="finish" />
+      </Actions>
+    ),
+    [onPrev, t],
   );
 
   return (
     <Container>
       <Title>{t('components.wizard.views.contact.title')}</Title>
-      <Form
-        inputs={inputs}
-        onSubmit={onChange}
-        submitLabel={t('labels.next')}
-      />
+      <Form initialValues={initialValues} onSubmit={onNext} actions={actions}>
+        <Fieldset>
+          <Input.Tel
+            name="phone"
+            isRequired={true}
+            label={t('components.form.label.phone')}
+            placeholder={t('components.form.placeholder.phone')}
+          />
+        </Fieldset>
+        <Fieldset>
+          <Input.Email
+            name="email"
+            isRequired={true}
+            label={t('components.form.label.email')}
+            placeholder={t('components.form.placeholder.email')}
+          />
+        </Fieldset>
+        <Fieldset>
+          <Input.Text
+            name="info"
+            isRequired={true}
+            label={t('components.form.label.info')}
+            placeholder={t('components.form.placeholder.info')}
+          />
+        </Fieldset>
+      </Form>
     </Container>
   );
 };

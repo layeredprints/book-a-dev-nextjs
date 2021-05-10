@@ -1,4 +1,4 @@
-import { fonts } from 'src/styles';
+import { breakpoints, fonts } from 'src/styles';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -10,9 +10,6 @@ export const Container = styled.div`
 `;
 
 export const Head = styled.div`
-  width: 25rem;
-  height: 6rem;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,10 +19,24 @@ export const Head = styled.div`
   box-shadow: 0 20px 80px 0 ${(props) => props.theme.opacity.primary};
 
   background-color: ${(props) => props.theme.background.primary};
+
+  @media (max-width: ${breakpoints.sm}) {
+    width: 15rem;
+    height: 8rem;
+  }
+
+  @media (min-width: ${breakpoints.sm}) {
+    width: 25rem;
+    height: 6rem;
+  }
 `;
 
 export const Action = styled.div`
   margin: 1rem;
+
+  @media (max-width: ${breakpoints.sm}) {
+    margin: 0.5rem;
+  }
 
   &:hover {
     cursor: pointer;

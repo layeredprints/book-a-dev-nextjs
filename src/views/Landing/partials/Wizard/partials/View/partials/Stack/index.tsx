@@ -1,53 +1,107 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import Form from 'src/components/Form';
-import InputEnum from 'src/enums/Input';
+import Input from 'src/components/Input';
 
-import { Container, Title } from './styles';
+import { Container, Fieldset, Title, Actions } from './styles';
 interface Props {
-  onChange: (data: any) => void;
+  onNext: (data: any) => void;
 }
 
 const Stack = (props: Props): JSX.Element => {
   const { t } = useTranslation();
 
-  const { onChange } = props;
+  const { onNext } = props;
 
-  const inputs = useMemo(
-    () => [
-      {
-        id: '0',
-        name: 'stackTechnologies',
-        type: InputEnum.Text,
-        isRequired: true,
-      },
-      {
-        id: '1',
-        name: 'stackTechnologiesExtra',
-        label: t('components.form.label.stackTechnologiesExtra'),
-        placeholder: t('components.form.placeholder.stackTechnologiesExtra'),
-        type: InputEnum.Text,
-        isRequired: true,
-      },
-      {
-        id: 'X',
-        name: 'submit',
-        type: InputEnum.Submit,
-        isRequired: true,
-        value: t('labels.submit'),
-      },
-    ],
+  const initialValues = useMemo(
+    () => ({
+      ['stackTechnologies']: [],
+      ['stackTechnologiesExtra']: '',
+    }),
+    [],
+  );
+
+  const actions = useMemo(
+    () => (
+      <Actions>
+        <Input.Submit label={t('labels.next')} />
+      </Actions>
+    ),
     [t],
   );
 
   return (
     <Container>
       <Title>{t('components.wizard.views.stack.title')}</Title>
-      <Form
-        inputs={inputs}
-        onSubmit={onChange}
-        submitLabel={t('labels.next')}
-      />
+      <Form initialValues={initialValues} onSubmit={onNext} actions={actions}>
+        <Fieldset>
+          <Input.Checkbox
+            name="stackTechnologies"
+            value="Node.js"
+            label="Node.js"
+            icon="assets/glyphs/technologies-node.svg"
+            isRequired={false}
+          />
+          <Input.Checkbox
+            name="stackTechnologies"
+            value="PHP"
+            label="PHP"
+            icon="assets/glyphs/technologies-php.svg"
+            isRequired={false}
+          />
+          <Input.Checkbox
+            name="stackTechnologies"
+            value="C/C++"
+            label="C/C++"
+            icon="assets/glyphs/technologies-cplus.svg"
+            isRequired={false}
+          />
+          <Input.Checkbox
+            name="stackTechnologies"
+            value="C#"
+            label="C#"
+            icon="assets/glyphs/technologies-csharp.svg"
+            isRequired={false}
+          />
+          <Input.Checkbox
+            name="stackTechnologies"
+            value=".NET"
+            label=".NET"
+            icon="assets/glyphs/technologies-net.svg"
+            isRequired={false}
+          />
+          <Input.Checkbox
+            name="stackTechnologies"
+            value="React.js"
+            label="React.js"
+            icon="assets/glyphs/technologies-react.svg"
+            isRequired={false}
+          />
+          <Input.Checkbox
+            name="stackTechnologies"
+            value="Angular"
+            label="Angular"
+            icon="assets/glyphs/technologies-node.svg"
+            isRequired={false}
+          />
+          <Input.Checkbox
+            name="stackTechnologies"
+            value="Geen voorkeur"
+            label="Geen voorkeur"
+            isRequired={false}
+          />
+        </Fieldset>
+        <Fieldset>
+          <Input.Text
+            name="stackTechnologiesExtra"
+            isRequired={false}
+            label={t('components.form.label.stackTechnologiesExtra')}
+            placeholder={t(
+              'components.form.placeholder.stackTechnologiesExtra',
+            )}
+          />
+        </Fieldset>
+      </Form>
     </Container>
   );
 };

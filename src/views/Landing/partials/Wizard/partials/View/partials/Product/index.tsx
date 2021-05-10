@@ -1,54 +1,72 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import Form from 'src/components/Form';
-import InputEnum from 'src/enums/Input';
+import Input from 'src/components/Input';
 
-import { Container, Title } from './styles';
+import { Container, Fieldset, Title, Actions } from './styles';
 
 interface Props {
-  onChange: (data: any) => void;
+  onNext: (data: any) => void;
 }
 
 const Product = (props: Props): JSX.Element => {
   const { t } = useTranslation();
 
-  const { onChange } = props;
+  const { onNext } = props;
 
-  const inputs = useMemo(
-    () => [
-      {
-        id: '0',
-        name: 'productType',
-        type: InputEnum.Text,
-        isRequired: true,
-      },
-      {
-        id: '1',
-        name: 'productExample',
-        label: t('components.form.label.productExample'),
-        placeholder: t('components.form.placeholder.productExample'),
-        type: InputEnum.Text,
-        isRequired: true,
-      },
-      {
-        id: 'X',
-        name: 'submit',
-        type: InputEnum.Submit,
-        isRequired: true,
-        value: t('labels.submit'),
-      },
-    ],
+  const initialValues = useMemo(
+    () => ({
+      ['productType']: [],
+      ['productExample']: '',
+    }),
+    [],
+  );
+
+  const actions = useMemo(
+    () => (
+      <Actions>
+        <Input.Submit label={t('labels.next')} />
+      </Actions>
+    ),
     [t],
   );
 
   return (
     <Container>
       <Title>{t('components.wizard.views.product.title')}</Title>
-      <Form
-        inputs={inputs}
-        onSubmit={onChange}
-        submitLabel={t('labels.next')}
-      />
+      <Form initialValues={initialValues} onSubmit={onNext} actions={actions}>
+        <Fieldset>
+          <Input.Checkbox
+            name="productType"
+            value="Mobile"
+            label="Mobile"
+            icon="assets/glyphs/product-mobile.svg"
+            isRequired={false}
+          />
+          <Input.Checkbox
+            name="productType"
+            value="Web"
+            label="Web"
+            icon="assets/glyphs/product-web.svg"
+            isRequired={false}
+          />
+          <Input.Checkbox
+            name="productType"
+            value="API"
+            label="API"
+            icon="assets/glyphs/product-api.svg"
+            isRequired={false}
+          />
+        </Fieldset>
+        <Fieldset>
+          <Input.Text
+            name="productExample"
+            isRequired={false}
+            label={t('components.form.label.productExample')}
+            placeholder={t('components.form.placeholder.productExample')}
+          />
+        </Fieldset>
+      </Form>
     </Container>
   );
 };

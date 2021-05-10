@@ -4,8 +4,21 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
 `;
+
+export const Fieldset = styled.fieldset`
+  border: none;
+  margin-bottom: 2rem;
+
+  &:nth-of-type(1) {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+`;
+
+export const Actions = styled.div``;
 
 export const Title = styled.label`
   color: ${(props) => props.theme.text.primary};

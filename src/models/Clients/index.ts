@@ -57,11 +57,11 @@ const DATA = [
     name: 'Art4l',
     image: 'assets/logos/logo-art4l.svg',
   },
-  {
-    id: 11,
-    name: 'FabLab',
-    image: 'assets/logos/logo-fablab.svg',
-  },
+  // {
+  //   id: 11,
+  //   name: 'FabLab',
+  //   image: 'assets/logos/logo-fablab.svg',
+  // },
   {
     id: 12,
     name: 'Oral3D',

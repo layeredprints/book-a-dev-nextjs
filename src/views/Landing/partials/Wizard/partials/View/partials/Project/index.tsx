@@ -42,7 +42,7 @@ const Project = (props: Props): JSX.Element => {
       <Title>{t('components.wizard.views.project.title')}</Title>
       <Form initialValues={initialValues} onSubmit={onNext} actions={actions}>
         <Fieldset>
-          <Label>Hoe groot is je project?</Label>
+          <Label>{t('components.wizard.views.project.size.title')}</Label>
           <div>
             <Input.Radio
               name="projectSize"
@@ -68,7 +68,7 @@ const Project = (props: Props): JSX.Element => {
           </div>
         </Fieldset>
         <Fieldset>
-          <Label>Hoe groot is je project?</Label>
+          <Label>{t('components.wizard.views.project.timing.title')}</Label>
           <div>
             <Input.Radio
               name="projectTiming"

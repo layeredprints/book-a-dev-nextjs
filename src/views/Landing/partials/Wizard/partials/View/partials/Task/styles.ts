@@ -8,7 +8,6 @@ export const Container = styled.div`
 
 export const Fieldset = styled.fieldset`
   border: none;
-  margin-bottom: 2rem;
 
   &:nth-of-type(1) {
     display: flex;
@@ -16,22 +15,34 @@ export const Fieldset = styled.fieldset`
     flex-direction: row;
     flex-wrap: wrap;
   }
+
+  margin-bottom: 2rem;
 `;
 
 export const Actions = styled.div`
   display: flex;
 
+  margin-top: 1rem;
+
   button {
-    margin: 0.5rem;
+    margin: 0 0.5rem;
   }
 `;
 
 export const Title = styled.label`
   color: ${(props) => props.theme.text.primary};
   font-weight: ${fonts.weight.bold};
-
   font-size: 24px;
   line-height: 24px;
+  text-align: center;
+
+  margin-bottom: 1rem;
+`;
+
+export const Subtitle = styled.p`
+  font-size: 12px;
+  font-style: italic;
+  opacity: 0.5;
   text-align: center;
 
   margin-bottom: 2rem;

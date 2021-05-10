@@ -3,13 +3,11 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-
-  margin-top: 1rem;
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem;
 `;
 
 export const Indicator = styled.div`
-  height: 0.4rem;
+  height: 0.25rem;
 
   margin: 0.2rem;
   border-radius: 2rem;

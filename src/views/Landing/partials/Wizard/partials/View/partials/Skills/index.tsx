@@ -4,7 +4,7 @@ import Button from 'src/components/Button';
 import Form from 'src/components/Form';
 import Input from 'src/components/Input';
 
-import { Container, Fieldset, Title, Actions } from './styles';
+import { Container, Fieldset, Title, Subtitle, Actions } from './styles';
 
 interface Props {
   onPrev: () => void;
@@ -39,6 +39,7 @@ const Skills = (props: Props): JSX.Element => {
   return (
     <Container>
       <Title>{t('components.wizard.views.skills.title')}</Title>
+      <Subtitle>{t('components.wizard.views.skills.subtitle')}</Subtitle>
       <Form initialValues={initialValues} onSubmit={onNext} actions={actions}>
         <Fieldset>
           <Input.Checkbox

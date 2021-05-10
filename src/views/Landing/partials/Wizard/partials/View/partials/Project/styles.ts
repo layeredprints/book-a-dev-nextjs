@@ -1,4 +1,4 @@
-import { fonts } from 'src/styles';
+import { breakpoints, fonts } from 'src/styles';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -8,14 +8,21 @@ export const Container = styled.div`
 
 export const Fieldset = styled.fieldset`
   border: none;
-  margin-bottom: 2rem;
 
   &:nth-of-type(1) {
     & > div {
-      display: flex;
-      justify-content: center;
-      flex-direction: row;
-      flex-wrap: wrap;
+      @media (max-width: ${breakpoints.sm}) {
+      }
+
+      @media (min-width: ${breakpoints.sm}) {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      @media (min-width: ${breakpoints.lg}) {
+      }
     }
   }
 
@@ -33,14 +40,13 @@ export const Actions = styled.div`
   display: flex;
 
   button {
-    margin: 0.5rem;
+    margin: 0 0.5rem;
   }
 `;
 
 export const Title = styled.label`
   color: ${(props) => props.theme.text.primary};
   font-weight: ${fonts.weight.bold};
-
   font-size: 24px;
   line-height: 24px;
   text-align: center;
@@ -49,7 +55,7 @@ export const Title = styled.label`
 `;
 
 export const Label = styled.p`
-  padding-bottom: 1rem;
-
   font-weight: ${fonts.weight.bold};
+
+  margin-bottom: 1rem;
 `;

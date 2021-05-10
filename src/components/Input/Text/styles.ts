@@ -28,7 +28,7 @@ export const Container = styled.div`
 `;
 
 export const Label = styled.label`
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 
   font-weight: ${fonts.weight.bold};
 `;

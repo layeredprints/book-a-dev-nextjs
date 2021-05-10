@@ -48,8 +48,6 @@ const Sprints = (props: Props): JSX.Element => {
             label={t('components.form.label.sprintPeriod')}
             placeholder={t('components.form.placeholder.sprintPeriod')}
           />
-        </Fieldset>
-        <Fieldset>
           <Input.Number
             name="sprintCount"
             isRequired={true}

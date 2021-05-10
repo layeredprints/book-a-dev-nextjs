@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Form from 'src/components/Form';
 import Input from 'src/components/Input';
 
-import { Container, Fieldset, Title, Actions } from './styles';
+import { Container, Fieldset, Title, Subtitle, Actions } from './styles';
 interface Props {
   onNext: (data: any) => void;
 }
@@ -33,6 +33,7 @@ const Stack = (props: Props): JSX.Element => {
   return (
     <Container>
       <Title>{t('components.wizard.views.stack.title')}</Title>
+      <Subtitle>{t('components.wizard.views.stack.subtitle')}</Subtitle>
       <Form initialValues={initialValues} onSubmit={onNext} actions={actions}>
         <Fieldset>
           <Input.Checkbox
@@ -86,8 +87,9 @@ const Stack = (props: Props): JSX.Element => {
           />
           <Input.Checkbox
             name="stackTechnologies"
-            value="Geen voorkeur"
-            label="Geen voorkeur"
+            value="No Preference"
+            label={t('labels.noPreference')}
+            icon="assets/glyphs/technologies-no.svg"
             isRequired={false}
           />
         </Fieldset>

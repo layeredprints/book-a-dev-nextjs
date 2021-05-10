@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import Form from 'src/components/Form';
 import Section from 'src/components/Section';
-import InputEnum from 'src/enums/Input';
+import Form from 'src/components/Form';
+import Input from 'src/components/Input';
 
-import { Container, Content, Title } from './styles';
+import { Container, Content, Title, Actions, Fieldset } from './styles';
 
 interface Props {
   onSubmitData: (data: any) => void;
@@ -16,43 +16,22 @@ const Contact = (props: Props): JSX.Element => {
   const { onSubmitData, contactRef } = props;
   const { t } = useTranslation();
 
-  const fields = useMemo(
-    () => [
-      [
-        {
-          id: '0',
-          name: 'name',
-          type: InputEnum.Text,
-          isRequired: true,
-          label: t('components.form.label.name'),
-          placeholder: t('components.form.placeholder.name'),
-        },
-        {
-          id: '1',
-          name: 'email',
-          type: InputEnum.Email,
-          isRequired: true,
-          label: t('components.form.label.email'),
-          placeholder: t('components.form.placeholder.email'),
-        },
-        {
-          id: '2',
-          name: 'question',
-          type: InputEnum.Text,
-          isRequired: true,
-          label: t('components.form.label.question'),
-          placeholder: t('components.form.placeholder.question'),
-        },
-        {
-          id: '3',
-          name: 'submit',
-          type: InputEnum.Submit,
-          isRequired: true,
-          value: t('labels.submit'),
-        },
-      ],
-    ],
-    [t],
+  const initialValues = useMemo(
+    () => ({
+      ['phone']: '',
+      ['email']: '',
+      ['info']: '',
+    }),
+    [],
+  );
+
+  const actions = useMemo(
+    () => (
+      <Actions>
+        <Input.Submit label="ignite!" />
+      </Actions>
+    ),
+    [],
   );
 
   return (
@@ -60,7 +39,34 @@ const Contact = (props: Props): JSX.Element => {
       <Container>
         <Content>
           <Title>{t('views.home.form.title')}</Title>
-          <Form fields={fields} onSubmit={onSubmitData} />
+          <Form
+            initialValues={initialValues}
+            onSubmit={onSubmitData}
+            actions={actions}
+          >
+            <Fieldset>
+              <Input.Tel
+                name="name"
+                isRequired={true}
+                label={t('components.form.label.name')}
+                placeholder={t('components.form.placeholder.name')}
+              />
+              <Input.Email
+                name="email"
+                isRequired={true}
+                label={t('components.form.label.email')}
+                placeholder={t('components.form.placeholder.email')}
+              />
+            </Fieldset>
+            <Fieldset>
+              <Input.Text
+                name="question"
+                isRequired={true}
+                label={t('components.form.label.question')}
+                placeholder={t('components.form.placeholder.question')}
+              />
+            </Fieldset>
+          </Form>
         </Content>
       </Container>
     </Section>

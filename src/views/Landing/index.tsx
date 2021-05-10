@@ -26,7 +26,7 @@ const Landing = (): JSX.Element => {
   );
 
   const handleSendMailToNikolas = useCallback((data: any) => {
-    console.log('A mail has been send to Nikolas with attachement:', data);
+    console.log(data);
   }, []);
 
   return (

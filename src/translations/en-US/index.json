@@ -9,7 +9,8 @@
     "submit": "Ignite",
     "choice": "Your choice",
     "previous": "Previous",
-    "next": "Next"
+    "next": "Next",
+    "noPreference": "No preference"
   },
   "views": {
     "home": {
@@ -101,7 +102,7 @@
         "phone": "+32 000 00 00",
         "info": "Introduction, important info, ...",
         "stackTechnologiesExtra": "iOS, ...",
-        "sprintPeriod": "2",
+        "sprintPeriod": "A week",
         "sprintCount": "5",
         "sprintStart": "dd/mm/jjjj",
         "productExample": "http://www.example.com/"
@@ -132,22 +133,32 @@
           "title": "Something you want to add?"
         },
         "stack": {
-          "title": "What is the technology stack?"
+          "title": "What is the technology stack?",
+          "subtitle": "You can pick multiple options."
         },
         "sprints": {
           "title": "Sprints"
         },
         "product": {
-          "title": "What would you like to build?"
+          "title": "What would you like to build?",
+          "subtitle": "You can pick multiple options."
         },
         "task": {
-          "title": "What do we need to deliver?"
+          "title": "What do we need to deliver?",
+          "subtitle": "You can pick multiple options."
         },
         "project":{
-          "title": "Project"
+          "title": "Project",
+          "size": {
+            "title": "How big is your project?"
+          },
+          "timing": {
+            "title": "How fast do you want it done?"
+          }
         },
         "skills": {
           "title": "What skills do we need?",
+          "subtitle": "You can pick multiple options.",
           "list": {
             "webDevelopment": "Web Development",
             "mobileDevelopment": "Mobile Development",

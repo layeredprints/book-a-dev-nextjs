@@ -49,8 +49,6 @@ const Contact = (props: Props): JSX.Element => {
             label={t('components.form.label.phone')}
             placeholder={t('components.form.placeholder.phone')}
           />
-        </Fieldset>
-        <Fieldset>
           <Input.Email
             name="email"
             isRequired={true}
@@ -61,7 +59,7 @@ const Contact = (props: Props): JSX.Element => {
         <Fieldset>
           <Input.Text
             name="info"
-            isRequired={true}
+            isRequired={false}
             label={t('components.form.label.info')}
             placeholder={t('components.form.placeholder.info')}
           />

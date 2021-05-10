@@ -6,7 +6,8 @@ export const Container = styled.div`
 
   align-items: center;
 
-  margin: 2rem 0;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
 `;
 
 export const Head = styled.div`

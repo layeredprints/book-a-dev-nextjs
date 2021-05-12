@@ -1,8 +1,8 @@
 
 @font-face {
   font-family: Graphik;
-  src: url('../../../public/assets/fonts/graphik-bold.otf');
-  font-weight: bold;
+  src: url('../../../public/assets/fonts/graphik-bold.woff2');
+  font-weight: bolder;
 }
 
 body {

@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-a-dev
+  namespace: web
+spec:
+  revisionHistoryLimit: 1
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: book-a-dev
+  template:
+    metadata:
+      labels:
+        app: book-a-dev
+    spec:
+      containers:
+        - name: book-a-dev
+          ports:
+            - containerPort: 3000
+          resources:
+            limits:
+              cpu: "100m"
+              memory: "256Mi"
+            requests:
+              cpu: "50m"
+              memory: "128Mi"

@@ -7,6 +7,7 @@ import Input from 'src/components/Input';
 import { Container, Fieldset, Title, Subtitle, Actions } from './styles';
 
 interface Props {
+  data: any;
   onPrev: () => void;
   onNext: (data: any) => void;
 }
@@ -14,13 +15,13 @@ interface Props {
 const Task = (props: Props): JSX.Element => {
   const { t } = useTranslation();
 
-  const { onPrev, onNext } = props;
+  const { data, onPrev, onNext } = props;
 
   const initialValues = useMemo(
     () => ({
-      ['taskType']: [],
+      ['taskType']: data?.taskType ? data?.taskType : [],
     }),
-    [],
+    [data],
   );
 
   const actions = useMemo(

@@ -7,6 +7,7 @@ import Input from 'src/components/Input';
 import { Container, Fieldset, Title, Actions, Label } from './styles';
 
 interface Props {
+  data: any;
   onPrev: () => void;
   onNext: (data: any) => void;
 }
@@ -14,15 +15,15 @@ interface Props {
 const Project = (props: Props): JSX.Element => {
   const { t } = useTranslation();
 
-  const { onPrev, onNext } = props;
+  const { data, onPrev, onNext } = props;
 
   const initialValues = useMemo(
     () => ({
-      ['projectSize']: '',
-      ['projectTiming']: '',
-      ['projectStart']: '',
+      ['projectSize']: data?.projectSize ? data?.projectSize : '',
+      ['projectTiming']: data?.projectTiming ? data?.projectTiming : '',
+      ['projectStart']: data?.projectStart ? data?.projectStart : '',
     }),
-    [],
+    [data],
   );
 
   const actions = useMemo(

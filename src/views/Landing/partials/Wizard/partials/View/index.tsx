@@ -14,6 +14,7 @@ import {
 import { Container } from './styles';
 
 interface Props {
+  data: any;
   currentView: string;
   onClickPrevious: () => void;
   onClickNext: (data: any) => void;
@@ -21,7 +22,7 @@ interface Props {
 }
 
 const WizardView = (props: Props): JSX.Element => {
-  const { currentView, onClickPrevious, onClickNext } = props;
+  const { data, currentView, onClickPrevious, onClickNext } = props;
 
   let view;
 
@@ -33,25 +34,47 @@ const WizardView = (props: Props): JSX.Element => {
 
   switch (currentView) {
     case WizardViewEnum.Stack:
-      view = <Stack onNext={handleClickNext} />;
+      view = <Stack data={data} onNext={handleClickNext} />;
       break;
     case WizardViewEnum.Sprints:
-      view = <Sprints onPrev={onClickPrevious} onNext={handleClickNext} />;
+      view = (
+        <Sprints
+          data={data}
+          onPrev={onClickPrevious}
+          onNext={handleClickNext}
+        />
+      );
       break;
     case WizardViewEnum.Product:
-      view = <Product onNext={handleClickNext} />;
+      view = <Product data={data} onNext={handleClickNext} />;
       break;
     case WizardViewEnum.Task:
-      view = <Task onPrev={onClickPrevious} onNext={handleClickNext} />;
+      view = (
+        <Task data={data} onPrev={onClickPrevious} onNext={handleClickNext} />
+      );
       break;
     case WizardViewEnum.Project:
-      view = <Project onPrev={onClickPrevious} onNext={handleClickNext} />;
+      view = (
+        <Project
+          data={data}
+          onPrev={onClickPrevious}
+          onNext={handleClickNext}
+        />
+      );
       break;
     case WizardViewEnum.Skills:
-      view = <Skills onPrev={onClickPrevious} onNext={handleClickNext} />;
+      view = (
+        <Skills data={data} onPrev={onClickPrevious} onNext={handleClickNext} />
+      );
       break;
     case WizardViewEnum.Contact:
-      view = <Contact onPrev={onClickPrevious} onNext={handleClickNext} />;
+      view = (
+        <Contact
+          data={data}
+          onPrev={onClickPrevious}
+          onNext={handleClickNext}
+        />
+      );
       break;
   }
 

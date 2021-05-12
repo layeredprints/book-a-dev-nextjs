@@ -5,20 +5,25 @@ import Input from 'src/components/Input';
 
 import { Container, Fieldset, Title, Subtitle, Actions } from './styles';
 interface Props {
+  data: any;
   onNext: (data: any) => void;
 }
 
 const Stack = (props: Props): JSX.Element => {
   const { t } = useTranslation();
 
-  const { onNext } = props;
+  const { data, onNext } = props;
 
   const initialValues = useMemo(
     () => ({
-      ['stackTechnologies']: [],
-      ['stackTechnologiesExtra']: '',
+      ['stackTechnologies']: data?.stackTechnologies
+        ? data?.stackTechnologies
+        : [],
+      ['stackTechnologiesExtra']: data?.stackTechnologiesExtra
+        ? data?.stackTechnologiesExtra
+        : '',
     }),
-    [],
+    [data],
   );
 
   const actions = useMemo(

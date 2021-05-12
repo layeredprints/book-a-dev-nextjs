@@ -7,6 +7,7 @@ import Input from 'src/components/Input';
 import { Container, Title, Fieldset, Actions } from './styles';
 
 interface Props {
+  data: any;
   onPrev: () => void;
   onNext: (data: any) => void;
 }
@@ -14,15 +15,15 @@ interface Props {
 const Sprints = (props: Props): JSX.Element => {
   const { t } = useTranslation();
 
-  const { onPrev, onNext } = props;
+  const { data, onPrev, onNext } = props;
 
   const initialValues = useMemo(
     () => ({
-      ['sprintPeriod']: '',
-      ['sprintCount']: 0,
-      ['sprintStart']: '',
+      ['sprintPeriod']: data?.sprintPeriod ? data?.sprintPeriod : '',
+      ['sprintCount']: data?.sprintCount ? data?.sprintCount : 0,
+      ['sprintStart']: data?.sprintStart ? data?.sprintStart : '',
     }),
-    [],
+    [data],
   );
 
   const actions = useMemo(

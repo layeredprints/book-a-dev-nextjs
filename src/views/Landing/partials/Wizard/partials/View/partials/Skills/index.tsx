@@ -7,6 +7,7 @@ import Input from 'src/components/Input';
 import { Container, Fieldset, Title, Subtitle, Actions } from './styles';
 
 interface Props {
+  data: any;
   onPrev: () => void;
   onNext: (data: any) => void;
 }
@@ -14,14 +15,14 @@ interface Props {
 const Skills = (props: Props): JSX.Element => {
   const { t } = useTranslation();
 
-  const { onPrev, onNext } = props;
+  const { data, onPrev, onNext } = props;
 
   const initialValues = useMemo(
     () => ({
-      ['skills']: [],
-      ['skillsExtra']: '',
+      ['skills']: data?.skills ? data?.skills : [],
+      ['skillsExtra']: data?.skillsExtra ? data?.skillsExtra : '',
     }),
-    [],
+    [data],
   );
 
   const actions = useMemo(

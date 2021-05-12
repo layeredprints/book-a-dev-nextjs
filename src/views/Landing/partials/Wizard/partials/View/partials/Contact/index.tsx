@@ -8,6 +8,7 @@ import Input from 'src/components/Input';
 import { Container, Fieldset, Title, Actions } from './styles';
 
 interface Props {
+  data: any;
   onPrev: () => void;
   onNext: (data: any) => void;
 }
@@ -15,15 +16,15 @@ interface Props {
 const Contact = (props: Props): JSX.Element => {
   const { t } = useTranslation();
 
-  const { onPrev, onNext } = props;
+  const { data, onPrev, onNext } = props;
 
   const initialValues = useMemo(
     () => ({
-      ['phone']: '',
-      ['email']: '',
-      ['info']: '',
+      ['phone']: data?.phone ? data?.phone : '',
+      ['email']: data?.email ? data?.email : '',
+      ['info']: data?.info ? data?.info : '',
     }),
-    [],
+    [data],
   );
 
   const actions = useMemo(

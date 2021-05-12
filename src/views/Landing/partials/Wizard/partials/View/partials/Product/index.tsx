@@ -6,20 +6,21 @@ import Input from 'src/components/Input';
 import { Container, Fieldset, Title, Subtitle, Actions } from './styles';
 
 interface Props {
+  data: any;
   onNext: (data: any) => void;
 }
 
 const Product = (props: Props): JSX.Element => {
   const { t } = useTranslation();
 
-  const { onNext } = props;
+  const { data, onNext } = props;
 
   const initialValues = useMemo(
     () => ({
-      ['productType']: [],
-      ['productExample']: '',
+      ['productType']: data?.productType ? data?.productType : [],
+      ['productExample']: data?.productExample ? data?.productExample : '',
     }),
-    [],
+    [data],
   );
 
   const actions = useMemo(

@@ -4,6 +4,8 @@ import styled from 'styled-components';
 export { Container, Actions, Title, Subtitle, Label } from '../shared';
 
 export const Fieldset = styled.fieldset`
+  color: ${(props) => props.theme.text.secondary};
+
   &:nth-of-type(1) {
     > div {
       display: flex;

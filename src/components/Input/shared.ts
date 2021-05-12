@@ -16,6 +16,7 @@ export const Container = styled.div`
     outline: none;
 
     background-color: ${(props) => props.theme.background.primary};
+    color: ${(props) => props.theme.text.primary};
     box-shadow: 0 20px 80px 0 ${(props) => props.theme.opacity.primary};
     border-radius: 5rem;
     transition: 0.2s;
@@ -40,4 +41,5 @@ export const Container = styled.div`
 
 export const Label = styled.label`
   font-weight: ${fonts.weight.bold};
+  color: ${(props) => props.theme.text.primary};
 `;

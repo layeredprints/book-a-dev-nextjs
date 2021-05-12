@@ -63,6 +63,7 @@ export const Label = styled.label`
   font-size: 12px;
   font-style: italic;
   opacity: 0.5;
+  color: ${(props) => props.theme.text.primary};
 `;
 
 export const Image = styled.img`

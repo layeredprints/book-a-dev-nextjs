@@ -1,3 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: book-a-dev
+  namespace: web
+  labels:
+    app: book-a-dev
+spec:
+  ports:
+    - port: 80
+      targetPort: 3000
+      protocol: TCP
+  selector:
+    app: book-a-dev
+  type: LoadBalancer
+  loadBalancerSourceRanges:
+    - 0.0.0.0/0
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -21,6 +39,7 @@ spec:
     spec:
       containers:
         - name: book-a-dev
+          image: gcr.io/ballistix-space/github_layeredprints_book-a-dev-nextjs
           ports:
             - containerPort: 3000
           resources:

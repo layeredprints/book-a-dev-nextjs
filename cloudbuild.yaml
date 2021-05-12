@@ -5,18 +5,11 @@ steps:
   # Push the container image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/$PROJECT_ID/$REPO_NAME:$BUILD_ID']
-  # Create GKE service
+  # Deploy to GKE
   - name: "gcr.io/cloud-builders/gke-deploy"
     args:
       - run
-      - --filename=service.yaml
-      - --location=europe-west1-c
-      - --cluster=andromeda
-  # Deploy container image to GKE
-  - name: "gcr.io/cloud-builders/gke-deploy"
-    args:
-      - run
-      - --filename=deployment.yaml
+      - --filename=kubernetes.yaml
       - --image=gcr.io/$PROJECT_ID/$REPO_NAME:$BUILD_ID
       - --location=europe-west1-c
       - --cluster=andromeda

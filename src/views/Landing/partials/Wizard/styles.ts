@@ -32,11 +32,6 @@ export const Actions = styled.div`
 export const Action = styled.div`
   background-color: ${(props) => props.theme.background.primary};
 
-  margin: 1rem;
-
-  width: 22.5rem;
-  height: 25rem;
-
   border-radius: 1.5rem;
 
   display: flex;
@@ -52,9 +47,39 @@ export const Action = styled.div`
     cursor: pointer;
     box-shadow: 0 0 10px 0 ${palette.brand.lightest};
   }
+
+  @media (max-width: ${breakpoints.sm}) {
+    margin: 0.75rem;
+
+    width: 20rem;
+    height: 15rem;
+  }
+
+  @media (min-width: ${breakpoints.sm}) {
+    margin: 0.75rem;
+
+    width: 20rem;
+    height: 25rem;
+  }
+
+  @media (min-width: ${breakpoints.lg}) {
+    margin: 0.75rem;
+  }
 `;
 
-export const Image = styled.img``;
+export const Image = styled.img`
+  @media (max-width: ${breakpoints.sm}) {
+    width: 10rem;
+  }
+
+  @media (min-width: ${breakpoints.sm}) {
+    width: 15rem;
+  }
+
+  @media (min-width: ${breakpoints.lg}) {
+    width: 17rem;
+  }
+`;
 
 export const Title = styled.h2`
   color: ${(props) => props.theme.text.primary};

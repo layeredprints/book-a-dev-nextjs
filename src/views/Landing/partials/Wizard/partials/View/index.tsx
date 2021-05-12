@@ -11,7 +11,7 @@ import {
   Skills,
   Contact,
 } from './partials';
-import { Container, Content } from './styles';
+import { Container } from './styles';
 
 interface Props {
   currentView: string;
@@ -55,11 +55,7 @@ const WizardView = (props: Props): JSX.Element => {
       break;
   }
 
-  return (
-    <Container>
-      <Content>{view}</Content>
-    </Container>
-  );
+  return <Container>{view}</Container>;
 };
 
 export default WizardView;

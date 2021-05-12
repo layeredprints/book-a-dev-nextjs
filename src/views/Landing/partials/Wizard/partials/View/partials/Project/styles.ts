@@ -1,61 +1,48 @@
-import { breakpoints, fonts } from 'src/styles';
+import { breakpoints } from 'src/styles';
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+export { Container, Actions, Title, Subtitle, Label } from '../shared';
 
 export const Fieldset = styled.fieldset`
-  border: none;
-
   &:nth-of-type(1) {
-    & > div {
+    > div {
+      display: flex;
+
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+
       @media (max-width: ${breakpoints.sm}) {
-      }
-
-      @media (min-width: ${breakpoints.sm}) {
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-        flex-wrap: wrap;
-      }
-
-      @media (min-width: ${breakpoints.lg}) {
+        flex-direction: column;
       }
     }
   }
 
   &:nth-of-type(2) {
-    & > div {
+    > div {
       display: flex;
-      justify-content: center;
-      flex-direction: row;
-      flex-wrap: wrap;
+
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+
+      @media (max-width: ${breakpoints.sm}) {
+        flex-direction: column;
+      }
     }
   }
-`;
 
-export const Actions = styled.div`
-  display: flex;
+  &:nth-of-type(3) {
+    @media (max-width: ${breakpoints.sm}) {
+      width: 90vw;
+    }
 
-  button {
-    margin: 0 0.5rem;
+    @media (min-width: ${breakpoints.sm}) {
+      width: 60vw;
+    }
+
+    @media (min-width: ${breakpoints.lg}) {
+      max-width: 40rem;
+    }
   }
-`;
-
-export const Title = styled.label`
-  color: ${(props) => props.theme.text.primary};
-  font-weight: ${fonts.weight.bold};
-  font-size: 24px;
-  line-height: 24px;
-  text-align: center;
-
-  margin-bottom: 2rem;
-`;
-
-export const Label = styled.p`
-  font-weight: ${fonts.weight.bold};
 
   margin-bottom: 1rem;
 `;

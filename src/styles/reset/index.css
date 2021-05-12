@@ -15,7 +15,8 @@ main {
   overflow: hidden;
 }
 
-ul, h1, h2, h3, p {
+ul, h1, h2, h3, p, fieldset {
   margin: 0;
   padding: 0;
+  border: none;
 }

@@ -1,19 +1,13 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
 
   input {
-    width: 90%;
-  }
+    width: 100%;
+  } */
 `;
 
 export const Content = styled.div``;
-
-export const Actions = styled.div`
-  button {
-    margin: 1rem;
-  }
-`;

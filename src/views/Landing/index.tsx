@@ -25,7 +25,7 @@ const Landing = (): JSX.Element => {
     [],
   );
 
-  const handleSendMailToNikolas = useCallback((data: any) => {
+  const handleSendMail = useCallback((data: any) => {
     console.log(data);
   }, []);
 
@@ -34,13 +34,10 @@ const Landing = (): JSX.Element => {
       <Container>
         <Article onClickAction={handleClickWizard} />
         <Perks />
-        <Wizard onSubmitData={handleSendMailToNikolas} wizardRef={wizardRef} />
+        <Wizard onSubmitData={handleSendMail} wizardRef={wizardRef} />
         <Team members={members} />
         <Clients clients={clients} />
-        <Contact
-          onSubmitData={handleSendMailToNikolas}
-          contactRef={contactRef}
-        />
+        <Contact onSubmitData={handleSendMail} contactRef={contactRef} />
       </Container>
     </Layout>
   );

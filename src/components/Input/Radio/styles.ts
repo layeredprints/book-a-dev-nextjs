@@ -15,30 +15,23 @@ export const Container = styled.div`
   transition: 0.2s;
 
   @media (max-width: ${breakpoints.sm}) {
-    min-width: 7rem;
-    height: 4rem;
+    width: 100%;
+    height: 3rem;
 
-    margin: 0.5rem;
-
-    flex-grow: 1;
+    &:nth-of-type(2) {
+      margin: 1rem 0;
+    }
   }
 
   @media (min-width: ${breakpoints.sm}) {
-    min-width: 7rem;
-    height: 4rem;
-
-    margin: 0.5rem;
+    width: 7rem;
+    height: 7rem;
 
     flex-grow: 1;
-  }
 
-  @media (min-width: ${breakpoints.lg}) {
-    min-width: 7.5rem;
-    height: 7.5rem;
-
-    margin: 0.5rem;
-
-    flex-grow: 0;
+    &:nth-of-type(2) {
+      margin: 0 1rem;
+    }
   }
 
   &:hover {
@@ -59,10 +52,10 @@ export const Container = styled.div`
 `;
 
 export const Label = styled.label`
-  margin-top: 0.5rem;
   font-size: 12px;
   font-style: italic;
   opacity: 0.5;
+  margin-top: 0.5rem;
 `;
 
 export const Image = styled.img`
@@ -73,10 +66,6 @@ export const Image = styled.img`
   }
 
   @media (min-width: ${breakpoints.sm}) {
-    display: none;
-  }
-
-  @media (min-width: ${breakpoints.lg}) {
     display: block;
   }
 `;

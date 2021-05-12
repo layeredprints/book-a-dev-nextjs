@@ -15,8 +15,8 @@ export const Container = styled.div`
   transition: 0.2s;
 
   @media (max-width: ${breakpoints.sm}) {
-    min-width: 7rem;
-    height: 4rem;
+    width: 10rem;
+    height: 10rem;
 
     margin: 0.5rem;
 
@@ -24,8 +24,8 @@ export const Container = styled.div`
   }
 
   @media (min-width: ${breakpoints.sm}) {
-    min-width: 7rem;
-    height: 4rem;
+    width: 10rem;
+    height: 10rem;
 
     margin: 0.5rem;
 
@@ -66,5 +66,15 @@ export const Label = styled.label`
 `;
 
 export const Image = styled.img`
-  width: 75px;
+  @media (max-width: ${breakpoints.sm}) {
+    width: 55px;
+  }
+
+  @media (min-width: ${breakpoints.sm}) {
+    width: 75px;
+  }
+
+  @media (min-width: ${breakpoints.lg}) {
+    width: 75px;
+  }
 `;

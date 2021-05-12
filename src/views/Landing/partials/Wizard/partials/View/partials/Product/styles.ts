@@ -1,47 +1,28 @@
-import { fonts } from 'src/styles';
+import { breakpoints } from 'src/styles';
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+export { Container, Actions, Title, Subtitle } from '../shared';
 
 export const Fieldset = styled.fieldset`
-  border: none;
-
   &:nth-of-type(1) {
     display: flex;
-    justify-content: center;
-    flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
+
+    margin-bottom: 2rem;
   }
 
-  margin-bottom: 2rem;
-`;
+  &:nth-of-type(2) {
+    @media (max-width: ${breakpoints.sm}) {
+      width: 90vw;
+    }
 
-export const Actions = styled.div`
-  display: flex;
+    @media (min-width: ${breakpoints.sm}) {
+      width: 60vw;
+    }
 
-  button {
-    margin: 0 0.5rem;
+    @media (min-width: ${breakpoints.lg}) {
+      max-width: 40rem;
+    }
   }
-`;
-
-export const Title = styled.label`
-  color: ${(props) => props.theme.text.primary};
-  font-weight: ${fonts.weight.bold};
-  font-size: 24px;
-  line-height: 24px;
-  text-align: center;
-
-  margin-bottom: 1rem;
-`;
-
-export const Subtitle = styled.p`
-  font-size: 12px;
-  font-style: italic;
-  opacity: 0.5;
-  text-align: center;
-
-  margin-bottom: 2rem;
 `;

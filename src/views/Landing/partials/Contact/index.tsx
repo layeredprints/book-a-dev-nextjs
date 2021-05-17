@@ -59,7 +59,7 @@ const Contact = (props: Props): JSX.Element => {
               />
             </Fieldset>
             <Fieldset>
-              <Input.Text
+              <Input.TextArea
                 name="question"
                 isRequired={true}
                 label={t('components.form.label.question')}

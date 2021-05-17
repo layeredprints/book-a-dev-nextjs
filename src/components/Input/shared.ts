@@ -6,6 +6,40 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
 
+  textarea {
+    width: 100%;
+
+    border: none;
+    outline: none;
+    border-radius: 2.5rem;
+
+    resize: vertical;
+
+    border: 1px solid ${(props) => props.theme.opacity.primary};
+
+    background-color: ${(props) => props.theme.background.primary};
+    color: ${(props) => props.theme.text.primary};
+    box-shadow: 0 20px 80px 0 ${(props) => props.theme.opacity.primary};
+
+    transition: 0.2s;
+
+    padding-left: 1.25rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    padding-right: 0;
+
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+
+    @media (max-width: ${breakpoints.sm}) {
+      width: 95%;
+    }
+
+    &:focus {
+      box-shadow: 0 0 10px 0 ${palette.accent.lightest};
+    }
+  }
+
   input {
     border: none;
     outline: none;

@@ -1,5 +1,6 @@
 import Submit from './Submit';
 import Text from './Text';
+import TextArea from './TextArea';
 import Email from './Email';
 import Password from './Password';
 import Tel from './Tel';
@@ -11,6 +12,7 @@ import Date from './Date';
 export default {
   Submit,
   Text,
+  TextArea,
   Email,
   Password,
   Tel,

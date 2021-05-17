@@ -58,7 +58,7 @@ const Contact = (props: Props): JSX.Element => {
           />
         </Fieldset>
         <Fieldset>
-          <Input.Text
+          <Input.TextArea
             name="info"
             isRequired={false}
             label={t('components.form.label.info')}

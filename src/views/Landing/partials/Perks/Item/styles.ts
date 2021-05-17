@@ -10,7 +10,6 @@ export const Container = styled.li`
   width: 15rem;
 
   @media (max-width: ${breakpoints.sm}) {
-    margin-bottom: 3rem;
   }
 
   @media (min-width: ${breakpoints.sm}) {
@@ -30,15 +29,15 @@ export const Illustration = styled.img`
   margin-bottom: 2rem;
 
   @media (max-width: ${breakpoints.sm}) {
-    width: 200px;
+    width: 175px;
   }
 
   @media (min-width: ${breakpoints.sm}) {
-    width: 250px;
+    width: 200px;
   }
 
   @media (min-width: ${breakpoints.md}) {
-    width: 250px;
+    width: 200px;
   }
 
   @media (min-width: ${breakpoints.lg}) {
@@ -55,4 +54,6 @@ export const Description = styled.p`
   color: ${(props) => props.theme.text.primary};
   text-align: center;
   line-height: 1.8;
+
+  margin-bottom: 5rem;
 `;

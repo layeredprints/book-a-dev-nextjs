@@ -12,10 +12,6 @@ export const Fieldset = styled.fieldset`
 
       margin-top: 1rem;
       margin-bottom: 1.5rem;
-
-      @media (max-width: ${breakpoints.sm}) {
-        flex-direction: column;
-      }
     }
   }
 
@@ -25,10 +21,6 @@ export const Fieldset = styled.fieldset`
 
       margin-top: 1rem;
       margin-bottom: 1.5rem;
-
-      @media (max-width: ${breakpoints.sm}) {
-        flex-direction: column;
-      }
     }
   }
 

@@ -6,14 +6,11 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media (max-width: ${breakpoints.sm}) {
-    align-items: center;
-    text-align: center;
-  }
-
   input {
     border: none;
     outline: none;
+
+    border: 1px solid ${(props) => props.theme.opacity.primary};
 
     background-color: ${(props) => props.theme.background.primary};
     color: ${(props) => props.theme.text.primary};

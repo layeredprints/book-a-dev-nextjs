@@ -15,11 +15,15 @@ export const Container = styled.div`
   transition: 0.2s;
 
   @media (max-width: ${breakpoints.sm}) {
-    width: 100%;
-    height: 3rem;
+    border-radius: 0.8rem;
+
+    width: 4rem;
+    height: 4rem;
+
+    flex-grow: 1;
 
     &:nth-of-type(2) {
-      margin: 1rem 0;
+      margin: 0 0.5rem;
     }
   }
 
@@ -64,10 +68,6 @@ export const Image = styled.img`
   width: 50px;
 
   @media (max-width: ${breakpoints.sm}) {
-    display: none;
-  }
-
-  @media (min-width: ${breakpoints.sm}) {
-    display: block;
+    width: 30px;
   }
 `;

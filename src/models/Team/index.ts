@@ -40,7 +40,7 @@ const DATA = [
     firstName: 'Jerom',
     lastName: '',
     skills: ['Front-end', 'Mobile'],
-    image: 'assets/images/team-louis.png',
+    image: 'assets/images/team-jerom.jpg',
   },
 ];
 

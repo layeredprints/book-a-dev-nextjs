@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Container, Title, Illustration, List, ListItem } from './styles';
+import { Avatar } from './partials';
+import { Container, Title, List, ListItem } from './styles';
 
 interface Props {
   firstName: string;
@@ -14,7 +15,7 @@ const Item = (props: Props): JSX.Element => {
 
   return (
     <Container>
-      <Illustration src={image} alt="team" />
+      <Avatar src={image} alt="team" />
       <Title>{`${firstName} ${lastName}`}</Title>
       <List>
         {skills &&

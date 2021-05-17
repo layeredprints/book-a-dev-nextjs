@@ -7,7 +7,7 @@ export const Container = styled.li`
   align-items: center;
   justify-content: center;
 
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 
   @media (max-width: ${breakpoints.sm}) {
     width: 20rem;
@@ -16,12 +16,6 @@ export const Container = styled.li`
   @media (min-width: ${breakpoints.sm}) {
     width: 20rem;
   }
-`;
-
-export const Illustration = styled.img`
-  margin-bottom: 1rem;
-
-  max-width: 250px;
 `;
 
 export const Title = styled.h3`

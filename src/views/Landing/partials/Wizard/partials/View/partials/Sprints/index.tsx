@@ -16,14 +16,15 @@ const Sprints = (props: Props): JSX.Element => {
   const { t } = useTranslation();
 
   const { data, onPrev, onNext } = props;
+  const { sprintPeriod, sprintCount, sprintStart } = data;
 
   const initialValues = useMemo(
     () => ({
-      ['sprintPeriod']: data?.sprintPeriod ? data?.sprintPeriod : '',
-      ['sprintCount']: data?.sprintCount ? data?.sprintCount : 0,
-      ['sprintStart']: data?.sprintStart ? data?.sprintStart : '',
+      sprintPeriod: sprintPeriod ? sprintPeriod : '',
+      sprintCount: sprintCount ? sprintCount : 0,
+      sprintStart: sprintStart ? sprintStart : '',
     }),
-    [data],
+    [sprintCount, sprintPeriod, sprintStart],
   );
 
   const actions = useMemo(

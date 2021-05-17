@@ -13,17 +13,16 @@ const Stack = (props: Props): JSX.Element => {
   const { t } = useTranslation();
 
   const { data, onNext } = props;
+  const { stackTechnologies, stackTechnologiesExtra } = data;
 
   const initialValues = useMemo(
     () => ({
-      ['stackTechnologies']: data?.stackTechnologies
-        ? data?.stackTechnologies
-        : [],
-      ['stackTechnologiesExtra']: data?.stackTechnologiesExtra
-        ? data?.stackTechnologiesExtra
+      stackTechnologies: stackTechnologies ? stackTechnologies : [],
+      stackTechnologiesExtra: stackTechnologiesExtra
+        ? stackTechnologiesExtra
         : '',
     }),
-    [data],
+    [stackTechnologies, stackTechnologiesExtra],
   );
 
   const actions = useMemo(

@@ -16,12 +16,13 @@ const Task = (props: Props): JSX.Element => {
   const { t } = useTranslation();
 
   const { data, onPrev, onNext } = props;
+  const { taskType } = data;
 
   const initialValues = useMemo(
     () => ({
-      ['taskType']: data?.taskType ? data?.taskType : [],
+      taskType: taskType ? taskType : [],
     }),
-    [data],
+    [taskType],
   );
 
   const actions = useMemo(

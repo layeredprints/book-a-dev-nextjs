@@ -16,13 +16,14 @@ const Skills = (props: Props): JSX.Element => {
   const { t } = useTranslation();
 
   const { data, onPrev, onNext } = props;
+  const { skills, skillsExtra } = data;
 
   const initialValues = useMemo(
     () => ({
-      ['skills']: data?.skills ? data?.skills : [],
-      ['skillsExtra']: data?.skillsExtra ? data?.skillsExtra : '',
+      skills: skills ? skills : [],
+      skillsExtra: skillsExtra ? skillsExtra : '',
     }),
-    [data],
+    [skills, skillsExtra],
   );
 
   const actions = useMemo(

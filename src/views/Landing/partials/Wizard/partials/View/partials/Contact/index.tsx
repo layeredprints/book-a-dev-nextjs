@@ -17,14 +17,15 @@ const Contact = (props: Props): JSX.Element => {
   const { t } = useTranslation();
 
   const { data, onPrev, onNext } = props;
+  const { phone, email, info } = data;
 
   const initialValues = useMemo(
     () => ({
-      ['phone']: data?.phone ? data?.phone : '',
-      ['email']: data?.email ? data?.email : '',
-      ['info']: data?.info ? data?.info : '',
+      phone: phone ? phone : '',
+      email: email ? email : '',
+      info: info ? info : '',
     }),
-    [data],
+    [email, info, phone],
   );
 
   const actions = useMemo(

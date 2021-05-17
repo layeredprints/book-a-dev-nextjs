@@ -16,14 +16,15 @@ const Project = (props: Props): JSX.Element => {
   const { t } = useTranslation();
 
   const { data, onPrev, onNext } = props;
+  const { projectSize, projectDuration, projectStart } = data;
 
   const initialValues = useMemo(
     () => ({
-      ['projectSize']: data?.projectSize ? data?.projectSize : '',
-      ['projectDuration']: data?.projectDuration ? data?.projectDuration : '',
-      ['projectStart']: data?.projectStart ? data?.projectStart : '',
+      projectSize: projectSize ? projectSize : '',
+      projectDuration: projectDuration ? projectDuration : '',
+      projectStart: projectStart ? projectStart : '',
     }),
-    [data],
+    [projectDuration, projectSize, projectStart],
   );
 
   const actions = useMemo(

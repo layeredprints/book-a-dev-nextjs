@@ -14,13 +14,14 @@ const Product = (props: Props): JSX.Element => {
   const { t } = useTranslation();
 
   const { data, onNext } = props;
+  const { productType, productExample } = data;
 
   const initialValues = useMemo(
     () => ({
-      ['productType']: data?.productType ? data?.productType : [],
-      ['productExample']: data?.productExample ? data?.productExample : '',
+      productType: productType ? productType : [],
+      productExample: productExample ? productExample : '',
     }),
-    [data],
+    [productExample, productType],
   );
 
   const actions = useMemo(

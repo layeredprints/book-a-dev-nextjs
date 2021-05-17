@@ -6,7 +6,7 @@ import { Container } from './styles';
 import Button from 'src/components/Button';
 
 interface Props {
-  label?: string;
+  label?: any;
 }
 
 const SubmitInput = (props: Props): JSX.Element => {

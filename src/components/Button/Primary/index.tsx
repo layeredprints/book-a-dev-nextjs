@@ -5,7 +5,7 @@ import { Container } from './styles';
 interface Props {
   children: JSX.Element;
   onClick?: () => void;
-  type?: string;
+  type?: any;
 }
 
 const PrimaryButton = React.forwardRef((props: Props, ref: any) => {

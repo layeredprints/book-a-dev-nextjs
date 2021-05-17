@@ -28,6 +28,6 @@ ul, h1, h2, h3, p, fieldset {
   border: none;
 }
 
-p {
+p, textarea {
   font-family: Helvetica;
 }

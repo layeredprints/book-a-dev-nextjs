@@ -69,15 +69,15 @@ export const Action = styled.div`
 
 export const Image = styled.img`
   @media (max-width: ${breakpoints.sm}) {
-    width: 10rem;
+    width: 8rem;
   }
 
   @media (min-width: ${breakpoints.sm}) {
-    width: 15rem;
+    width: 12rem;
   }
 
   @media (min-width: ${breakpoints.lg}) {
-    width: 17rem;
+    width: 15rem;
   }
 `;
 

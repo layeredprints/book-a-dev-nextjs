@@ -65,7 +65,7 @@ const Team = (props: Props): JSX.Element => {
               key={item.id}
               firstName={item.firstName}
               lastName={item.lastName}
-              description={item.description}
+              skills={item.skills}
               image={item.image}
             />
           ))}

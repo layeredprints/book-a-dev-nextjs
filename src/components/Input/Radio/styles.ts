@@ -40,7 +40,8 @@ export const Container = styled.div`
   }
 
   input {
-    opacity: 0;
+    visibility: hidden;
+    position: absolute;
   }
 
   ${({ isSelected }: { isSelected: boolean }) => {

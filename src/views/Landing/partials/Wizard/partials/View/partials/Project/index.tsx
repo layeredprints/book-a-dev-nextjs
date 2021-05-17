@@ -20,7 +20,7 @@ const Project = (props: Props): JSX.Element => {
   const initialValues = useMemo(
     () => ({
       ['projectSize']: data?.projectSize ? data?.projectSize : '',
-      ['projectTiming']: data?.projectTiming ? data?.projectTiming : '',
+      ['projectDuration']: data?.projectTiming ? data?.projectTiming : '',
       ['projectStart']: data?.projectStart ? data?.projectStart : '',
     }),
     [data],
@@ -72,24 +72,24 @@ const Project = (props: Props): JSX.Element => {
           <Label>{t('components.wizard.views.project.timing.title')}</Label>
           <div>
             <Input.Radio
-              name="projectTiming"
+              name="projectDuration"
               value="Slow"
               label="Slow"
-              icon="assets/glyphs/project-size-small.svg"
+              icon="assets/glyphs/project-duration-slow.svg"
               isRequired={true}
             />
             <Input.Radio
-              name="projectTiming"
+              name="projectDuration"
               value="Medium"
               label="Medium"
-              icon="assets/glyphs/project-size-medium.svg"
+              icon="assets/glyphs/project-duration-medium.svg"
               isRequired={true}
             />
             <Input.Radio
-              name="projectTiming"
+              name="projectDuration"
               value="Fast"
               label="Fast"
-              icon="assets/glyphs/project-size-big.svg"
+              icon="assets/glyphs/project-duration-fast.svg"
               isRequired={true}
             />
           </div>

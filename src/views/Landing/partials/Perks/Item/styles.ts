@@ -30,19 +30,19 @@ export const Illustration = styled.img`
   margin-bottom: 2rem;
 
   @media (max-width: ${breakpoints.sm}) {
-    width: 250px;
+    width: 200px;
   }
 
   @media (min-width: ${breakpoints.sm}) {
-    width: 300px;
+    width: 250px;
   }
 
   @media (min-width: ${breakpoints.md}) {
-    width: 300px;
+    width: 250px;
   }
 
   @media (min-width: ${breakpoints.lg}) {
-    width: 200px;
+    width: 150px;
   }
 `;
 

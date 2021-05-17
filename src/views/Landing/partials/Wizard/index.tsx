@@ -167,7 +167,7 @@ const Wizard = (props: Props): JSX.Element => {
           <Content>
             <Title>{t('views.home.wizard.title')}</Title>
             <Subtitle>{t('components.wizard.finished.title')}</Subtitle>
-            <Image src="assets/illustrations/team.svg" width="350" />
+            <Image src="assets/illustrations/wizard-thanks.svg" width="350" />
             <Paragraph>{t('components.wizard.finished.paragraph')}</Paragraph>
           </Content>
         </Container>

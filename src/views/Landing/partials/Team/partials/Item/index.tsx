@@ -1,22 +1,27 @@
 import React from 'react';
 
-import { Container, Title, Description, Illustration } from './styles';
+import { Container, Title, Illustration, List, ListItem } from './styles';
 
 interface Props {
   firstName: string;
   lastName: string;
-  description: string;
+  skills: string[];
   image: string;
 }
 
 const Item = (props: Props): JSX.Element => {
-  const { firstName, lastName, description, image } = props;
+  const { firstName, lastName, skills, image } = props;
 
   return (
     <Container>
       <Illustration src={image} alt="team" />
       <Title>{`${firstName} ${lastName}`}</Title>
-      <Description>{description}</Description>
+      <List>
+        {skills &&
+          skills.map((skill: string, index: number) => (
+            <ListItem key={index}>{skill}</ListItem>
+          ))}
+      </List>
     </Container>
   );
 };

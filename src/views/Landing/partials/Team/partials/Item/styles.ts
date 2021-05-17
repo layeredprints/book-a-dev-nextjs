@@ -1,4 +1,4 @@
-import { breakpoints } from 'src/styles';
+import { breakpoints, fonts } from 'src/styles';
 import styled from 'styled-components';
 
 export const Container = styled.li`
@@ -29,8 +29,30 @@ export const Title = styled.h3`
   margin-bottom: 0.4rem;
 `;
 
-export const Description = styled.p`
-  color: ${(props) => props.theme.text.primary};
+export const List = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  width: 17.5rem;
+  justify-content: center;
+
+  margin-top: 1rem;
+`;
+
+export const ListItem = styled.li`
+  list-style-type: none;
+
   text-align: center;
   font-style: italic;
+  font-weight: ${fonts.weight.thin};
+
+  color: ${(props) => props.theme.text.primary};
+  background-color: ${(props) => props.theme.background.tertiary};
+
+  opacity: 0.8;
+
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  font-size: 0.9rem;
+
+  margin: 0 0.25rem;
 `;

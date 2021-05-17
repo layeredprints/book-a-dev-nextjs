@@ -2,6 +2,6 @@ export type TeamMemberType = {
   id: number;
   firstName: string;
   lastName: string;
-  description: string;
+  skills: string[];
   image: string;
 };

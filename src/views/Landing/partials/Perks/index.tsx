@@ -6,10 +6,17 @@ import Item from './Item';
 
 import { Container, Content, Title, Subtitle, List } from './styles';
 
+type PerkType = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+};
+
 const Perks = (): JSX.Element => {
   const { t } = useTranslation();
 
-  const PERKS = [
+  const PERKS: PerkType[] = [
     {
       id: 1,
       title: t('views.home.perks.list.flexible.title'),
@@ -44,7 +51,7 @@ const Perks = (): JSX.Element => {
           <Subtitle>{t('views.home.perks.subtitle')}</Subtitle>
         </Content>
         <List>
-          {PERKS.map((perk: any) => (
+          {PERKS.map((perk: PerkType) => (
             <Item
               key={perk.id}
               title={perk.title}

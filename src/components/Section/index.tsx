@@ -3,7 +3,7 @@ import React from 'react';
 import { Container, Content } from './styles';
 
 interface Props {
-  children: any;
+  children: JSX.Element;
   backgroundColor?: string;
   sectionRef?: any;
 }

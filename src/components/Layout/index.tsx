@@ -9,7 +9,7 @@ import Footer from 'src/components/Footer';
 import { Container, Content } from './styles';
 
 interface Props {
-  children: any;
+  children: JSX.Element;
   onClickAction?: () => void;
 }
 

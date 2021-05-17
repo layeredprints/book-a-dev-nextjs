@@ -3,9 +3,9 @@ import React from 'react';
 import { Container } from './styles';
 
 interface Props {
-  children: any;
+  children: JSX.Element;
   onClick?: () => void;
-  type?: any;
+  type?: string;
 }
 
 const PrimaryButton = React.forwardRef((props: Props, ref: any) => {

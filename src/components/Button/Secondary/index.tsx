@@ -3,7 +3,7 @@ import React from 'react';
 import { Container } from './styles';
 
 interface Props {
-  children: any;
+  children: JSX.Element;
   onClick?: () => void;
 }
 

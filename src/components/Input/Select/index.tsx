@@ -7,7 +7,11 @@ interface Props {
   name: string;
   isRequired: boolean;
   label?: string;
-  options: any[];
+  options: {
+    id: number;
+    label: string;
+    value: string;
+  }[];
 }
 
 const TextAreaInput = (props: Props): JSX.Element => {

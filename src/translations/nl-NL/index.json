@@ -10,7 +10,9 @@
     "choice": "Uw keuze",
     "previous": "Vorige",
     "next": "Volgende",
-    "noPreference": "Geen voorkeur"
+    "noPreference": "Geen voorkeur",
+    "week": "Week(en)",
+    "month": "Maand(en)"
   },
   "views": {
     "home": {

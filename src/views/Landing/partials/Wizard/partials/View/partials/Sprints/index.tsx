@@ -4,7 +4,7 @@ import Button from 'src/components/Button';
 import Form from 'src/components/Form';
 import Input from 'src/components/Input';
 
-import { Container, Title, Fieldset, Actions } from './styles';
+import { Container, Title, Fieldset, Actions, Counter, Label } from './styles';
 
 interface Props {
   data: any;
@@ -16,15 +16,21 @@ const Sprints = (props: Props): JSX.Element => {
   const { t } = useTranslation();
 
   const { data, onPrev, onNext } = props;
-  const { sprintPeriod, sprintCount, sprintStart } = data;
+  const {
+    sprintPeriodCount,
+    sprintPeriodType,
+    sprintCount,
+    sprintStart,
+  } = data;
 
   const initialValues = useMemo(
     () => ({
-      sprintPeriod: sprintPeriod ? sprintPeriod : '',
-      sprintCount: sprintCount ? sprintCount : 0,
+      sprintPeriodCount: sprintPeriodCount ? sprintPeriodCount : 1,
+      sprintPeriodType: sprintPeriodType ? sprintPeriodType : '',
+      sprintCount: sprintCount ? sprintCount : 8,
       sprintStart: sprintStart ? sprintStart : '',
     }),
-    [sprintCount, sprintPeriod, sprintStart],
+    [sprintPeriodCount, sprintPeriodType, sprintCount, sprintStart],
   );
 
   const actions = useMemo(
@@ -44,12 +50,28 @@ const Sprints = (props: Props): JSX.Element => {
       <Title>{t('components.wizard.views.sprints.title')}</Title>
       <Form initialValues={initialValues} onSubmit={onNext} actions={actions}>
         <Fieldset>
-          <Input.Text
-            name="sprintPeriod"
-            isRequired={true}
-            label={t('components.form.label.sprintPeriod')}
-            placeholder={t('components.form.placeholder.sprintPeriod')}
-          />
+          <Label>{t('components.form.label.sprintPeriod')}</Label>
+          <Counter>
+            <Input.Number name="sprintPeriodCount" isRequired={true} />
+            <Input.Select
+              name="sprintPeriodType"
+              isRequired={true}
+              options={[
+                {
+                  id: 0,
+                  label: t('labels.week'),
+                  value: t('labels.week'),
+                },
+                {
+                  id: 1,
+                  label: t('labels.month'),
+                  value: t('labels.month'),
+                },
+              ]}
+            />
+          </Counter>
+        </Fieldset>
+        <Fieldset>
           <Input.Number
             name="sprintCount"
             isRequired={true}

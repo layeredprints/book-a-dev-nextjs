@@ -1,4 +1,4 @@
-import { breakpoints } from 'src/styles';
+import { breakpoints, fonts } from 'src/styles';
 import styled from 'styled-components';
 
 export { Container, Actions, Title, Subtitle } from '../shared';
@@ -15,4 +15,26 @@ export const Fieldset = styled.fieldset`
   @media (min-width: ${breakpoints.lg}) {
     max-width: 40rem;
   }
+`;
+
+export const Counter = styled.div`
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin: 1rem 0;
+  margin-bottom: 2rem;
+
+  input {
+    margin: 0;
+
+    width: 300%;
+  }
+`;
+
+export const Label = styled.label`
+  font-weight: ${fonts.weight.bold};
+  color: ${(props) => props.theme.text.primary};
 `;

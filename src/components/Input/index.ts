@@ -8,6 +8,7 @@ import Number from './Number';
 import Checkbox from './Checkbox';
 import Radio from './Radio';
 import Date from './Date';
+import Select from './Select';
 
 export default {
   Submit,
@@ -20,4 +21,5 @@ export default {
   Checkbox,
   Radio,
   Date,
+  Select,
 };

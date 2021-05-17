@@ -10,7 +10,9 @@
     "choice": "Your choice",
     "previous": "Previous",
     "next": "Next",
-    "noPreference": "No preference"
+    "noPreference": "No preference",
+    "week": "Week(s)",
+    "month": "Month(s)"
   },
   "views": {
     "home": {

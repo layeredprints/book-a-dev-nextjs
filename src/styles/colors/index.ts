@@ -40,7 +40,7 @@ export const palette = {
   brand: {
     lightest: '#8143BF',
     lighter: '#723BA8',
-    base: '#542c7d',
+    base: '#5D2784',
     darker: '#3C1F59',
     darkest: '#2D1742',
   },

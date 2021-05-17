@@ -18,6 +18,8 @@ export const Container = styled.div`
 
   @media (min-width: ${breakpoints.md}) {
     flex-direction: row;
+
+    margin-bottom: 5rem;
   }
 
   @media (min-width: ${breakpoints.lg}) {
@@ -75,7 +77,7 @@ export const Illustration = styled.div`
 `;
 
 export const Title = styled.h2`
-  color: ${(props) => props.theme.text.primary};
+  color: white;
   text-transform: uppercase;
 
   margin-bottom: 1rem;
@@ -101,7 +103,7 @@ export const Title = styled.h2`
 `;
 
 export const Paragraph = styled.p`
-  color: ${(props) => props.theme.text.primary};
+  color: white;
 
   margin-bottom: 4rem;
 

@@ -60,3 +60,47 @@ export const Head = styled.div`
   display: flex;
   align-items: flex-end;
 `;
+
+export const Artefact = styled.div`
+  position: absolute;
+  width: 100vw;
+
+  top: 0;
+  z-index: -1;
+
+  background-color: ${(props) => props.theme.brand.primary};
+
+  img {
+    width: 100vw;
+
+    transform: translateY(32.5vw);
+
+    @media (max-width: ${breakpoints.sm}) {
+      margin-top: 32.5rem;
+    }
+
+    @media (min-width: ${breakpoints.sm}) {
+      margin-top: 20rem;
+    }
+
+    @media (min-width: ${breakpoints.md}) {
+      margin-top: 10rem;
+    }
+
+    @media (min-width: ${breakpoints.lg}) {
+      margin-top: 0rem;
+    }
+
+    @media (min-width: ${breakpoints.xl}) {
+      margin-top: -10rem;
+    }
+
+    @media (min-width: ${breakpoints.xl2}) {
+      margin-top: -20rem;
+    }
+
+    @media (min-width: ${breakpoints.xl3}) {
+      margin-top: -45vh;
+    }
+  }
+`;

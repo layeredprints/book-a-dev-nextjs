@@ -7,7 +7,9 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+  width: 100%;
+`;
 
 export const Title = styled.h2`
   color: ${(props) => props.theme.text.primary};

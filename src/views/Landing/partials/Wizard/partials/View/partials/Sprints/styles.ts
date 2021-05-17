@@ -30,7 +30,17 @@ export const Counter = styled.div`
   input {
     margin: 0;
 
-    width: 300%;
+    @media (max-width: ${breakpoints.sm}) {
+      width: 120%;
+    }
+
+    @media (min-width: ${breakpoints.sm}) {
+      width: 140%;
+    }
+
+    @media (min-width: ${breakpoints.lg}) {
+      width: 300%;
+    }
   }
 `;
 

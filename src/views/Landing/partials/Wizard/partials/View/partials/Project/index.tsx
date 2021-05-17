@@ -20,7 +20,7 @@ const Project = (props: Props): JSX.Element => {
   const initialValues = useMemo(
     () => ({
       ['projectSize']: data?.projectSize ? data?.projectSize : '',
-      ['projectDuration']: data?.projectTiming ? data?.projectTiming : '',
+      ['projectDuration']: data?.projectDuration ? data?.projectDuration : '',
       ['projectStart']: data?.projectStart ? data?.projectStart : '',
     }),
     [data],

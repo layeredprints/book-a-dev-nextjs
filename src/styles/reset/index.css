@@ -31,3 +31,7 @@ ul, h1, h2, h3, p, fieldset {
 p, textarea, input {
   font-family: Helvetica;
 }
+
+input, textarea {
+  box-shadow: none;
+}
